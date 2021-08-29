@@ -161,7 +161,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(0)}
 
@@ -175,7 +175,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(1)}>company details</button>
                             </div>
@@ -187,7 +187,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(2)}>company adderess</button>
                             </div>
@@ -199,7 +199,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(7)}>Address Book</button>
                             </div>
@@ -211,7 +211,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(3)}>feedback</button>
                             </div>
@@ -223,7 +223,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                                             ? {
                                                 color: "#ffb600",
                                                 borderStyle: "none",
-                                            }
+                                            }: theme === true ? { color: "#2D2D2D" }
                                             : {}
                                     } onClick={() => setCurrentSection(5)}>help</button>
                             </div>

@@ -313,8 +313,7 @@ const PersonalDetails = ({ theme, formData, setFormData, getUser, filled, setFil
                             <label htmlFor="">Email</label>
 
                             <input
-                                className="email"
-                                className={theme === true ? "white_input" : "dark_input"}
+                                className={theme === true ? "white_input email" : "dark_input email"}
                                 autoComplete="off"
                                 placeholder='Email ID'
                                 id='email'
@@ -335,8 +334,7 @@ const PersonalDetails = ({ theme, formData, setFormData, getUser, filled, setFil
 
                             <input
                                 // style={{ backgroundColor: "orange", color: "black" }}
-                                className={theme === true ? "white_input" : "dark_input"}
-                                className="number"
+                                className={theme === true ? "white_input number" : "dark_input number"}
                                 placeholder='Phone No.'
                                 autoComplete="off"
                                 disabled={editable}
