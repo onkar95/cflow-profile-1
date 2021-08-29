@@ -1,0 +1,9 @@
+.table-services-vendor::-webkit-scrollbar {
+  display: none;
+}
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+.table-services-vendor {
+  overflow-y: hidden;
+}

@@ -1,0 +1,73 @@
+.ButtonLogout {
+  background-color: #ffb600;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.ButtonCancel {
+  background-color: transparent;
+  padding: 5px;
+  color: #ffb600;
+  border: 1px solid #ffb600;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.SocialLogo {
+  position: absolute;
+  right: 0px;
+  background-color: #121417;
+}
+
+.SocialLogo a {
+  padding: 10px;
+}
+.delete-dialog-img {
+  height: 80px;
+  width: 300px;
+}
+.dialog-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 95% !important;
+  background: #121417;
+}
+.dialog-content {
+  width: 90% !important;
+  background: #121417;
+  overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  .delete-dialog-buttons {
+    margin-top: 3rem;
+    margin-bottom: 5rem !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .delete-dialog-img {
+    height: 60px;
+    object-fit: contain;
+    width: 200px;
+  }
+
+  .delete-dialog-buttons {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  .dialog-content {
+    padding: 0% 5% !important;
+    width: 95% !important;
+    background: #121417 !important;
+    overflow: hidden;
+  }
+  .dialog-content {
+    width: 98% !important;
+    background: #121417;
+    overflow: hidden;
+  }
+}

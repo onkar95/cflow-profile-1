@@ -1,0 +1,216 @@
+.details {
+  background-color: #121417;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: white;
+  overflow-x: hidden;
+}
+
+.detailscontainer {
+  border-radius: 10px;
+  background: #08090c;
+  padding: 2rem 0rem;
+  margin: 2rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.cards {
+  display: flex;
+
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.detailscontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+  /* width: 300px; */
+}
+.cardcontent {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  color: #fff;
+  margin: 0.5rem 0.5rem;
+}
+.card-content-temp {
+  display: flex;
+
+  color: #fff;
+  margin: 2% 0%;
+}
+.card-content-temp-value {
+  margin-left: 3%;
+  font-weight: 100;
+}
+/* .card-content-temp {
+  display: flex;
+
+  color: #fff;
+  margin: 0.5rem 0.5rem;
+}
+.cardcontent1 > h4 {
+  font-weight: 100;
+
+  width: 200%;
+}
+.cardcontent1-value {
+  width: 100%;
+  background-color: green;
+} */
+.cardcontent > div {
+  width: 50%;
+  float: right;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.cardcontent .contentkey {
+  flex: 0.75;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.contentvalue {
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 50%;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.acceptbutton {
+  color: black !important;
+  background: #ffb600 !important;
+  text-transform: capitalize !important;
+  padding: 0.65rem 2.5rem !important;
+  border: 2px solid #ffb600 !important;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0rem 2rem !important;
+}
+
+.rejectbutton {
+  color: #ffb600 !important;
+  background: transparent !important;
+  text-transform: capitalize !important;
+  padding: 0.65rem 2.5rem !important;
+  border: 1.5px solid #ffb600 !important;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0rem 2rem !important;
+}
+.card1-footer {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  /* width: 80%; */
+  margin-top: 2rem;
+}
+.card3 {
+  color: white;
+  width: 75%;
+  font-size: 1rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.card3content {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 250px !important;
+}
+.vendorcard3 {
+  /* min-width: 400px; */
+  /* max-width: 400px; */
+}
+.vendorcard3input {
+  width: 95% !important;
+  height: 1.5rem;
+  padding: 0.5rem;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.vendorcard3input::placeholder {
+  color: white;
+}
+.view-detail-card {
+  margin-top: 20px !important;
+}
+@media screen and (max-width: 1200px) {
+  .cards {
+    flex-direction: column;
+  }
+  /* .detailscontent {
+    margin-top: 2%;
+  }
+  .contentkey {
+    font-size: 1rem !important;
+  }
+  .contentvalue {
+    font-size: 1rem !important;
+  } */
+}
+@media screen and (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+  }
+  /* .detailscontent {
+    margin-top: 2%;
+    width: 10rem;
+  }
+
+  .contentkey {
+    font-size: 0.85rem !important;
+  }
+  .contentvalue {
+    font-size: 0.85rem !important;
+  }
+  .card3 {
+    font-size: 0.85rem !important;
+  }
+  .card1-footer {
+    font-size: 0.85rem !important;
+  }
+  .cardcontent {
+    margin: 0.5rem 0rem !important;
+  }
+  .vendorcard3 > p {
+    font-size: 0.85rem !important;
+  }
+  .vendorcard3input {
+    height: 1rem !important;
+  }
+  .card-content-temp-value {
+    font-size: 0.85rem !important;
+  }
+  .view-detail-card {
+    margin-top: 10px !important;
+  } */
+}
+@media screen and (max-width: 500px) {
+  .vendorcard3 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+  .vendorcard3input {
+    width: 65% !important;
+  }
+}

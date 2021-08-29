@@ -1,0 +1,50 @@
+.commerical-vehicle-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+.commercial-vehicle-row {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+.commercial-vehicle-card {
+  /* width: 15%; */
+  flex: 0.2;
+}
+.commercial-vehicle-row2 {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  margin-top: 4%;
+}
+@media screen and (max-width: 1100px) {
+  .commerical-vehicle-container {
+    width: 110%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .commerical-vehicle-container {
+    width: 110%;
+  }
+  .commercial-vehicle-row {
+    display: flex;
+    width: 95%;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  .commercial-vehicle-row2 {
+    display: flex;
+    width: 95%;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 4%;
+  }
+}
+@media screen and (max-width: 50px) {
+  .commerical-vehicle-container {
+    width: 110%;
+  }
+}

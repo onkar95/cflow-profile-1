@@ -1,0 +1,73 @@
+.dialog-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  background: #121417;
+}
+
+.dialog-img {
+  height: 100px;
+  width: 400px;
+}
+.dialog-img2 {
+  width: 80px !important;
+}
+.dialog-content {
+  width: 100% !important;
+  background: #121417;
+  overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  .dialog-content {
+    padding: 0% 5% !important;
+    width: 150% !important;
+    background: #121417 !important;
+    overflow: hidden;
+    margin: 0 !important;
+  }
+}
+@media screen and (max-width: 700px) {
+  .dialog-title {
+    width: 100% !important;
+    padding-left: auto !important;
+    padding-right: auto !important;
+    background-color: #121417 !important;
+  }
+  .dialog-img {
+    height: 100px;
+    width: 200px !important;
+  }
+  .dialog-text {
+    font-size: 10px !important;
+  }
+  .dialog-img2 {
+    width: 60px !important;
+  }
+
+  .dialog-close {
+    /* margin-right: 20% !important; */
+  }
+  .dialog-content {
+    padding: 0% !important;
+    width: 120% !important;
+    background: #121417 !important;
+    overflow: hidden;
+    margin: 0 !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .dialog-close {
+    /* background-color: aqua !important; */
+    /* margin-right: 20% !important; */
+  }
+}
+.dialog::-webkit-scrollbar {
+  overflow-x: hidden !important;
+}
+.dialog-content::-webkit-scrollbar {
+  overflow-x: hidden !important;
+}
+.dialog-content::-webkit-scrollbar {
+  overflow-x: hidden !important;
+}

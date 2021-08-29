@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5rem;
+}
+.container2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+body {
+  background-color: #121417;
+}
+
+.root {
+  padding: 0px !important;
+}
+.breadcrumbsuser {
+  margin-left: 0.5rem;
+  font-weight: 700;
+  font-size: 16px;
+}
+@media screen and (max-width: 1000px) {
+  .container2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column !important;
+    align-items: center;
+  }
+}

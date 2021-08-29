@@ -1,0 +1,38 @@
+.ButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #121417;
+    padding-top: 10px;
+  }
+  
+  .ButtonLogoutModal {
+    background-color: #ffb600;
+    padding: 13px 21px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .ButtonLogoutCancel {
+    background-color: transparent;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #ffb600;
+    border: 1px solid #ffb600;
+    border-radius: 5px;
+    margin-bottom: 50px;
+  }
+  .SocialLogo {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background-color: #121417;
+    padding: 15px;
+  }
+  
+  .SocialLogo a {
+    padding: 15px;
+  }
+  

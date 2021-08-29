@@ -1,0 +1,37 @@
+.notificationcard_wrapper {
+  width: 100%;
+
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+.notificationcard_icons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+}
+.notificationcard_heading {
+  padding: 1rem;
+  margin-top: -1.5rem;
+}
+
+.notificationcard_heading > p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
+.notificationcard_btnconatiner {
+  display: flex !important;
+  width: 100% !important;
+  margin-right: 2rem !important;
+  justify-content: flex-end !important;
+}
+
+.notificationcard_button {
+  text-transform: capitalize !important;
+  margin-right: 1rem !important;
+  background-color: #ffb600 !important;
+}

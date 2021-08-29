@@ -1,0 +1,318 @@
+.super {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: scroll;
+  font-family: Open sans, sans-serif;
+}
+.super::-webkit-scrollbar {
+  display: none;
+}
+.bg {
+  background-color: #121417;
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+}
+.bg-responsive {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.copyright {
+  flex: 0.25;
+  display: flex;
+  width: 100%;
+  bottom: 0;
+  background-color: #121417;
+  justify-content: flex-start;
+  color: white;
+}
+.copyright1 {
+  float: bottom;
+  float: left;
+  background-color: red;
+}
+
+.cf {
+  flex: 0.5;
+  font-family: "Open Sans";
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  /* background-color: yellow; */
+  color: #000;
+
+  padding: 3rem -5rem;
+}
+.cf-responsive {
+  font-family: "Open Sans";
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #fff;
+  /* background-color: yellow; */
+  color: #000;
+}
+
+.cf1-responsive {
+  height: 10% !important;
+}
+
+.middle_bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem -25rem;
+}
+.middle_bar-responsive {
+  width: 90%;
+  height: 30% !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card1 {
+  flex: 0.35;
+  display: flex;
+  width: 400px !important;
+  align-items: center;
+  justify-content: center;
+}
+.card1-responsive {
+  display: flex;
+  width: 45% !important;
+  height: 200px !important;
+
+  align-items: center;
+  justify-content: center;
+  margin-right: 5%;
+}
+.about {
+  flex: 0.3;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.about > h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.about-responsive {
+  width: 60%;
+  height: 40%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.about > img {
+  margin: 2px 0px;
+}
+.about > p {
+  font-weight: 300;
+}
+
+.card2 {
+  flex: 0.35;
+  display: flex;
+  width: 400px !important;
+  align-items: center;
+  justify-content: center;
+}
+.card2-responsive {
+  display: flex;
+  width: 45% !important;
+  height: 200px !important;
+  align-items: center;
+  justify-content: center;
+}
+.vendor_card {
+  background: #08090c !important;
+  padding: 5rem 0rem !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 60% !important;
+}
+.cf1 {
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 15%;
+}
+.cf1-responsive {
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+
+  height: 5%;
+}
+.CF-Logo {
+  width: 50%;
+  /* padding-top: 10%; */
+}
+.CF-Logo-responsive {
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+}
+.vendor_icon {
+  height: 200px !important;
+  margin-bottom: 2rem !important;
+  width: 200px !important;
+}
+
+@media screen and (max-width: 1300px) {
+  .vendor_card {
+    background: #08090c !important;
+    padding: 0rem 0rem !important;
+
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .vendor_icon {
+    height: 100px !important;
+    margin-bottom: 0rem !important;
+    object-fit: contain !important;
+  }
+  .title-button {
+    font-size: 1.15rem !important;
+  }
+  .middle_bar-responsive {
+    height: 40% !important;
+    width: 60% !important;
+  }
+  .about-responsive {
+    width: 50%;
+    height: 40%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .about-responsive-h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  .about-responsive-p1 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+  }
+  .about-responsive-p2 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .vendor_card {
+    background: #08090c !important;
+    padding: 0rem 0rem !important;
+
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .vendor_icon {
+    height: 60% !important;
+    margin-bottom: 0rem !important;
+    object-fit: cover !important;
+  }
+  .title-button {
+    font-size: 1rem !important;
+  }
+  .landingpage-signin {
+    font-size: 0.75rem !important;
+  }
+  .middle_bar-responsive {
+    height: 40% !important;
+    width: 92% !important;
+  }
+  .about-responsive {
+    width: 60%;
+    height: 25%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .about-responsive-h3 {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .about-responsive-p1 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  .about-responsive-p2 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .about-responsive-h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: -0.5rem;
+  }
+  .about-responsive-p1 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.55rem;
+    margin-bottom: 0rem;
+  }
+  .about-responsive-p2 {
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.55rem;
+  }
+}
+@media screen and (max-height: 600px) {
+  .cf1-responsive {
+    height: 20% !important;
+  }
+  .middle_bar-responsive {
+    height: 30% !important;
+  }
+  .about-responsive {
+    width: 60%;
+    height: 55%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

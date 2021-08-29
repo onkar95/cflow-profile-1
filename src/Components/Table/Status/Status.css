@@ -1,0 +1,35 @@
+.Status-div {
+  border: 1px solid white;
+  width: 75%;
+  border-radius: 5px;
+}
+.green {
+  color: green;
+}
+.red {
+  color: red;
+}
+.yellow {
+  color: #ffb600;
+}
+.blue {
+  color: #56ccf2;
+}
+.fillred {
+  background-color: #dc7979;
+  border: 1px solid white;
+  width: 75%;
+  border-radius: 5px;
+}
+.bullet {
+  font-size: 0.75rem !important;
+  padding-right: 0.5rem !important;
+}
+.urgentbullet {
+  font-size: 0.75rem !important;
+  padding-right: 0.5rem !important;
+  color: red !important;
+}
+.urgent {
+  color: white !important;
+}

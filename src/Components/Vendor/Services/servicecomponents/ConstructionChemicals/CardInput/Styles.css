@@ -1,0 +1,118 @@
+.admixture-form {
+  width: 100%;
+  display: flex;
+  height: 4.5rem;
+}
+.admixture-form-input {
+  width: 200px !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .admixture-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 5%;
+    justify-content: space-between;
+  }
+  .admixture-form-input {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+  }
+  .admixture-bottom-buttons {
+    width: 60% !important;
+    height: 18% !important;
+    margin-left: 5% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.5rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 35% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .admixture-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 5%;
+    justify-content: space-between;
+  }
+  .admixture-form-input {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+    margin-left: 0% !important;
+    border-radius: 5px !important;
+  }
+  .admixture-bottom-buttons {
+    width: 60% !important;
+    height: 18% !important;
+    margin-left: 5% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 10% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .admixture-form-input {
+    width: 13rem !important;
+    margin-left: 0% !important;
+    border-radius: 5px !important;
+  }
+  .admixture-bottom-buttons {
+    width: 80% !important;
+    height: 14% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.7rem !important;
+    margin-top: 15% !important;
+    height: 150% !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .admixture-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 3%;
+    justify-content: space-between;
+  }
+  .admixture-form-input {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 9rem !important;
+    margin-left: 0% !important;
+    border-radius: 5px !important;
+  }
+  .admixture-bottom-buttons {
+    width: 105% !important;
+
+    height: 15% !important;
+  }
+  .admixture-cart-button {
+    font-size: 0.58rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 10% !important;
+  }
+}

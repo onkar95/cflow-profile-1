@@ -1,0 +1,9 @@
+.shapevendor {
+  position: absolute;
+  width: 192px;
+  height: 192px;
+  background-color: #ffffff;
+  color: black;
+  clip-path: polygon(50% 0, 100% 22%, 100% 77%, 50% 100%, 0 77%, 0 22%);
+  text-align: center;
+}

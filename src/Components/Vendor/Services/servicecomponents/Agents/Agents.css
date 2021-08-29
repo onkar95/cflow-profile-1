@@ -1,0 +1,217 @@
+.agents-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.agent-form {
+  width: 100%;
+  display: flex;
+  height: 45%;
+}
+.agent-form-input {
+  width: 200px !important;
+  border-radius: 10px !important;
+}
+.agents-top {
+  display: flex;
+  width: 100%;
+}
+.agents-currentcard {
+  width: 15%;
+}
+.agents-cardinput {
+  width: 85%;
+  display: flex;
+}
+.sand-form-input {
+  width: 15rem !important;
+  padding: 3% !important;
+}
+@media screen and (max-width: 1400px) {
+  .agent-form-input {
+    margin-bottom: 3% !important;
+    height: 100% !important;
+    width: 25rem !important;
+    border-radius: 10px !important;
+  }
+  .agent-form-input1 {
+    margin-bottom: 3% !important;
+    height: 100% !important;
+    width: 25rem !important;
+    border-radius: 10px !important;
+    margin-left: 0% !important;
+  }
+  .sand-input-checkbox {
+    font-size: large !important;
+    border: 0.5px solid rgb(141, 132, 132) !important;
+  }
+  .sand-form-input {
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    width: 25rem !important;
+    border-radius: 5px !important;
+
+    padding: 1.25% !important;
+  }
+  .agent-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    margin-left: 5%;
+  }
+
+  .agent-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .agent-cart-button {
+    font-size: 0.5rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 35% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .agent-form-input {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+    border-radius: 7px !important;
+  }
+  .agent-form-input {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+    border-radius: 7px !important;
+    margin-left: 0% !important;
+  }
+  .sand-input-checkbox {
+    font-size: x-small !important;
+    border: 0.5px solid rgb(141, 132, 132) !important;
+  }
+  .sand-form-input {
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    border-radius: 5px !important;
+
+    width: 25rem !important;
+    padding: 1% !important;
+  }
+  .agent-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    height: 75%;
+    margin-left: 5%;
+  }
+  .agent-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .agent-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 10% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .agent-form-input {
+    width: 15rem !important;
+    border-radius: 5px !important;
+  }
+  .agent-form-input1 {
+    width: 15rem !important;
+    border-radius: 5px !important;
+    margin-left: 0% !important;
+  }
+  .agents-currentcard {
+    width: 30%;
+    margin-right: 5%;
+  }
+  .agents-cardinput {
+    width: 65%;
+    display: flex;
+  }
+  .agent-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+  }
+  .sand-form-input {
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    border-radius: 5px !important;
+    width: 15rem !important;
+
+    padding: 2.25% !important;
+  }
+
+  .agent-bottom-buttons {
+    width: 80% !important;
+    height: 14% !important;
+  }
+  .agent-cart-button {
+    font-size: 0.7rem !important;
+    margin-top: 15% !important;
+    height: 150% !important;
+  }
+}
+@media screen and (max-width: 450px) {
+  .agent-form-input {
+    margin-bottom: 3% !important;
+    height: 30% !important;
+    width: 10rem !important;
+    border-radius: 5px !important;
+  }
+  .agent-form-input1 {
+    margin-bottom: 0% !important;
+    height: 30% !important;
+    width: 10rem !important;
+    border-radius: 5px !important;
+    margin-left: 0% !important;
+  }
+  .sand-form-input {
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    width: 10rem !important;
+    border-radius: 5px !important;
+    /* margin-left: 1% !important; */
+    padding: 3% !important;
+  }
+  .agent-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    margin-left: 15% !important;
+  }
+
+  .agent-bottom-buttons {
+    width: 105% !important;
+
+    height: 15% !important;
+  }
+  .agent-cart-button {
+    font-size: 0.58rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 20% !important;
+  }
+}

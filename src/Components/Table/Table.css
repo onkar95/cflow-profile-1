@@ -1,0 +1,13 @@
+.table-root {
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .table-root {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .table-root {
+    width: 80%;
+  }
+}

@@ -1,0 +1,12 @@
+.container1vendor {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.container1vendor1 {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  margin-top: -1rem;
+}

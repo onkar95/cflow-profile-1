@@ -1,0 +1,145 @@
+.notification_wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #121417;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+
+  overflow: scroll;
+  overflow-x: hidden;
+
+  margin-top: 8rem;
+  border: 1px solid #2d2d2d;
+  border-radius: 10px 0 0 0;
+  padding: 2rem;
+  color: white;
+  width: 25%;
+}
+.notification_header {
+  justify-content: space-between;
+}
+/* #121417 */
+.notification_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.notification_section_tabs {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.notification_hr {
+  width: 100%;
+
+  margin-top: 0.5rem;
+  color: #2d2d2d;
+}
+.notification_content {
+  margin-top: 1rem;
+}
+
+.notification_wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.section_underline {
+}
+
+.orangeline {
+  border-color: #ffb600;
+  background-color: #ffb600;
+  margin-top: 2px;
+}
+.whiteline {
+  display: none;
+}
+
+@media screen and (max-width:1350px) {
+  .notification_wrapper {
+    left: -9%;
+    width: 27%;
+  }
+  
+}
+@media screen and (max-width:1200px) {
+  .notification_wrapper {
+    left: -11%;
+    width: 27%;
+  }
+  
+}
+
+@media screen and (max-width:1100px) {
+  .notification_wrapper {
+    left: -13%;
+    width: 27%;
+  }
+  
+}
+
+@media screen and (max-width:1000px) {
+  .notification_wrapper {
+    left: -23%;
+    width: 29%;
+  }
+  
+}
+
+@media screen and (max-width:900px) {
+  .notification_wrapper {
+    left: -62%;
+    width: 40%;
+  }
+  
+}
+
+@media screen and (max-width:800px) {
+  .notification_wrapper {
+    left: -82%;
+    width: 45%;
+  }
+  
+}
+@media screen and (max-width:700px) {
+  .notification_wrapper {
+    left: -210%;
+    width: 80%;
+  }
+  
+}
+
+@media screen and (max-width:550px) {
+  .notification_wrapper {
+    left: -230%;
+    width: 85%;
+  }
+  
+}
+@media screen and (max-width:500px) {
+  .notification_wrapper {
+    left: -222%;
+    width: 80%;
+  }
+  
+}
+@media screen and (max-width:440px) {
+  .notification_wrapper {
+    left: -228%;
+    width: 80%;
+  }
+  
+}
+@media screen and (max-width:400px) {
+  .notification_wrapper {
+    left: -218%;
+    width: 75%;
+  }
+  
+}

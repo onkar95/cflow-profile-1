@@ -1,0 +1,20 @@
+.paper-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+.paper-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.paper-button {
+  background-color: #ffb600 !important;
+  color: black !important;
+  border-radius: 10px !important;
+  padding: 1% 2% !important;
+}

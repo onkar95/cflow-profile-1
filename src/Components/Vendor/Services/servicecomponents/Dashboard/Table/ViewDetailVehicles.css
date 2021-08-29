@@ -1,0 +1,139 @@
+.details {
+  background-color: #121417;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  color: white;
+  overflow-x: hidden;
+}
+
+.detailscontainer {
+  border-radius: 10px;
+  background: #08090c;
+  padding: 2rem 0rem;
+  margin: 2rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.cards {
+  display: flex;
+
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.detailscontent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cardcontent {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  color: #fff;
+  margin: 0.5rem 0.5rem;
+}
+.cardcontent1 {
+  display: flex;
+  /* align-items: flex-end; */
+  color: #fff;
+  margin: 0.5rem 0.5rem;
+  justify-content: space-between;
+  /* background-color: red; */
+}
+.cardcontent1 > h4 {
+  font-weight: 100;
+  width: 50%;
+}
+.cardcontent > div {
+  width: 50%;
+  float: right;
+  justify-content: flex-end;
+  display: flex;
+}
+.content-h4 {
+  text-align: right;
+}
+.cardcontent .contentkey {
+  flex: 0.75;
+  font-size: 1rem;
+  text-align: left !important;
+  font-weight: 500;
+}
+.contentvalue {
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 50%;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.acceptbutton {
+  color: black !important;
+  background: #ffb600 !important;
+  text-transform: capitalize !important;
+  padding: 0.65rem 2.5rem !important;
+  border: 2px solid #ffb600 !important;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0rem 2rem !important;
+}
+
+.rejectbutton {
+  color: #ffb600 !important;
+  background: transparent !important;
+  text-transform: capitalize !important;
+  padding: 0.65rem 2.5rem !important;
+  border: 1.5px solid #ffb600 !important;
+  font-weight: 500;
+  font-size: 1.15rem;
+  margin: 0rem 2rem !important;
+}
+.card1-footer {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  /* width: 80%; */
+  margin-top: 2rem;
+}
+.card3 {
+  color: white;
+  width: 75%;
+  font-size: 1rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.card3content {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 250px !important;
+}
+.vendorcard3 {
+  min-width: 400px;
+  max-width: 400px;
+}
+.vendorcard3input {
+  width: 95%;
+  height: 1.5rem;
+  padding: 0.5rem;
+  background-color: #2d2d2d;
+  color: white;
+}
+
+.vendorcard3input::placeholder {
+  color: white;
+}

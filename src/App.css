@@ -1,0 +1,17 @@
+* {
+  /* background-color: #121417; */
+
+  margin: 0;
+  padding: 0;
+}
+/*.App {
+}*/
+.App {
+  height: 100%;
+}
+--webkit-scrollbar {
+  overflow: hidden;
+}
+.App::-webkit-scrollbar {
+  display: none;
+}

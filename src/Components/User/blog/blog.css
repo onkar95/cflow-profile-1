@@ -1,0 +1,138 @@
+.allBlogs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* flex-direction: column; */
+    /* position: relative; */
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.backArrow {
+    display: flex;
+    margin: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.backArrow h3 {
+    margin: 0;
+}
+
+.backArrow h4 {
+    margin: 0;
+}
+
+.backArrow span {
+    font-size: 10px;
+    height: 0.7em;
+    margin-top: 1px;
+}
+
+.blogDetails {
+    display: flex;
+    flex-direction: column
+}
+
+.bolg_img img {
+    object-fit: cover;
+    height: 400px;
+    width: 100%;
+    background-position: center;
+    width: 100%;
+    margin: 25px 5p;
+    border-radius: 10px;
+}
+
+.blog_title {
+    margin: 0 5px;
+}
+
+.blog_title p {
+    font-size: 10px;
+    margin: 2px;
+}
+
+.blog_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog_text img {
+    height: 250px;
+    width: 450px;
+    border-radius: 10px;
+}
+
+.blog_button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.backArrow p {
+    text-align: start;
+}
+
+.butn_block {
+    color: gray;
+    border-style: none;
+    background-color: transparent;
+    transform: "translate(-50%)";
+    cursor: not-allowed;
+}
+
+.butn {
+    color: yellow;
+    border-style: none;
+    background-color: transparent;
+
+    transform: "translate(-50%)";
+    transition: background 0.8s;
+}
+
+@media (max-width:1196px) {
+    .allBlogs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+}
+
+@media (max-width:900px) {
+    .allBlogs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+@media (max-width:610px) {
+    .allBlogs {
+        margin: 0 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .blog_text img {
+        height: 60%;
+        width: 60%;
+    }
+}
+
+@media (max-width:490px) {
+    .backArrow p {
+        display: none;
+    }
+
+    .bolg_img img {
+        height: 250px;
+    }
+
+    /* .news button{
+    display: none;
+} */
+}

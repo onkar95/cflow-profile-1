@@ -1,0 +1,12 @@
+.shape1 {
+    position: absolute;
+    width:120px !important;
+    height:120px !important;
+    background-color: #FFFFFF;
+    color: black;
+    clip-path: polygon(50% 0, 100% 22%, 100% 77%, 50% 100%, 0 77%, 0 22%);
+    text-align: center;
+    margin-left: 100px !important;
+  }
+
+  

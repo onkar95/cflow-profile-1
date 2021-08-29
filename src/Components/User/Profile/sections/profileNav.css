@@ -1,0 +1,322 @@
+.custName_icon {
+    display: flex;
+}
+
+.profile_navbar {
+    display: flex;
+    margin: 5px;
+}
+
+.userdetail {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.userInfo {
+    display: flex;
+    width: 57%;
+}
+
+.users_pitch {
+    margin: 10px;
+    border-radius: 6px;
+    /* border: #727272 solid 2px; */
+    width: 80%;
+    height: max-content;
+    background-color: #2d2d2d;
+    padding: 7px 31px;
+}
+
+.users_delivery {
+    border-radius: 6px;
+    margin: 10px;
+    /* border: #727272 solid 2px; */
+    width: 100%;
+    height: max-content;
+    background-color: #2d2d2d;
+    padding: 5px;
+}
+
+.users_pitch h1,
+.users_delivery h1 {
+    color: #f5b81d;
+}
+
+.users_pitch h5 {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.users_delivery h5 {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+.users_delivery b {
+    color: red;
+}
+
+.users_pitch b {
+    color: green;
+}
+
+.usersActivity_div {
+    display: flex;
+    width: 40%;
+    /* justify-content: space-between; */
+}
+
+.info {
+    display: flex;
+    margin: 2px 21px;
+    width: max-content;
+    justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.info div {
+    margin: 0 10px;
+    width: 100%;
+}
+
+.info div h3 {
+    font-weight: normal;
+    color: #727272;
+
+}
+
+.info div h4 {
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.row {
+    display: flex;
+    margin: 0 25px;
+    width: max-content;
+}
+
+.hover_txt {
+    position: absolute;
+    color: rgb(243, 188, 70);
+    text-align: center;
+    font-size: 15px;
+    top: 26%;
+    left: 43%;
+}
+
+.logout_btn button {
+    line-height: 1.3;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.row h1 {
+    font-weight: 500;
+    /* margin:0 23px; */
+}
+
+.row img {
+    margin: 20px 3px;
+}
+
+.row h3 {
+    font-weight: 400;
+    font-size: 20px;
+    border: orange solid 2px;
+    color: #ffb600;
+    margin-top: 6%;
+    margin-left: 5px;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-top: 30px;
+    min-width: -moz-fit-content;
+    min-width: fit-content;
+    padding: 3px 5px;
+    border-radius: 5px;
+    width: max-content;
+}
+
+.profilePercent {
+    width: 25%;
+    position: relative;
+    /* margin: 15px 25px; */
+}
+
+
+
+@media(max-width:1150px) {
+    .profilePercent {
+        margin: 0;
+        width: 35%;
+    }
+
+    .row {
+        display: block;
+
+    }
+
+    .info {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+    }
+
+
+}
+
+@media(max-width:1050px) {
+
+    .info div {
+        margin: 0;
+        width: auto;
+    }
+
+    .profilePercent {
+        margin: 0;
+        width: 35%;
+    }
+
+    .row {
+        display: block;
+    }
+
+    .info {
+        display: flex;
+        flex-wrap: wrap;
+        width: auto;
+    }
+}
+
+@media(max-width:950px) {
+    .userInfo {
+        font-size: 15px;
+    }
+
+    .usersActivity,
+    .userInfo h1 {
+        font-size: 20px;
+    }
+
+    .profilePercent {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+    }
+
+    .row h3 {
+        /* display: flex; */
+        margin-top: 3%;
+        margin-left: 5px;
+        height: fit-content;
+    }
+
+    .usersActivity_div {
+        display: block;
+    }
+
+    .usersActivity h5 {
+        font-size: 20px;
+        margin: 0;
+    }
+}
+
+@media(max-width:600px) {
+    .row {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .row h3 {
+        padding: 0;
+        font-size: 13px;
+        margin-top: 6%;
+    }
+
+    .profile_navbar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .userInfo {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .userdetail {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .userdetail div {
+        margin: 0 10px;
+    }
+
+    .usersActivity {
+        border: #727272 solid 2px;
+    }
+
+    .usersActivity h1 {
+        margin: 0;
+        font-size: 30px;
+    }
+
+    .usersActivity_div {
+        width: 100%;
+    }
+
+    .users_pitch {
+        margin: 5px;
+        width: 78%;
+    }
+
+    .users_delivery {
+        /* margin: 5px; */
+        width: 90%;
+    }
+
+    .usersActivity h5 {
+        font-size: 20px;
+        margin: 0;
+    }
+}
+
+@media(max-width:400px) {
+
+    .usersActivity,
+    .userInfo h1 {
+        font-size: 20px;
+    }
+
+    .row h1 {
+        width: max-content;
+    }
+}
+
+@media(max-width:376px) {
+
+    .row h1 {
+        width: auto;
+        font-size: 17px;
+    }
+
+    .profilePercent {
+        width: 33%;
+    }
+}
+
+@media(max-width:370px) {
+    .row h1 {
+        width: max-content;
+        font-size: 14px;
+
+    }
+
+}

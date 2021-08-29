@@ -1,0 +1,13 @@
+.home-content-carouselvendor {
+  min-height: 384px !important;
+  margin-bottom: 2rem;
+}
+.carousel-imagevendor {
+  object-fit: inherit !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .home-content-carouselvendor {
+    min-height: fit-content !important;
+  }
+}

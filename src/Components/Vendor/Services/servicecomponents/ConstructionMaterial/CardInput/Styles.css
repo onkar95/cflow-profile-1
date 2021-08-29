@@ -1,0 +1,292 @@
+.sand-form {
+  width: 100%;
+  display: flex;
+  height: 4.5rem;
+}
+.sand-form-input-vendor {
+  width: 15rem !important;
+}
+
+.cement-form-input-vendor {
+  width: 200px !important;
+  margin-left: 2% !important;
+}
+.paint-toggle-btns {
+  text-transform: capitalize !important;
+  height: 100% !important;
+  width: 15rem !important;
+  border-radius: 10px !important;
+  box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
+    10px 4px 15px rgba(2, 3, 3, 0.2) !important;
+  margin-left: 2% !important;
+}
+.paint-color {
+  margin-top: 25% !important;
+}
+@media screen and (max-width: 1400px) {
+  .sand-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 5%;
+    justify-content: space-between;
+  }
+  .sand-form-input-vendor {
+    height: 15% !important;
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    width: 20rem !important;
+    border-radius: 5px !important;
+  }
+  .sand-input-checkbox {
+    font-size: large !important;
+    border: 0.5px solid rgb(141, 132, 132) !important;
+  }
+  .sand-input-checkbox1 {
+    font-size: large !important;
+  }
+  .quantity {
+    height: 10% !important;
+    width: 300px !important;
+  }
+  .quantity-text {
+    width: 30% !important;
+  }
+  .sand-bottom-buttons {
+    width: 70% !important;
+    height: 20% !important;
+    margin-left: 3% !important;
+  }
+  .sand-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .cement-form-input-vendor {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+    margin-left: 0 !important;
+  }
+  .cement-bottom-buttons {
+    width: 60% !important;
+    height: 18% !important;
+    margin-left: 5% !important;
+  }
+  .cement-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .tmt-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 45% !important;
+  }
+  .pipes-bottom-buttons {
+    width: 70% !important;
+    height: 25% !important;
+    margin-left: 5% !important;
+  }
+  .pipes-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 15% !important;
+  }
+  .rmc-cart-button {
+    font-size: 0.5rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 35% !important;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .sand-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 5%;
+    justify-content: space-between;
+  }
+  .sand-form-input-vendor {
+    height: 15% !important;
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    border-radius: 5px !important;
+  }
+  .sand-input-checkbox {
+    font-size: x-small !important;
+    border: 0.5px solid rgb(141, 132, 132) !important;
+  }
+  .sand-input-checkbox1 {
+    font-size: xx-small !important;
+  }
+  .quantity {
+    height: 10% !important;
+    width: 300px !important;
+  }
+  .quantity-text {
+    width: 30% !important;
+  }
+  .sand-bottom-buttons {
+    width: 70% !important;
+    height: 20% !important;
+  }
+  .sand-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+  .cement-form-input-vendor {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 25rem !important;
+  }
+  .cement-bottom-buttons {
+    width: 60% !important;
+    height: 18% !important;
+    margin-left: 5% !important;
+  }
+  .cement-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 35% !important;
+  }
+  .tmt-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 45% !important;
+  }
+  .pipes-bottom-buttons {
+    width: 80% !important;
+    height: 25% !important;
+    margin-left: 5% !important;
+  }
+  .pipes-cart-button {
+    font-size: 1rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 15% !important;
+  }
+  .rmc-cart-button {
+    font-size: 0.75rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 20% !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .cement-form-input-vendor {
+    width: 15rem !important;
+  }
+  .cement-bottom-buttons {
+    width: 80% !important;
+    height: 14% !important;
+  }
+  .cement-cart-button {
+    font-size: 0.7rem !important;
+  }
+  .tmt-cart-button {
+    font-size: 0.7rem !important;
+  }
+  .rmc-cart-button {
+    font-size: 0.7rem !important;
+    margin-top: 35% !important;
+    height: 150% !important;
+  }
+  .pipes-cart-button {
+    font-size: 0.7rem !important;
+  }
+  .stone-cart-button {
+    font-size: 0.7rem !important;
+  }
+  /* .paint-toggle-btns {
+      width: 8rem !important;
+    } */
+}
+
+@media screen and (max-width: 450px) {
+  .sand-form {
+    flex-direction: column;
+    height: 50% !important;
+    margin-left: 4%;
+    justify-content: space-between;
+  }
+  .sand-form-input-vendor {
+    height: 25% !important;
+    margin-bottom: 2%;
+    font-size: 2 !important;
+    width: 9rem !important;
+    border-radius: 5px !important;
+    margin-left: 1% !important;
+  }
+  .sand-bottom-buttons {
+    width: 100% !important;
+    height: 25% !important;
+  }
+  .sand-cart-button {
+    font-size: 0.65rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 25% !important;
+  }
+
+  .cement-form-input-vendor {
+    margin-bottom: 3% !important;
+    height: 80% !important;
+    width: 9rem !important;
+  }
+  .cement-bottom-buttons {
+    width: 100% !important;
+    height: 15% !important;
+  }
+  .cement-cart-button {
+    font-size: 0.55rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 55% !important;
+  }
+  .tmt-cart-button {
+    font-size: 0.55rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 70% !important;
+  }
+  .pipes-bottom-buttons {
+    width: 100% !important;
+    height: 25% !important;
+    margin-left: 5% !important;
+  }
+  .pipes-cart-button {
+    font-size: 0.5rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 20% !important;
+  }
+  .rmc-cart-button {
+    font-size: 0.5rem !important;
+    width: 48% !important;
+    font-weight: 500 !important;
+    padding: 0% 0% !important;
+    margin-top: 45% !important;
+  }
+}

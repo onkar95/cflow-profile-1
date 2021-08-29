@@ -1,0 +1,10 @@
+.MuiMenu-list{
+    outline: 0px;
+    background-color: black;
+    color:ghostwhite;
+    box-shadow: 5px 10px #888888;
+  }
+
+.text{
+  color: white !important;
+}

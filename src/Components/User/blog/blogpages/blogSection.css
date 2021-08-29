@@ -1,0 +1,99 @@
+
+.blogs_div,.news_div,.popularblog_div{
+    margin: 30px -14px;
+}
+.blogs,.news,.popularBlogs{
+    background-color: rgb(8,9,12);
+    margin: 10px 0px;
+}
+.blog_div_header{
+    display: flex;
+    margin: 5px;
+}
+.blog_div_header button{
+    background-color: transparent;
+    color: yellow;
+    border: none;
+    /* line-height: 1rem; */
+    font-size: large;
+    cursor: pointer;
+}
+.latestBlog {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 400px;
+    width: 100%; */
+}
+
+.latestBlog_box {
+    /* background-image: url("https://images.unsplash.com/photo-1615420733289-d8d75ca63946?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max")  ; */
+    background-repeat: no-repeat ;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+     height: 400px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 10px;
+    margin: 25px 5px;
+    /* color: aliceblue;
+    text-decoration: none; */
+
+}
+.innertext{
+    margin: 5px;
+    opacity: 1;
+    /* background: black; */
+}
+
+.news_box,.blogs_box,.popularBlog_box {
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    margin: 5px;
+}
+.show-btn button{
+    background-color: transparent;
+    color: yellow;
+    border: none;
+    /* line-height: 1rem; */
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* .allBlogs{
+display: grid;
+grid-template-columns: repeat(4,0.25rem);
+} */
+@media (max-width:450px){
+    .news_box{
+        font-size: 10px;
+        text-align: center;
+        margin: 0 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .blog_button p{
+        display: none;
+    }
+    .blog_button button{
+        padding: 0;
+        }
+}
+@media (max-width:350px){
+    .news_box{
+        font-size: 8px;
+        text-align: center;
+        margin: 0 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

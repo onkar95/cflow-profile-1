@@ -1,0 +1,823 @@
+.profile_navbar {
+  display: flex;
+  margin: 5px;
+}
+
+.userdetail {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.userInfo {
+  display: flex;
+  width: 57%;
+}
+
+.users_pitch {
+  margin: 10px;
+  border-radius: 6px;
+  /* border: #727272 solid 2px; */
+  width: 100%;
+  height: max-content;
+  background-color: #2d2d2d;
+  padding: 7px 31px;
+}
+
+.users_delivery {
+  border-radius: 6px;
+  margin: 10px;
+  /* border: #727272 solid 2px; */
+  width: 100%;
+  height: max-content;
+  background-color: #2d2d2d;
+  padding: 5px;
+}
+
+.users_pitch h1,
+.users_delivery h1 {
+  color: #f5b81d;
+}
+
+.users_pitch h5 {
+  font-weight: 100;
+  font-size: 16px;
+}
+
+.users_delivery h5 {
+  font-weight: 100;
+  font-size: 16px;
+}
+
+.users_delivery b {
+  color: red;
+}
+
+.users_pitch b {
+  color: green;
+}
+
+.usersActivity_div {
+  display: flex;
+  width: 40%;
+  /* justify-content: space-between; */
+}
+
+.info {
+  display: flex;
+  margin: 2px 21px;
+  width: max-content;
+  justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info div {
+  margin: 0 10px;
+  width: 100%;
+}
+
+.info div h3 {
+  font-weight: normal;
+  color: #727272;
+
+}
+
+.info div h4 {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  margin: 0 25px;
+  width: max-content;
+
+}
+
+.logout_btn button {
+  line-height: 1.3;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.row h1 {
+  font-weight: 500;
+  /* margin:0 23px; */
+}
+
+.row img {
+  margin: 20px 3px;
+}
+
+.hover_txt {
+  visibility: hidden;
+  top: 10%;
+  position: absolute;
+  color: rgb(243, 188, 70);
+  text-align: center;
+  font-size: 30px;
+  top: 26%;
+}
+.profileCompleted_icon{
+  /* height: 20px; */
+  display: flex;
+  align-items: center;
+}
+
+.profileCompleted_icon:hover .hover_txt  {
+  content: "verification completed";
+  display: block;
+  visibility: visible;
+  /* margin: 20px 3px; */
+}
+
+.row h3 {
+  font-weight: 400;
+  font-size: 20px;
+  border: orange solid 2px;
+  color: #ffb600;
+  margin-top: 6%;
+  margin-left: 5px;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 30px;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  padding: 3px 5px;
+  border-radius: 5px;
+  width: max-content;
+}
+
+
+.profile_sections {
+  background-color: #161616;
+  margin: 25px 0;
+}
+
+.profilePercent {
+  width: 25%;
+  position: relative;
+  /* margin: 15px 25px; */
+}
+
+.profile_button {
+  /* display: flex; */
+  width: 100%;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+.profile_button_nav {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: scroll;
+}
+
+.profile_button_nav button {
+  font-weight: 700;
+  background-color: transparent;
+  font-size: 20px;
+  text-decoration: none;
+  /* display: flex; */
+  border: none;
+  color: white;
+  /* margin: 0 20px; */
+  margin-right: 20px;
+}
+
+
+
+.profile_button_nav1 {
+  display: flex;
+  /* width: 100%; */
+}
+
+.profile_button_nav2 {
+  display: flex;
+  /* width: 100%; */
+
+}
+
+.profile_button_div {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.main_content {
+  background-color: transparent;
+  width: 100%;
+  margin: 10px;
+}
+
+.input_orientation {
+  /* display: flex; */
+  margin: 30px 0;
+}
+
+.profile_section_heading {
+  margin: 20px 0;
+}
+
+.main_content input {
+  /* width: fit-content; */
+  width: 60%;
+  line-height: 2;
+  font-size: 15px;
+}
+
+.inputs_coloum {
+  width: 34%;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.inputs_coloum label {
+  margin: 0 18px;
+}
+
+.inputs_coloum_group {
+  width: 34%;
+  font-size: 18px;
+}
+
+.siteAddress_btn {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.disabled_save_butn {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  border-radius: 4px;
+  background-color: #ffb600;
+  color: black;
+  margin-bottom: 1rem;
+  position: relative;
+  left: 43%;
+  transform: "translate(-50%)";
+  transition: background 0.8s;
+  width: max-content;
+}
+
+.disabled_save_butn:hover {
+  cursor: pointer;
+  background-color: #a87c0a;
+}
+
+.disabled_save_butn_block {
+  padding: 0.7rem 2rem;
+  border-radius: 4px;
+  color: black;
+  border-style: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+  left: 43%;
+  transform: "translate(-50%)";
+  cursor: not-allowed;
+  background-color: "gray"
+
+}
+
+.email,
+.number {
+  padding: 0.6rem 1rem;
+  margin: 1rem 1rem;
+  color: black;
+  border-radius: 8px;
+  border-style: none;
+  background-color: #2d2d2d;
+
+}
+
+.input {
+  color: #727272;
+}
+
+.email:hover,
+.number:hover {
+  cursor: not-allowed;
+}
+
+.addressBook {
+  margin: 15px 70px;
+}
+
+.addNewAddress_btn {
+  width: 420px;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #141212;
+  margin: 0 123px;
+  align-items: center;
+}
+
+.addNewAddress_btn button {
+  background-color: #f5b81d;
+  border: none;
+  line-height: 3;
+  border-radius: 10px;
+  margin: 24px 19px;
+  font-size: inherit;
+}
+
+.edit_icon {
+  background-color: #f5b81d;
+  padding: 8px;
+  transform: "translate(-50%)";
+  border-radius: 7px;
+}
+
+.delete_icon {
+  border: rgb(240, 16, 16) solid 2px;
+  padding: 5px;
+}
+
+.saved_address {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+  margin: 5px 110px;
+}
+
+.address {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  /* border: #2d2d2d solid 2px; */
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #141212;
+}
+
+.address_btn {
+  display: flex;
+  align-items: center;
+
+}
+
+.address_btn span {
+  margin: 35px 20px;
+}
+
+.feedback_section {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.rating_div {
+  display: "block";
+  width: "30%";
+  margin-left: "10px";
+  margin: 0 30px;
+
+}
+
+.feedback_div {
+  display: flex;
+  width: 80%;
+}
+
+.feedback_div h3 {
+  margin: 10px;
+}
+
+.feedback_form {
+  background-color: #2d2d2d;
+  resize: "none";
+  min-height: "9rem";
+  width: "80%"
+}
+
+.help {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 30px 0;
+}
+
+.help_ques_div {
+  width: 40%;
+}
+
+.help_ques_div ans {
+  color: rgb(49, 46, 46);
+}
+
+.help_text_div {
+  width: 50%;
+}
+
+.help_btns {
+  display: flex;
+  margin: 5px;
+}
+.dark_input{
+  color: #262424;
+  /* background-color: #f6f3f3; */
+}
+.white_input{
+  color: #000 !important;
+  background-color: #c5c3c3 !important;
+}
+
+@media(max-width:1150px) {
+  .profile_button_nav button {
+    margin: 0 10px;
+  }
+
+  .help_btns div {
+    left: 40%;
+  }
+
+
+}
+
+@media(max-width:1050px) {
+  .help_btns div {
+    left: 20%;
+  }
+
+  .profile_button_nav button {
+    margin-left: -5px;
+    font-size: 16px;
+  }
+
+  .info {
+    /* display: flex;
+    flex-direction: column; */
+    /* display: block; */
+    margin: 0 5px;
+  }
+
+  .info div {
+    margin: 0;
+    width: auto;
+  }
+
+  element.style {
+    color: rgb(114, 114, 114);
+  }
+
+  .main_content input {
+    width: auto;
+  }
+
+
+  .inputs_coloum {
+    width: 30%;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .input_orientation {
+    display: flex;
+  }
+
+  .address {
+    display: block;
+    padding: 30px;
+    justify-content: space-between;
+    border: #2d2d2d solid 2px;
+    margin: 28px;
+  }
+  
+
+  .saved_address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin: 10px 0px;
+  }
+
+  .addNewAddress_btn {
+    width: max-content;
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #141212;
+    margin: 10px 27px;
+    align-items: center;
+  }
+}
+
+@media(max-width:950px) {
+  .help_btns div {
+    left: 10%;
+  }
+
+  .rating_div {
+    margin: 0;
+  }
+
+  .address {
+    display: block;
+    padding: 30px;
+    justify-content: space-between;
+    border: #2d2d2d solid 2px;
+    margin: 8px;
+  }
+
+  .saved_address {
+    width: 100%;
+    /* margin: 3px 15px; */
+    display: flex;
+  }
+
+  .addNewAddress_btn {
+    width: max-content;
+  }
+
+  .profile_button_nav button {
+    font-weight: 300;
+    font-size: 17px;
+    /* margin: 0 2px; */
+  }
+
+  .userInfo {
+    font-size: 15px;
+  }
+
+  .usersActivity,
+  .userInfo h1 {
+    font-size: 20px;
+  }
+
+  .profilePercent {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  .row h3 {
+    /* display: flex; */
+    margin-top: 3%;
+    margin-left: 5px;
+    height: fit-content;
+  }
+
+  .usersActivity_div {
+    display: block;
+  }
+
+  .usersActivity h5 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .users_pitch {
+    width: 81%;
+  }
+}
+
+@media(max-width:600px) {
+  .help_btns div {
+    left: 0%;
+    /* width: 80px; */
+    padding: 12px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .row h3 {
+    padding: 0;
+    font-size: 13px;
+    margin-top: 6%;
+  }
+
+  .profile_navbar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .userdetail {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .userdetail div {
+    margin: 0 10px;
+  }
+
+  .profile_button {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+
+  .profile_button button {
+    font-weight: 700;
+    background-color: transparent;
+    font-size: 20px;
+    text-decoration: none;
+    /* display: flex; */
+    border: none;
+    color: white;
+    /* margin: 0 5px; */
+    margin-right: 20px;
+    min-width: max-content;
+
+  }
+
+  .inputs_coloum {
+    width: 100%;
+    font-size: 15px;
+    margin: 10px;
+  }
+
+  .address {
+    padding: 25px;
+    display: flex;
+    margin: 28px;
+    background-color: #262424;
+    flex-wrap: wrap;
+  }
+
+  .addNewAddress_btn {
+    padding: 20px;
+    /* width: 70%; */
+    background-color: #262424;
+    /* flex-wrap: wrap; */
+  }
+
+  .edit_icon {
+    background-color: #f5b81d;
+    padding: 4px;
+    transform: "translate(-50%)";
+    border-radius: 7px;
+  }
+
+  .delete_icon {
+    border: rgb(240, 16, 16) solid 2px;
+    padding: 0px;
+  }
+
+  .addressBook {
+    margin: 0;
+  }
+
+  .saved_address {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    /* margin: 5px 110px; */
+  }
+
+  .address_details {
+    line-height: 1;
+    font-size: 10px;
+  }
+
+  .address_btn {
+    display: flex;
+  }
+
+  .address_btn span {
+    margin: 0;
+  }
+
+  .feedback_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .rating_div h3 div {
+    margin: 0;
+  }
+
+  .feedback_div {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .help {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .help_ques_div {
+    width: 100%;
+  }
+
+  .help_ques_div ans {
+    color: rgb(49, 46, 46);
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+  }
+
+  .help_text_div {
+    width: 90%;
+    min-width: 75%;
+  }
+
+  .usersActivity {
+    border: #727272 solid 2px;
+  }
+
+  .usersActivity h1 {
+    margin: 0;
+    font-size: 30px;
+  }
+
+  .usersActivity_div {
+    width: 100%;
+  }
+
+  .users_pitch {
+    margin: 5px;
+    width: 78%;
+  }
+
+  .users_delivery {
+    /* margin: 5px; */
+    width: 90%;
+  }
+
+
+  .usersActivity h5 {
+    font-size: 20px;
+    margin: 0;
+  }
+}
+
+@media(max-width:400px) {
+  .help_text_div {
+    width: 70%;
+    min-width: 75%;
+  }
+
+  .usersActivity,
+  .userInfo h1 {
+    font-size: 20px;
+  }
+
+  .inputs_coloum {
+
+    margin: 0;
+  }
+
+  .main_content input {
+    margin: 15px 0;
+  }
+
+  .main_content label {
+    margin: 0;
+  }
+
+  .row h1 {
+    width: max-content;
+  }
+}
+
+@media(max-width:376px) {
+
+  .row h1 {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .addNewAddress_btn div {
+    display: none;
+  }
+
+  .addNewAddress_btn {
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,119 @@
+.construction-chemical-container-vendor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 5%;
+}
+.construction-chemical-top-vendor {
+  display: flex;
+  width: 100%;
+}
+.construction-chemical-currentcard-vendor {
+  width: 15%;
+}
+.construction-chemical-cardinput-vendor {
+  width: 85%;
+  display: flex;
+}
+.construction-chemical-bottom-vendor {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.construction-chemical-bottom-row-main-vendor {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+.construction-chemical-bottom-row1-vendor {
+  display: flex;
+  width: 50%;
+  margin-top: 3%;
+  margin-right: 1%;
+  justify-content: space-between;
+}
+.construction-chemical-card-vendor {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 1400px) {
+  .construction-chemical-bottom-row-main-vendor {
+    width: 75%;
+  }
+  .construction-chemical-bottom-row1-vendor {
+    display: flex;
+    width: 65% !important;
+    margin-top: 3%;
+    margin-right: 2%;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .construction-chemical-card-vendor {
+    width: 50% !important;
+    align-items: center !important;
+
+    margin-right: 0%;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .construction-chemical-card-vendor {
+    width: 24% !important;
+    margin-right: 1%;
+  }
+  .construction-chemical-bottom-row-main-vendor {
+    flex-direction: column;
+    width: 100%;
+
+    align-items: center;
+  }
+  .construction-chemical-bottom-row1-vendor {
+    display: flex;
+    width: 60% !important;
+    margin-top: 3%;
+    margin-right: 0%;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .construction-chemical-card-vendor {
+    width: 50% !important;
+    align-items: center !important;
+
+    margin-right: 0%;
+  }
+  .construction-chemical-currentcard-vendor {
+    width: 35% !important;
+  }
+  .construction-chemical-cardinput-vendor {
+    width: 65%;
+    display: flex;
+  }
+}
+@media screen and (max-width: 400px) {
+  .construction-chemical-bottom-row-main-vendor {
+    flex-direction: column;
+    width: 100% !important;
+
+    align-items: center;
+  }
+  .construction-chemical-bottom-row1-vendor {
+    display: flex;
+    width: 100% !important;
+    margin-top: 3%;
+    margin-right: 0%;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+  .construction-chemical-card-vendor {
+    width: 50% !important;
+    align-items: center !important;
+
+    margin-right: 0%;
+  }
+  .construction-chemical-currentcard-vendor {
+    width: 50% !important;
+  }
+  .construction-chemical-cardinput-vendor {
+    width: 50%;
+    display: flex;
+  }
+}
