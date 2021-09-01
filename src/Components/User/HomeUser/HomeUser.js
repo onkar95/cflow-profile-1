@@ -8,6 +8,7 @@ import Estimate from '../Estimate/Estimate';
 import Profile from '../Profile/Profile';
 import Services from '../Services/Services';
 import Blog from '../blog/Blog';
+import AboutUs from '../about us/AboutUs';
 import Notifications from '../Notifications/Notifications';
 import HomecontentUser from '../HomeContentUser/HomeContentUser';
 import Footer from "../../FooterJy/Footer";
@@ -45,7 +46,7 @@ import PopupSaved from  "../../Popup/popupsaved/PopupSaved"
 require('dotenv').config()
 
 function HomeUser({ setIsUser, isSignup, setIsSignup }) {
-    const sections = ["Home", "Services", "Requests", "Estimates", "Blog", "Profile"]
+    const sections = ["Home", "Services", "Requests", "Estimates", "Blog","About us"]
     const sections_logo_white = [HomeImage, ServicesImage, RequestsImage, EstimateImage, BlogImage, ProfileImage, NotificationImage]
     const sections_logo_black = [HomeImageBlack, ServicesImageBlack, RequestsImageBlack, EstimateImageBlack, BlogImageBlack, ProfileImageBlack, NotificationImageBlack]
     const [currentSection, setCurrentSection] = useState(null)
@@ -359,6 +360,7 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
             <div className="home-user-content">
                 {currentSection === 0 && <HomecontentUser setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} toabout={toabout} setToabout={setToabout} />}
                 {currentSection === 1 && <Services
+                    theme={theme}
                     setCurrentSectionRequest={setCurrentSection}
                     site={site}
                     getAllVendor={getAllVendor}
@@ -381,7 +383,14 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
                     setCurrentSectionBlog={setCurrentSectionBlog}
                     currentSection={currentSectionBlog}
                 />}
-                {currentSection === 5 && <Profile theme={theme} toabout={toabout} setToabout={setToabout} formData={formData} setFormData={setFormData} getUser={getUser} site={site} getSite={getSite} setSite={setSite} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile} />}
+                {currentSection === 5 && <AboutUs
+                    theme={theme}
+                    setCurrentSectionRequest={setCurrentSection}
+                    // setCurrentSection={setCurrentSectionBlog}
+                    // setCurrentSectionBlog={setCurrentSectionBlog}
+                    // currentSection={currentSectionBlog}
+                />}
+                {currentSection === 14 && <Profile theme={theme} toabout={toabout} setToabout={setToabout} formData={formData} setFormData={setFormData} getUser={getUser} site={site} getSite={getSite} setSite={setSite} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile} />}
                 {currentSection === 6 && <Details setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} getAllVendor={getAllVendor} />}
                 {currentSection === 7 && <Details1 setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} />}
                 {currentSection === 8 && <DetailAccepted setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} requestedVendorDetails={requestedVendorDetails} />}

@@ -16,6 +16,7 @@
     "convert-units": "^2.3.4",
     "dotenv": "^8.2.0",
     "firebase": "^8.7.0",
+    "fuse.js": "^6.4.6",
     "gh-pages": "^3.2.3",
     "heroku": "^7.59.0",
     "jquery": "^3.6.0",

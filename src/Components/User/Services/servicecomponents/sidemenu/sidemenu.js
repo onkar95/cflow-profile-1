@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-const sideMenu = ({currentSection , setCurrentSection}) => {
+const sideMenu = ({theme,currentSection , setCurrentSection}) => {
 
     const Column = styled.div`
     display: flex;
@@ -40,13 +40,13 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                                   color: "black",
                                   borderStyle: "none",
                               }
-                            : {}
+                            :{}
                     }
                     onClick={() => setCurrentSection(0)}
                 >
                     <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
                         <ChevronRightIcon/>
-                        <h4>Construction Material</h4>
+                        <h4 style={theme?{color:"black"}:{color:"white"}}>Construction Material</h4>
                     </div>
                 </GhostButton>
                 <GhostButton
@@ -63,7 +63,7 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                 >
                     <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
                         <ChevronRightIcon/>
-                        <h4>Agents</h4>
+                        <h4 style={theme?{color:"black"}:{color:"white"}}>Agents</h4>
                     </div>
                 </GhostButton>
                 <GhostButton
@@ -80,7 +80,7 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                 >
                     <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
                         <ChevronRightIcon/>
-                        <h4> Commerical Vehicles</h4>
+                        <h4 style={theme?{color:"black"}:{color:"white"}}> Commerical Vehicles</h4>
                     </div>                   
                 </GhostButton>
                 {/* <GhostButton
@@ -97,7 +97,7 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                 >
                     <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
                         <ChevronRightIcon/>
-                        <h4> Construction Machines</h4>
+                        <h4 style={theme?{color:"black"}:{color:"white"}}> Construction Machines</h4>
                     </div>
                     
                 </GhostButton> */}
@@ -115,7 +115,7 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                 >
                     <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
                         <ChevronRightIcon/>
-                        <h4>Construction Chemicals</h4>
+                        <h4 style={theme?{color:"black"}:{color:"white"}}>Construction Chemicals</h4>
                     </div>
                     
                 </GhostButton>

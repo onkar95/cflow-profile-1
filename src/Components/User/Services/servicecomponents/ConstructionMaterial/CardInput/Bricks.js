@@ -1,209 +1,243 @@
-import React ,{useEffect, useState} from 'react'
-import "./Styles.css"
+import { makeStyles, TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Button from '@material-ui/core/Button';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import {useHistory} from "react-router-dom"
-import { makeStyles , TextField } from '@material-ui/core';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import "./Styles.css";
 
-function Bricks({setModalOpen,newRequest,setNewRequest,data,setData,quantity,setQuantity,setOpenSaved}) {
-    const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
+function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved }) {
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [clay, setClay] = useState(false)
     const [cement, setCement] = useState(false)
-    const [fly,setFly] = useState(false)
-    
-    const notify = (msg) => 
-    toast.error(msg, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    });
+    const [fly, setFly] = useState(false)
 
-    const handlemodal=()=>{
-        if(userId === undefined)
-        {
-            // alert('Please Login');
+    const notify = (msg) =>
+        toast.error(msg, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+
+    const handlemodal = () => {
+        if (userId === undefined) {
+            alert('Please Login');
             history.push('/auth-user')
         }
-        else
-        {
-            if(clay===true||cement===true||fly===true){
+        else {
+            if (!formData?.phone_no || !formData?.first_name) {
+                notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
+            }
+            else if ((clay === true || cement === true || fly === true) && quantity > 0) {
                 setModalOpen(true)
             }
-            else{
+            else if (clay === false && cement === false && fly === false) {
+                notify('Please select something');
+            }
+            else if (quantity <= 0) {
+                notify('The quantity should be greater than 0')
+            }
+            else {
                 notify('Please select something');
             }
         }
-        
+
     }
 
     useEffect(() => {
-        if(clay){
-            setData({type:"clay"})
+        if (clay) {
+            setData({ type: "clay" })
         }
-        else if(cement){
-            setData({type:"cement"})
+        else if (cement) {
+            setData({ type: "cement" })
         }
-        else if(fly){
-            setData({type:"fly"})
+        else if (fly) {
+            setData({ type: "fly" })
         }
-    },[clay,cement,fly])
+    }, [clay, cement, fly])
 
-    useEffect(()=>{
-        if(clay){
+    useEffect(() => {
+        if (clay) {
             setCement(false)
             setFly(false)
         }
 
-    },[clay])
-    useEffect(()=>{
-        if(cement){
+    }, [clay])
+    useEffect(() => {
+        if (cement) {
             setClay(false)
             setFly(false)
         }
 
-    },[cement])
-    useEffect(()=>{
-        if(fly){
+    }, [cement])
+    useEffect(() => {
+        if (fly) {
             setCement(false)
             setClay(false)
         }
 
-    },[fly])
+    }, [fly])
 
-    const handleCart=async(e)=>{
+    const handleCart = async (e) => {
         e.preventDefault()
-        if(userId === undefined)
-        {
-            // alert('Please Login');
+        if (userId === undefined) {
+            alert('Please Login');
             history.push('/auth-user')
         }
-        else
-        {
-            if(clay===true||cement===true||fly===true){
-                setNewRequest({...newRequest,quantity:quantity})
-                
-                
-                await axios.post(`${process.env.REACT_APP_URL}/product/add_to_cart/${userId}`,newRequest)
-                .then(function (response) { 
-
-                    console.log(response,"add")
-                 })
-                 setOpenSaved(true)
-                 setQuantity(0)
-                 setClay(false)
-                 setCement(false)
-                 setFly(false)
+        else {
+            if (!formData?.phone_no || !formData?.first_name) {
+                notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
             }
-            else{
+            else if ((clay === true || cement === true || fly === true) && quantity > 0) {
+                setNewRequest({ ...newRequest, quantity: quantity })
+
+
+                await axios.post(`${process.env.REACT_APP_URL}/product/add_to_cart/${userId}`, newRequest)
+                    .then(function (response) {
+
+                        console.log(response, "add")
+                    })
+                setOpenSaved(true)
+                setQuantity(0)
+                setClay(false)
+                setCement(false)
+                setFly(false)
+            }
+            else if (clay === false && cement === false && fly === false) {
+                notify('Please select something');
+            }
+            else if (quantity <= 0) {
+                notify('The quantity should be greater than 0')
+            }
+            else {
                 notify('Please select something');
             }
         }
-        
-        
-
     }
     const useStyles = makeStyles({
-            root: {
-                "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-                borderColor: "transparent"        
-                }},
-                input:{
-                    color:"white"
-                },
-                overflow:"hidden"
-            });
+        root: {
+            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                borderColor: "transparent"
+            }
+        },
+        input: {
+            color: "white",
+            "& input::placeholder":{color:"#fffafa"},
+            "& .MuiInputBase-input": {height:'0.3rem'}          
+        },
+        input1: {
+            color: "white",
+            "& input::placeholder":{color:"#fffafa"},
+        },
+        overflow: "hidden"
+    });
+
+    useEffect(()=>{
+        if(modalopen===false){
+            setQuantity(0)
+            setClay(false)
+            setCement(false)
+            setFly(false)
+        }
+    }, [modalopen])
+
     const classes = useStyles()
     return (
-        <div style={{width:"100%",display:"flex",height:"100%",flexDirection:"column"}}>
-                <div className="sand-form" >
-                <FormControlLabel
+        <div className="selected">
+        <div className="selected-header">Bricks</div>
+        <div className="description" style={{marginBottom:'50px'}}>Add bricks to your products.</div>
+        <div className="description" style={{marginBottom:'30px'}}>Save brick type</div>
+
+        <div>
+                <div className='checkbox'><FormControlLabel
                     control={
-                            <Checkbox
-                                checked={clay}
-                                onChange={(e) => setClay(e.target.checked)}
-                                color="primary"
-                                icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox"  fontSize="small" style={{border:"1px solid white"}}/>}
-                                checkedIcon={<CheckBoxIcon  fontSize="small" style={{border:"1px solid white"}}/>}
-                            />
-                            }
+                        <Checkbox
+                            checked={clay}
+                            onChange={(e) => setClay(e.target.checked)}
+                            color="primary"
+                            icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox" fontSize="small" style={{transform:"scale(1.5)"}} />}
+                            checkedIcon={<CheckBoxIcon className="checked-icon" fontSize="small" style={{ transform:"scale(1.5)", color: 'green' }} />}
+                        />
+                    }
                     label="Clay Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor:"#08090C",
-                        // width: "15rem",
+                        backgroundColor: "#08090C",
+                        //width: "15rem",
                         padding: "3%",
-                        borderRadius:"10px",
-                        boxShadow:"-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        borderRadius: "10px",
+                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
                     }}
-                />
-                <FormControlLabel
+                    labelPlacement="start"
+                /></div>
+                <div className='checkbox'><FormControlLabel
                     control={
-                            <Checkbox
-                                checked={cement}
-                                onChange={(e) => setCement(e.target.checked)}
-                                color="primary"
-                                icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox"  fontSize="small" style={{border:"1px solid white"}}/>}
-                                checkedIcon={<CheckBoxIcon fontSize="small" style={{border:"1px solid white"}}/>}
-                            />
-                            }
+                        <Checkbox
+                            checked={cement}
+                            onChange={(e) => setCement(e.target.checked)}
+                            color="primary"
+                            icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox" fontSize="small" style={{ transform: "scale(1.5)" }} />}
+                            checkedIcon={<CheckBoxIcon className="checked-icon" fontSize="small" style={{ transform:"scale(1.5)", color: 'green' }} />}
+                        />
+                    }
                     label="Cement Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor:"#08090C",
+                        backgroundColor: "#08090C",
                         // width: "15rem",
                         padding: "3%",
-                        borderRadius:"10px",
-                        boxShadow:"-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        borderRadius: "10px",
+                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
                     }}
-                />
-                <FormControlLabel
+                    labelPlacement="start"
+                /></div>
+                <div className='checkbox'><FormControlLabel
                     control={
-                            <Checkbox
-                                checked={fly}
-                                onChange={(e) => setFly(e.target.checked)}
-                                color="primary"
-                                icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox"  fontSize="small" style={{border:"1px solid white"}}/>}
-                                checkedIcon={<CheckBoxIcon fontSize="small" style={{border:"1px solid white"}}/>}
-                            />
-                            }
+                        <Checkbox
+                            checked={fly}
+                            onChange={(e) => setFly(e.target.checked)}
+                            color="primary"
+                            icon={<CheckBoxOutlineBlankIcon className="sand-input-checkbox" fontSize="small" style={{transform:"scale(1.5)"}} />}
+                            checkedIcon={<CheckBoxIcon className="checked-icon" fontSize="small" style={{ color: 'green', transform:'scale(1.5)' }} />}
+                        />
+                    }
                     label="Fly Ash Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor:"#08090C",
-                        // width: "15rem",
+                        backgroundColor: "#08090C",
+                        //width: "15rem",
                         padding: "3%",
-                        borderRadius:"10px",
-                        boxShadow:"-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        borderRadius: "10px",
+                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)",
                     }}
-                />
+                    labelPlacement="start"
+                /></div>
+            </div>
+            {(clay === true || cement === true || fly === true)
+                &&
+                <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
+                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
                 </div>
-                   {(clay===true||cement===true||fly===true)
-                    && 
-
-                    <div className="quantity" style={{marginTop:"2%",width:"30%",height:"80px"}}>
-                         <TextField id="outlined-basic20" type="number" value={quantity} style={{backgroundColor:"#08090C",width:"100%",height:"100%",borderRadius:"10px",color:"white"}} onChange={(e)=>setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{className: classes.input}} placeholder="Quantity" variant="outlined" />                       
-                    </div>
-                }
-                 <div className="sand-bottom-buttons" style={{width: "25%",height: "45%",display: "flex",justifyContent: "space-between",alignItems: "center"}}>
-                <Button variant="contained" className="sand-cart-button" style={{height:"80%",marginTop:"10%",backgroundColor: "#ffb600"}} onClick={handleCart}>
-                    ADD TO CART
-                </Button>
-                <Button variant="contained" className="sand-cart-button" style={{height:"80%",marginTop:"10%",backgroundColor: "#ffb600"}} onClick={handlemodal}>
-                    Request
-                </Button>
-                </div>
-                <ToastContainer />
+            }
+            <div className="cement-bottom-buttons">
+            <Button variant="contained" className="cement-cart-button" onClick={handleCart}>
+                ADD TO CART
+            </Button>
+            <Button variant="contained" className="cement-cart-button1" onClick={handlemodal}>
+                Request
+            </Button>
+        </div>
+            <ToastContainer />
         </div>
     )
 }

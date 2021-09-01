@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom"
 import pendingIcon from "../../../../Images/newProfile/Verification pending.png"
 import completedIcon from "../../../../Images/newProfile/Verification Completed.svg"
 import logutIcon from "../../../../Images/newProfileYellow/Logout.png"
+import LogoutPopup from "../../../Vendor/Profile/sections/Logout/LogoutPopup";
 
 const ProfileNavMobile = (props) => {
     const dispatch = useDispatch()
@@ -18,6 +19,10 @@ const ProfileNavMobile = (props) => {
     const [wpp, setWpp] = useState(props.formData?.whatsapp_no ? props.formData?.whatsapp_no : "");
 
     const [filled, setFilled] = useState("")
+    const [open, setOpen]=useState(false);
+    const handleLogoutConfirmation = () => {
+        setOpen(true)
+    }
     const handleLogout = () => {
         props.function(6)
         dispatch({ type: "LOGOUT" })
@@ -58,7 +63,8 @@ const ProfileNavMobile = (props) => {
                         </div>
 
                         <div className="logout_btn">
-                        <Button onClick={handleLogout} style={{display:"flex",alignItems:"center",height:"50px"}}> <img src={logutIcon} alt="" /> logout</Button>
+
+                        <Button onClick={handleLogoutConfirmation} style={{display:"flex",alignItems:"center",height:"50px"}}> <img src={logutIcon} alt="" /> logout</Button>
                         </div>
                     </div>
                 </div>
@@ -109,6 +115,7 @@ const ProfileNavMobile = (props) => {
                     </>
                 }
             </div>
+            <LogoutPopup open={open} setOpen={setOpen} handleLogout={handleLogout} />
 
         </>
     );

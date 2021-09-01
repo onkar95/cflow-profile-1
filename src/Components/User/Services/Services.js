@@ -48,7 +48,7 @@ import Hero35 from "../../../Images/Banners/35.png"
 import Hero36 from "../../../Images/Banners/36.png"
 import Hero37 from "../../../Images/Banners/37.png"
 import PopupSaved from "../../Popup/popupsaved/PopupSaved"
-function Services({setCurrentSectionRequest,site,getAllVendor,currentSection, setCurrentSection,setCurrentSectionProfile}) {
+function Services({theme,setCurrentSectionRequest,site,getAllVendor,currentSection, setCurrentSection,setCurrentSectionProfile}) {
     // const [currentSection, setCurrentSection] = useState(0)
     const [selected,setSelected] = useState(null)
     const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
@@ -96,11 +96,11 @@ function Services({setCurrentSectionRequest,site,getAllVendor,currentSection, se
                 <h2 style={{fontWeight: '700',marginLeft:5}}>Our Services</h2>
             </div>
             <div className="service-user-content">
-                <div className="service-user-sidemenu">
-                    <Sidemenu currentSection={currentSection} setCurrentSection={setCurrentSection}/>
+                <div className="service-user-sidemenu" >
+                    <Sidemenu theme={theme} currentSection={currentSection} setCurrentSection={setCurrentSection} style={theme?{color:"black"}:{color:"white"}}/>
                 </div>
-                <div className="service-user-detail">
-                    {currentSection === 0 && <ConstructionMaterial setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} getAllVendor={getAllVendor} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen} />}
+                <div className="service-user-detail" >
+                    {currentSection === 0 && <ConstructionMaterial theme={theme} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} getAllVendor={getAllVendor} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen} />}
                     {currentSection === 1 && <Agents setOpenSaved={setOpenSaved} getAllVendor={getAllVendor} setCurrentSectionProfile={setCurrentSectionProfile}  setCurrentSectionRequest={setCurrentSectionRequest} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen}/>}
                     {currentSection === 2 && <CommercialVehicles getAllVendor={getAllVendor} setCurrentSectionRequest={setCurrentSectionRequest}  newRequest={newRequest} setNewRequest={setNewRequest} setCurrentSection={setCurrentSection} setSelected={setSelected} site={site} />}
                     {currentSection === 3 && <ConstructionMachines />}

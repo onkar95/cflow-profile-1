@@ -10,6 +10,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { slide as Menu } from 'react-burger-menu'
 // import DarkTheme from "../../../Images/newProfile/Light.png"
 import lightIcon from "../../../Images/newProfile/Light.png"
+import profileIcon from "../../../Images/newProfile/Profile.png"
+import unitConverterIcon from "../../../Images/newProfile/calculator.png"
+import helpIcon from "../../../Images/newProfile/Help.png"
 
 const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, LogoImage, setCurrentSection, setCurrentSectionProfile, setIsToggled, getCart, DarkWhite }) => {
     const history = useHistory()
@@ -114,6 +117,9 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
 
         }
     }
+    const viewProfile = () => {
+        setCurrentSection(14)
+    }
     return (
         <div className="home-user-header">
             {winsize < 650 &&
@@ -128,15 +134,18 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
                 <img src={LogoImage} className="CF-logo-user" onClick={() => userId ? setCurrentSection(0) : history.push('/')} />
             </div>
             <div className="home-user-help-user">
+                <img src={lightIcon} onClick={changeTheme} style={{ width: "30px", height: "30px" }} />
+                <img src={unitConverterIcon}  style={{ width: "30px", height: "30px" }} />
+                <img src={helpIcon} className="help-icon" style={{ width: "30px", height: "30px" }} onClick={() => { setCurrentSection(14); setCurrentSectionProfile(5) }} />
+                {/* <ShoppingCartOutlinedIcon className="shopping-cart" onClick={handleCart} /> */}
+
                 {userId ?
                     <img onClick={() => setIsToggled(true)} src={NotificationsIcon} style={{ cursor: 'pointer' }} />
                     // </span>
                     :
                     <Button className="login-btn-user" onClick={() => { setIsUser(true); history.push('/auth-user') }}>Login</Button>
                 }
-                <img src={lightIcon} onClick={changeTheme} style={{width:"30px",height:"30px"}}/>
-                <ShoppingCartOutlinedIcon className="shopping-cart" onClick={handleCart} />
-                <HelpOutlineOutlinedIcon className="help-icon" onClick={() => { setCurrentSection(4); setCurrentSectionProfile(5) }} />
+                <img src={profileIcon} onClick={viewProfile} style={{ width: "30px", height: "30px" }} />
             </div>
         </div>
     )

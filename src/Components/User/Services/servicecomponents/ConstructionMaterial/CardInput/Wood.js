@@ -9,24 +9,25 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
+function Wood({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
 
+    const names=dropdownData?.wood_names;
+    const grades=dropdownData?.wood_grades;
+    const types=dropdownData?.wood_types;
 
-    const [selectedtype, setSelectedType] = useState("")
-    const [selectedsize, setSelectedSize] = useState("")
-    const units = ["kilograms(kg)", "Ton"]
-
-    const types = dropdownData?.stones_types;
-    const sizes = dropdownData?.stones_sizes;
-
+    const [selectedname, setSelectedName]=useState("")
+    const [selectedgrade, setSelectedGrade]=useState("")
+    const [selectedtype, setSelectedType]=useState("")
+    const units = ["Ton", "Metric ton", "kilogram(kg)"]
 
     let quantitywithunit
     useEffect(() => {
         quantitywithunit = quantity + " " + currentUnit
         setNewRequest({ ...newRequest, quantity: quantitywithunit })
     }, [currentUnit, quantity])
+
 
     const notify = (msg) =>
         toast.error(msg, {
@@ -39,46 +40,45 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             progress: undefined,
         });
 
-    const handlemodal = () => {
-        if (userId === undefined) {
-            alert('Please Login');
-            history.push('/auth-user')
-        }
-        else {
-            if (!formData?.phone_no || !formData?.first_name) {
-                notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
-            }
-            else if (selectedtype === "" || selectedsize === "") {
-                notify('Please select something');
-            }
-            else if (quantity <= 0 && !currentUnit) {
-                notify('Select a unit and the quantity should be greater than 0')
-            }
-            else if (!currentUnit) {
-                notify('Select a unit')
-            }
-            else if (quantity <= 0) {
-                notify('The quantity should be greater than 0')
+        const handlemodal = () => {
+            if (userId === undefined) {
+                alert('Please Login');
+                history.push('/auth-user')
             }
             else {
-                setModalOpen(true)
+                if (!formData?.phone_no || !formData?.first_name) {
+                    notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
+                }
+                else if (selectedname === "" || selectedgrade === "" || selectedtype === "") {
+                    notify('Please select something');
+                }
+                else if (quantity <= 0 && !currentUnit) {
+                    notify('Select a unit and the quantity should be greater than 0')
+                }
+                else if (!currentUnit) {
+                    notify('Select a unit')
+                }
+                else if (quantity <= 0) {
+                    notify('The quantity should be greater than 0')
+                }
+                else {
+                    setModalOpen(true)             
+                }
             }
         }
-    }
 
     const useStyles = makeStyles((theme) => ({
         formControl: {
             //   margin: theme.spacing(1),
             marginRight: theme.spacing(2),
             // minWidth: 200,
-
             backgroundColor: "#08090C",
             color: "white",
             height: "100%",
 
             "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
                 border: "1px solid transparent",
-                borderRadius: "5px 5px 0 0",
+                // borderRadius: "5px 5px 0 0",
                 color: "white"
             }
         },
@@ -105,23 +105,18 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                 borderColor: "transparent"
             }
         },
-        input1: {
-            color: "white",
-            "& input::placeholder":{color:"#fffafa"},
-        },
         input: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
             "& .MuiInputBase-input": {height:'0.3rem'}
         },
+        input1: {
+            color: "white",
+            "& input::placeholder":{color:"#fffafa"},
+        },
         overflow: "hidden"
     }));
-    useEffect(() => {
-        setData({ type: selectedtype, sizes: selectedsize })
 
-    }, [selectedtype, selectedsize])
-
-    const classes = useStyles()
 
     const handleCart = async (e) => {
         e.preventDefault()
@@ -133,7 +128,7 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             if (!formData?.phone_no || !formData?.first_name) {
                 notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
             }
-            else if ((selectedtype !== "" && selectedsize !== "") && quantity > 0 && currentUnit) {
+            else if ((selectedname !== "" && selectedgrade !== "" && selectedtype !== "") && quantity > 0 && currentUnit) {
                 setNewRequest({ ...newRequest, quantity: quantity })
                 await axios.post(`${process.env.REACT_APP_URL}/product/add_to_cart/${userId}`, newRequest)
                     .then(function (response) {
@@ -141,11 +136,12 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                     })
                 setOpenSaved(true)
                 setQuantity(0)
-                setSelectedType("")
                 setCurrentUnit("")
-                setSelectedSize("")
+                setSelectedName("")
+                setSelectedType("")
+                setSelectedGrade("")
             }
-            else if (selectedtype === "" || selectedsize === "") {
+            else if ( selectedname === "" || selectedgrade === "" || selectedtype === "") {
                 notify('Please select something');
             }
             else if (quantity <= 0 && !currentUnit) {
@@ -162,85 +158,99 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             }
         }
     }
+    useEffect(() => {
+        setData({ brand: selectedname+"/"+selectedgrade, type: selectedtype })
 
-    const [placeholder1, setPlaceholder1]=useState("Stone types")
-    const [placeholder2, setPlaceholder2]=useState("Stone sizes")
-    const [more, setMore]=useState(false)
-    useEffect(()=>{
-        setSelectedType("")
-    }, [more])
+    }, [selectedname, selectedgrade, selectedtype])
 
     useEffect(()=>{
         if(modalopen===false){
             setQuantity(0)
-            setSelectedType("")
             setCurrentUnit("")
-            setSelectedSize("")
+            setSelectedName("")
+            setSelectedType("")
+            setSelectedGrade("")
         }
     }, [modalopen])
 
+    const [placeholder1, setPlaceholder1]=useState("Wood names")
+    const [placeholder2, setPlaceholder2]=useState("Wood grades")
+    const [placeholder3, setPlaceholder3]=useState("Wood types")
+
+    const classes = useStyles()
+
     return (
         <div className="selected">
-        <div className="selected-header">Stones</div>
-        <div className="description" style={{marginBottom:'30px'}}>Add stones to your products.</div>
-        <div className="description">Select stone type</div>
+        <div className="selected-header">Woods</div>
+        <div className="description" style={{marginBottom:'30px'}}>Add woods to your products.</div>
+        <div className="description">Select name, grade and type.</div>
 
-
-
-    { more===false &&
+  
        <div>
         <Autocomplete
-        value={more===false?selectedtype:""}
+        value={selectedname}
         id="combo-box-demo"
         onChange={(event, newInputValue) => {
-            setSelectedType(newInputValue);
+            setSelectedName(newInputValue);
             }}
-        options={types?.length>0?types:[]}
+        options={names?.length>0?names:[]}
         classes={{
             input: classes.input
           }}
         getOptionLabel={option => option}
         style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
         renderInput={params => (
-          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search stone type")}} onBlur={()=>{setPlaceholder1("Stone types")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
+          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search Wood name")}} onBlur={()=>{setPlaceholder1("Wood names")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
         )}
       />
 
 
-    <div style={{marginTop:'10%', marginBottom:'5%'}}>Didn't find your brand? <span class="add-more" onClick={()=>{setMore(true)}}>Click here to add</span></div>
-    </div>  
-      }
 
 
-     {more===true &&
-        <div>
-        <div className="quantity1" style={{ marginTop: "2%", width: "100%", height: "60px", marginBottom: '3%' }}>
-        <TextField type="text" value={selectedtype} style={{ backgroundColor: "#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedType(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Stone type" variant="outlined" />
-        </div>
-        <div className='span-container' style={{marginTop:'5.4%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
-        </div>
-    }
-
+      <Autocomplete
+      value={selectedgrade}
+      id="combo-box-demo"
+      onChange={(event, newInputValue) => {
+          setSelectedGrade(newInputValue);
+          }}
+      options={grades?.length>0?grades:[]}
+      classes={{
+          input: classes.input
+        }}
+      getOptionLabel={option => option}
+      style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
+      renderInput={params => (
+        <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search wood grade")}} onBlur={()=>{setPlaceholder2("Wood grades")}} classes={{ root: classes.input }} />
+      )}
+    />
 
     <Autocomplete
-    value={selectedsize}
+    value={selectedtype}
     id="combo-box-demo"
     onChange={(event, newInputValue) => {
-        setSelectedSize(newInputValue);
+        setSelectedType(newInputValue);
         }}
-    options={sizes?.length>0?sizes:[]}
+    options={types?.length>0?types:[]}
     classes={{
         input: classes.input
       }}
     getOptionLabel={option => option}
     style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
     renderInput={params => (
-      <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search stone Size")}} onBlur={()=>{setPlaceholder2("Stone sizes")}} classes={{ root: classes.input }} />
+      <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search wood type")}} onBlur={()=>{setPlaceholder3("Wood types")}} classes={{ root: classes.input }} />
     )}
   />
-    {(selectedtype !=="" && selectedsize!=="")
-        &&
+    </div>  
+      
 
+
+
+
+
+
+
+    {(selectedname !=="" && selectedgrade !=="" && selectedtype!=="")
+        &&
         <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
         <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
         <FormControl
@@ -253,7 +263,7 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             Units
         </InputLabel>
         <Select
-        className='select'
+            className='select'
             id='demo-simple-select'
             inputProps={{ classes: { icon: classes.icon } }}
             style={{ color: "#ffb600", height: '52px', width: '150px' }}
@@ -284,8 +294,8 @@ function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
         </Button>
     </div>
     <ToastContainer />
-    </div>
+        </div>
     )
 }
 
-export default Cement
+export default Wood

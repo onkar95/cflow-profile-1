@@ -30,27 +30,27 @@
   object-fit: contain;
 }
 .home-user-help-user {
-  width: 10% !important;
+  width: 15% !important;
   justify-content: space-between;
   align-items: center !important;
   font-size: 1rem;
   display: flex;
 }
-.home-user-sections {
+.home_user_sections {
   padding: 0rem 2rem 0rem 2rem;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 40%;
 
   align-items: center;
 }
-.home-user-section {
+.home_user_section {
   height: 51px !important;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: -2px;
-  border: 1px solid #2d2d2d;
+  /* border: 1px solid #2d2d2d; */
   cursor: pointer;
   font-weight: 600;
 }
