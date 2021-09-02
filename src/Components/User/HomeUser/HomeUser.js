@@ -10,7 +10,8 @@ import Services from '../Services/Services';
 import Blog from '../blog/Blog';
 import AboutUs from '../about us/AboutUs';
 import Notifications from '../Notifications/Notifications';
-import HomecontentUser from '../HomeContentUser/HomeContentUser';
+// import HomecontentUser from '../HomeContentUser/HomeContentUser';
+import HomePage from '../HomeContentUser/HomePage';
 import Footer from "../../FooterJy/Footer";
 import Details from '../Requests/Details';
 import Details1 from "../Requests/Details1"
@@ -40,13 +41,13 @@ import Navbar from './Navbar';
 import Header from './Header';
 import { getUser } from "./HomeUserApi"
 import Cart from '../Cart/Cart';
-import PopupSaved from  "../../Popup/popupsaved/PopupSaved"
+import PopupSaved from "../../Popup/popupsaved/PopupSaved"
 
 
 require('dotenv').config()
 
 function HomeUser({ setIsUser, isSignup, setIsSignup }) {
-    const sections = ["Home", "Services", "Requests", "Estimates", "Blog","About us"]
+    const sections = ["Home", "Services", "Requests", "Estimates", "Blog", "About us"]
     const sections_logo_white = [HomeImage, ServicesImage, RequestsImage, EstimateImage, BlogImage, ProfileImage, NotificationImage]
     const sections_logo_black = [HomeImageBlack, ServicesImageBlack, RequestsImageBlack, EstimateImageBlack, BlogImageBlack, ProfileImageBlack, NotificationImageBlack]
     const [currentSection, setCurrentSection] = useState(null)
@@ -72,7 +73,9 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
     const [currentSectionBlog, setCurrentSectionBlog] = useState(0)
     const [theme, setTheme] = useState(false);
     const [title, setTitle] = useState("")
-    const [open, setOpen]=useState(false)
+    const [open, setOpen] = useState(false)
+
+    const [option, setOption] = useState("")
 
 
     console.log(theme);
@@ -358,9 +361,19 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
                 winsize > 650 && <Navbar sections={sections} currentSection={currentSection} setCurrentSection={setCurrentSection} sections_logo_black={sections_logo_black} sections_logo_white={sections_logo_white} setIsToggled={setIsToggled} />
             }
             <div className="home-user-content">
-                {currentSection === 0 && <HomecontentUser setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} toabout={toabout} setToabout={setToabout} />}
+                {currentSection === 0 && <HomePage
+                    option={option}
+                    setOption={setOption}
+                    setCurrentSection={setCurrentSection}
+                    setCurrentSectionProfile={setCurrentSectionProfile}
+                    toabout={toabout}
+                    setToabout={setToabout}
+                     />}
+
                 {currentSection === 1 && <Services
                     theme={theme}
+                    option={option}
+                    setOption={setOption}
                     setCurrentSectionRequest={setCurrentSection}
                     site={site}
                     getAllVendor={getAllVendor}
@@ -386,11 +399,19 @@ function HomeUser({ setIsUser, isSignup, setIsSignup }) {
                 {currentSection === 5 && <AboutUs
                     theme={theme}
                     setCurrentSectionRequest={setCurrentSection}
-                    // setCurrentSection={setCurrentSectionBlog}
-                    // setCurrentSectionBlog={setCurrentSectionBlog}
-                    // currentSection={currentSectionBlog}
+                // setCurrentSection={setCurrentSectionBlog}
+                // setCurrentSectionBlog={setCurrentSectionBlog}
+                // currentSection={currentSectionBlog}
                 />}
-                {currentSection === 14 && <Profile theme={theme} toabout={toabout} setToabout={setToabout} formData={formData} setFormData={setFormData} getUser={getUser} site={site} getSite={getSite} setSite={setSite} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile} />}
+                {currentSection === 14 && <Profile
+                    theme={theme}
+                    toabout={toabout}
+                    setToabout={setToabout}
+                    formData={formData}
+                    setFormData={setFormData} getUser={getUser}
+                    site={site} getSite={getSite} setSite={setSite}
+                    currentSection={currentSectionProfile}
+                    setCurrentSection={setCurrentSectionProfile} />}
                 {currentSection === 6 && <Details setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} getAllVendor={getAllVendor} />}
                 {currentSection === 7 && <Details1 setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} />}
                 {currentSection === 8 && <DetailAccepted setCurrentSection={setCurrentSection} selectedTableItem={selectedTableItem} requestedVendorDetails={requestedVendorDetails} />}

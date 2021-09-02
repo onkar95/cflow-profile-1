@@ -85,7 +85,11 @@
   color: black !important;
   padding: 4% !important;
 }
-
+@media screen and (max-width: 1200px) {
+  .home_user_sections {
+    width: 55%;
+    }
+}
 @media screen and (max-width: 1000px) {
   .shopping-cart {
     font-size: 1rem !important;
@@ -108,6 +112,9 @@
     font-size: 0.75rem !important;
     padding: 0% !important;
   }
+  .home_user_sections {
+    width: 65%;
+    }
 }
 @media screen and (max-width: 600px) {
   .home-user-logo {

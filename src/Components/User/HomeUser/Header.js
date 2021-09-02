@@ -13,7 +13,7 @@ import lightIcon from "../../../Images/newProfile/Light.png"
 import profileIcon from "../../../Images/newProfile/Profile.png"
 import unitConverterIcon from "../../../Images/newProfile/calculator.png"
 import helpIcon from "../../../Images/newProfile/Help.png"
-
+// import Convertor from "../HomeContentUser/Convertor"
 const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, LogoImage, setCurrentSection, setCurrentSectionProfile, setIsToggled, getCart, DarkWhite }) => {
     const history = useHistory()
 
@@ -135,7 +135,10 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
             </div>
             <div className="home-user-help-user">
                 <img src={lightIcon} onClick={changeTheme} style={{ width: "30px", height: "30px" }} />
+                <div>
                 <img src={unitConverterIcon}  style={{ width: "30px", height: "30px" }} />
+                    {/* <Convertor style={{display:}}/> */}
+                </div>
                 <img src={helpIcon} className="help-icon" style={{ width: "30px", height: "30px" }} onClick={() => { setCurrentSection(14); setCurrentSectionProfile(5) }} />
                 {/* <ShoppingCartOutlinedIcon className="shopping-cart" onClick={handleCart} /> */}
 

@@ -56,7 +56,7 @@ const ProfileNav = (props) => {
                                 </div>
                                     :
                                     <div className="profileCompleted_icon" >
-                                        <img src={pendingIcon} style={{ width: "40px",color:"gray",height:"30px" }} alt="" />
+                                        <img src={pendingIcon} style={{ width: "30px",color:"gray",height:"30px" }} alt="" />
                                         <span className="hover_txt" style={{ color:"gray",top:"30%" }}> profile is not verified</span>
                                     </div>}
                             </div>

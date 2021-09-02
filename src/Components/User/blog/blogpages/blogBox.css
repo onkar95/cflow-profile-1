@@ -52,13 +52,28 @@
 
 .box_button button {
     background-color: transparent;
-    color: yellow;
+    color: #ffb600;;
     border: none;
     /* line-height: 1rem; */
     font-size: 15px;
     cursor: pointer;
 }
+.rec-arrow-left {
+    background-color: #ffb600 !important;
+}
+.rec-arrow-right {
+    background-color: #ffb600 !important;
+}
+.rec-dot{
+    /* background-color: #ffb600 !important; */
+/* box-shadow: 0 0 1px 2px black !important ; */
+transition: all 250ms ease;
+}
+.rec-dot_active{
+    background-color: #ffb600 !important;
+    box-shadow: 0 0 1px 2px black !important ;
 
+}
 .box_button a {
     display: none;
     text-decoration: none;

@@ -48,9 +48,10 @@ import Hero35 from "../../../Images/Banners/35.png"
 import Hero36 from "../../../Images/Banners/36.png"
 import Hero37 from "../../../Images/Banners/37.png"
 import PopupSaved from "../../Popup/popupsaved/PopupSaved"
-function Services({theme,setCurrentSectionRequest,site,getAllVendor,currentSection, setCurrentSection,setCurrentSectionProfile}) {
+function Services({setOption,option,theme,setCurrentSectionRequest,site,getAllVendor,currentSection, setCurrentSection,setCurrentSectionProfile}) {
     // const [currentSection, setCurrentSection] = useState(0)
-    const [selected,setSelected] = useState(null)
+    const [selected, setSelected] = useState(null)
+
     const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const service={0:"Construction Materials",1:"Agents",2:"Commercial Vehicles",4:"Construction Chemicals",5:"Commercial Vehicles"}
     const img_arr = [ Hero1 , Hero2 , Hero3 , Hero4 , Hero5 , Hero6 , Hero7 , Hero8 , Hero9 , Hero10 , Hero11 , Hero12 , Hero13 , Hero14 , Hero15 , Hero16 , Hero17 , Hero18 , Hero19 , Hero20 , Hero21 , Hero22 , Hero23 , Hero24 , Hero25 , Hero26 , Hero27 , Hero28 , Hero29 , Hero30 , Hero31 , Hero32 , Hero33 , Hero34 , Hero35 , Hero36 , Hero37 ]
@@ -97,10 +98,11 @@ function Services({theme,setCurrentSectionRequest,site,getAllVendor,currentSecti
             </div>
             <div className="service-user-content">
                 <div className="service-user-sidemenu" >
-                    <Sidemenu theme={theme} currentSection={currentSection} setCurrentSection={setCurrentSection} style={theme?{color:"black"}:{color:"white"}}/>
+                    <Sidemenu theme={theme} currentSection={currentSection} setCurrentSection={setCurrentSection} />
                 </div>
                 <div className="service-user-detail" >
-                    {currentSection === 0 && <ConstructionMaterial theme={theme} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} getAllVendor={getAllVendor} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen} />}
+                    {currentSection === 0 && <ConstructionMaterial setOption={setOption} option={option}theme={theme} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} getAllVendor={getAllVendor} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen} />}
+
                     {currentSection === 1 && <Agents setOpenSaved={setOpenSaved} getAllVendor={getAllVendor} setCurrentSectionProfile={setCurrentSectionProfile}  setCurrentSectionRequest={setCurrentSectionRequest} newRequest={newRequest} setNewRequest={setNewRequest} site={site} handleClickOpen={handleClickOpen}/>}
                     {currentSection === 2 && <CommercialVehicles getAllVendor={getAllVendor} setCurrentSectionRequest={setCurrentSectionRequest}  newRequest={newRequest} setNewRequest={setNewRequest} setCurrentSection={setCurrentSection} setSelected={setSelected} site={site} />}
                     {currentSection === 3 && <ConstructionMachines />}

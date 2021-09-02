@@ -74,8 +74,9 @@ const Blog = ({ setCurrentSection, blogData,blogID,theme }
                     </div>
                 </div>
                 :
-                < div>
-                    <h1>Nothing to show</h1>
+                < div   style={{ display: "flex",flexDirection:"column", alignItems: "center", backgroundColor: "#2d2d2d", justifyContent: "center", height: "200px" }}>
+
+                    <h1>Loading</h1>
                     <h1>please wait</h1>
                 </div>
             }

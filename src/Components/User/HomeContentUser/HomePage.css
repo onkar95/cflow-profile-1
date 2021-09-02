@@ -1,0 +1,307 @@
+.home-main-full {
+    position: relative;
+    width: 100%;
+    height: 160rem;
+  
+    background: #ffffff;
+  }
+  
+  .home-banner-header {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(
+        180deg,
+        rgba(30, 30, 28, 0.8) 17.05%,
+        rgba(30, 30, 28, 0) 120.28%
+      ),
+      url("../../../Images/home-banner.png");
+  }
+  
+  .home-banner-header p {
+    position: absolute;
+    width: 50%;
+    left: 10%;
+    top: 40%;
+    /* letter-spacing: 30%; */
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 500;
+    /* font-size: 3rem; */
+    line-height: 150%;
+  }
+  .home-banner-header span {
+    font-weight: 600;
+  
+    width: 100%;
+    font-size: 2.5rem;
+    line-height: 170%;
+  }
+  .service-our {
+    top: 41rem;
+    width: 100%;
+    height: 16%;
+    position: absolute;
+  }
+  .service-our .our-services-box {
+    width: 70%;
+    height: 60%;
+    position: absolute;
+    left: 16%;
+    top: 4rem;
+    background: #000000;
+    border-radius: 20px;
+  }
+  .our-services-box .service-material {
+    text-align: right;
+    text-decoration: none;
+    padding-right: 10%;
+  }
+  .our-services-box .service-material li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+    /* margin-left: 10%; */
+    /* text-align: right; */
+    color: #ffffff;
+    font-family: Open Sans;
+    font-style: normal;
+  }
+  .our-services-box .service-material li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+  
+    font-size: 0.9rem;
+    transition: 0.15s;
+  }
+  .our-services-box .service-material li a:hover,
+  .our-services-box .service-material li a:active,
+  .our-services-box .service-material li a:focus {
+    color: #ffbc2e;
+  }
+  .our-services-box h1 {
+    color: #fff;
+    font-size: 3rem;
+    position: absolute;
+    margin-top: 1%;
+    margin-left: 3%;
+    text-align: center;
+    width: 20%;
+    font-family: Open Sans;
+    font-style: normal;
+  }
+  .service-our .dot-line {
+    width: 96%;
+    left: 2%;
+    position: absolute;
+    top: 27rem;
+    border: 2px dashed #ffb600;
+  }
+  .customer-satisfy {
+    top: 23rem;
+    position: absolute;
+  }
+  .customer-satisfy ul {
+    list-style-type: square;
+  }
+  .customer-satisfy ul li {
+    /* color: #ffb600; */
+    display: inline-block;
+    margin: 0 80px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: 0.15s;
+    color: #1e1e1c;
+  }
+  .customer-satisfy ul li::before {
+    content: "\2022";
+    color: #ffb600;
+    font-weight: bolder;
+  
+    width: 5em;
+  }
+  .be-a-real {
+    position: absolute;
+    width: 100%;
+    height: 18vh;
+    left: -1px;
+    top: 69rem;
+    color: #ffcd01;
+    line-height: 170%;
+    font-size: 120%;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 4%;
+    background: #1e1e1c;
+  }
+  .about-us-box {
+    top: 79.6rem;
+    width: 99.8%;
+  
+    height: 72vh;
+    position: absolute;
+  }
+  .about-us-box h1 {
+    font-size: 2.2rem;
+    top: 1.5rem;
+    position: absolute;
+    line-height: 22px;
+    color: #000000;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    left: 5%;
+    padding-bottom: 3%;
+  }
+  .about-us-box span {
+    color: #ffcd01;
+  }
+  .about-us-box .history-tl-container {
+    font-family: "Roboto", sans-serif;
+  
+    margin-top: 3%;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    display: block;
+    position: relative;
+  }
+  .history-tl-container ul.tl {
+    margin: 12px 0;
+    padding: 0;
+    display: inline-block;
+  }
+  .history-tl-container ul.tl li {
+    list-style: none;
+    margin: auto;
+    margin-left: 10px;
+    min-height: 50px;
+  
+    border-left: 1px dashed #ffcd01;
+    padding: 0 0 50px 30px;
+    position: relative;
+  }
+  .history-tl-container ul.tl li:last-child {
+    border-left: 0;
+  }
+  .history-tl-container ul.tl li::before {
+    position: absolute;
+    left: -7px;
+    top: -5px;
+    content: " ";
+  
+    border-radius: 500%;
+    background: #ffcd01;
+    height: 15px;
+    width: 15px;
+  }
+  
+  .tl .tl-item .item-title {
+    font-size: 1rem;
+  }
+  .tl .tl-item .item-detail {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.8rem;
+    width: 40%;
+  }
+  .about-us-box .about-img {
+    width: 25%;
+    height: 55%;
+    left: 65%;
+    top: 30%;
+    z-index: 2;
+    position: absolute;
+    border-radius: 20px;
+  }
+  .about-us-box .box-square {
+    position: absolute;
+    width: 309px;
+    height: 167px;
+    left: 77%;
+    top: 0.3%;
+    background: #ffcd01;
+  }
+  .about-us-box .box-vertical {
+    height: 450.55px;
+    width: 162px;
+    left: 88%;
+    position: absolute;
+    top: 10%;
+    background: #ffcd01;
+  }
+  .blog-adds {
+    height: 15%;
+    top: 70%;
+    position: absolute;
+    width: 99.8%;
+  }
+  .blog-adds .box-square1 {
+    position: absolute;
+    width: 15%;
+    height: 267px;
+    left: 0%;
+    top: 62%;
+    background: #ffcd01;
+  }
+  .blog-adds .box-vertical1 {
+    height: 66%;
+    width: 7%;
+    left: 0%;
+    position: absolute;
+    top: 0%;
+    background: #ffcd01;
+  }
+  .blog-adds h1 {
+    position: absolute;
+    width: 418px;
+    height: 22px;
+    left: 48px;
+    z-index: 99;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+  
+    color: #1e1e1c;
+  }
+  
+  .blog-new {
+    text-align: center;
+    font-weight: 600;
+  }
+  .blog-new p {
+    margin-top: -50%;
+    text-align: center;
+    font-size: 2.2rem;
+  }
+  .blog-new a {
+    text-align: center;
+    font-size: 1.2rem;
+  
+    text-decoration: none;
+    color: #ffcd01;
+  }
+  
+  .rec.rec-arrow:hover {
+    background: none !important;
+  }
+  .rec.rec-arrow {
+    background: none !important;
+  }
+  
+  .rec-dot {
+    box-shadow: 0 0 1px 1px black !important;
+    background-color: white !important;
+    /* outline: none; */
+  }
+  .rec-dot_active {
+    background-color: #ffcd01 !important;
+  }
