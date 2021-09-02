@@ -1,4 +1,3 @@
-
 /* *{
   background-color: aliceblue;
 } */
@@ -14,28 +13,39 @@
   overflow-x: hidden;
   /* background-color: aliceblue; */
 }
+
 .home-user-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin: -0.75rem 0rem 0rem 0rem;
+  margin: 15px;
 }
+
+.home-user-header img {
+
+  margin: 5px;
+}
+
 .home-user-logo {
   padding-left: 0rem;
   display: flex;
   align-items: center;
 }
+
 .CF-logo-user {
   width: 35%;
   object-fit: contain;
 }
+
 .home-user-help-user {
   width: 15% !important;
   justify-content: space-between;
   align-items: center !important;
   font-size: 1rem;
   display: flex;
+  margin-right: 70px;
 }
+
 .home_user_sections {
   padding: 0rem 2rem 0rem 2rem;
   display: flex;
@@ -44,6 +54,7 @@
 
   align-items: center;
 }
+
 .home_user_section {
   height: 51px !important;
   display: flex;
@@ -54,6 +65,7 @@
   cursor: pointer;
   font-weight: 600;
 }
+
 .home-user-content {
   width: 100%;
 }
@@ -61,66 +73,88 @@
 .home-user-container::-webkit-scrollbar {
   display: none;
 }
+
 .bell {
   background-color: #ffb600;
   border-radius: 100%;
   padding: 2%;
   cursor: pointer;
 }
+
 .user {
   padding: 2%;
   cursor: pointer;
 }
+
 .shopping-cart {
   color: #ffb600;
   font-size: 2rem;
   cursor: pointer;
 }
+
 .help-icon {
   font-size: 2rem;
   cursor: pointer;
 }
+
 .login-btn-user {
   background-color: #ffb600 !important;
   color: black !important;
   padding: 4% !important;
 }
+
 @media screen and (max-width: 1200px) {
   .home_user_sections {
     width: 55%;
-    }
+  }
 }
+
 @media screen and (max-width: 1000px) {
   .shopping-cart {
     font-size: 1rem !important;
   }
+
   .help-icon {
     font-size: 1rem !important;
   }
+
   .home-user-logo {
     padding-left: 0rem;
     width: 30%;
   }
+
   .home-user-help-user {
     width: 30% !important;
     font-size: 0.5rem;
   }
+
   .CF-logo-user {
     width: 125%;
   }
+
   .login-btn-user {
     font-size: 0.75rem !important;
     padding: 0% !important;
   }
+
   .home_user_sections {
     width: 65%;
-    }
+  }
 }
+
 @media screen and (max-width: 600px) {
   .home-user-logo {
     margin-left: -25%;
   }
-  .home-user-container{
+
+  .home-user-container {
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  .home-user-help-user {
+    margin-right: 80px;
   }
 }
