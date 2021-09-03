@@ -24,7 +24,7 @@ const Help = ({ theme }) => {
           </div>
 
           <div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, porro?</p>
+            <p>How can i change my shipping address?</p>
             <ans>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa suscipit mollitia eius id. Corporis laborum temporibus eveniet vero fugit alias!</ans>
           </div>
 
@@ -59,7 +59,7 @@ const Help = ({ theme }) => {
             </h3>
             <Textarea
               style={theme === true ? {
-                backgroundColor: "#c5c3c3", resize: "none",
+                backgroundColor: "#e0ded8", resize: "none",
                 minHeight: "10rem",
                 minWidth: "70%",
               } : {

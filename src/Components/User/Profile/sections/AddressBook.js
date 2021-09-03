@@ -57,7 +57,7 @@ const AddressBook = ({ theme, setCurrentSection, siteNo, site, setSite, getSite,
             <div className="saved_address">
                 {
                     site?.map((value, index) => (
-                        <div className="address" style={theme === true ? { backgroundColor: "#c5c3c3" } : null}>
+                        <div className="address" style={theme === true ? { backgroundColor: "#e0ded8 " } : null}>
                             <div className="address_details">
                                 <h1>
                                     Site Address {index + 1}
@@ -67,7 +67,6 @@ const AddressBook = ({ theme, setCurrentSection, siteNo, site, setSite, getSite,
                                 </h5>
                             </div>
                             <div className="address_btn">
-                                {/* <div className="btn-container-edit-add"> */}
                                 <div className="del-edit-add-btn edit_icon" onClick={() => handleEdit(index)} >
                                     <img src={EditIcon} alt="" />
                                 </div>

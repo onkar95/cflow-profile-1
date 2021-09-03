@@ -143,7 +143,7 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
                 {/* <ShoppingCartOutlinedIcon className="shopping-cart" onClick={handleCart} /> */}
 
                 {userId ?
-                    <img onClick={() => setIsToggled(true)} src={NotificationsIcon} style={{ cursor: 'pointer' }} />
+                    <img onClick={() => setIsToggled(true)} src={NotificationsIcon} style={{ cursor: 'pointer',height:"30px" }} />
                     // </span>
                     :
                     <Button className="login-btn-user" onClick={() => { setIsUser(true); history.push('/auth-user') }}>Login</Button>

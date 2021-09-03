@@ -52,7 +52,7 @@ const ProfileNav = (props) => {
                                 <h1>Customer name</h1>
                                 {email!="" ? <div className="profileCompleted_icon" >
                                     <img src={completedIcon} style={{ width: "40px",height:"30px" }} alt="" />
-                                    <span className="hover_txt" tyle={{ top:"35%" }}> profile is verified</span>
+                                    <span className="hover_txt" tyle={{ top:"50%" }}> profile is verified</span>
                                 </div>
                                     :
                                     <div className="profileCompleted_icon" >
@@ -94,13 +94,13 @@ const ProfileNav = (props) => {
                     </div>
                     :
                     <div className="usersActivity_div">
-                        <div className="users_pitch" style={props.theme === true ? { backgroundColor: "#f6d7c7" } : { backgroundColor: "#2d2d2d" }}>
+                        <div className="users_pitch" style={props.theme === true ? { backgroundColor: "#fdedc7" } : { backgroundColor: "#2d2d2d" }}>
                             <h1>168</h1>
                             <h5>Total pitch recived today</h5>
                             <h5><b>10.02%</b>  this week</h5>
                         </div>
 
-                        <div className="users_delivery" style={props.theme === true ? { backgroundColor: "#f6d7c7" } : { backgroundColor: "#2d2d2d" }}>
+                        <div className="users_delivery" style={props.theme === true ? { backgroundColor: "#fdedc7" } : { backgroundColor: "#2d2d2d" }}>
                             <h1>1.2K</h1>
                             <h5>Total Delivery</h5>
                             <h5> <b>10.02%</b> this Month</h5>

@@ -11,7 +11,8 @@ import axios from "axios";
 import "./Profile.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import EditIcon from "../../../../Images/newProfileYellow/Edit profile.png"
+import starGray from "../../../../Images/newProfile/Gray star.svg"
+import starYellow from "../../../../Images/newProfile/Yellow Star.svg"
 
 import Submit from "../../../../Images/newProfileYellow/Send Message.png"
 
@@ -78,65 +79,35 @@ const Feedback = ({ theme, formData, setFormData, getUser, handleClickOpen }) =>
                             marginTop: "1rem",
                         }}
                     >
-                        <Star
+                        <img
+                            src={rate >= 1 || stars >= 1 ? starYellow : starGray}
                             onMouseOver={() => setStars(1)}
                             onMouseLeave={() => setStars(0)}
                             onClick={() => setRate(1)}
-                            style={
-                                rate >= 1 || stars >= 1
-                                    ? {
-                                        backgroundColor: "#FFB600",
-                                    }
-                                    : {}
-                            }
                         />
-                        <Star
+                        <img
+                            src={rate >= 2 || stars >= 2 ? starYellow : starGray}
                             onMouseOver={() => setStars(2)}
                             onMouseLeave={() => setStars(0)}
                             onClick={() => setRate(2)}
-                            style={
-                                rate >= 2 || stars >= 2
-                                    ? {
-                                        backgroundColor: "#FFB600",
-                                    }
-                                    : {}
-                            }
                         />
-                        <Star
+                        <img
+                            src={rate >= 3 || stars >= 3 ? starYellow : starGray}
                             onMouseOver={() => setStars(3)}
                             onMouseLeave={() => setStars(0)}
                             onClick={() => setRate(3)}
-                            style={
-                                rate >= 3 || stars >= 3
-                                    ? {
-                                        backgroundColor: "#FFB600",
-                                    }
-                                    : {}
-                            }
                         />
-                        <Star
+                        <img
+                            src={rate >= 4 || stars >= 4 ? starYellow : starGray}
                             onMouseOver={() => setStars(4)}
                             onMouseLeave={() => setStars(0)}
                             onClick={() => setRate(4)}
-                            style={
-                                rate >= 4 || stars >= 4
-                                    ? {
-                                        backgroundColor: "#FFB600",
-                                    }
-                                    : {}
-                            }
                         />
-                        <Star
+                        <img
+                            src={rate >= 5 || stars >= 5 ? starYellow : starGray}
                             onMouseOver={() => setStars(5)}
                             onMouseLeave={() => setStars(0)}
                             onClick={() => setRate(5)}
-                            style={
-                                rate >= 5 || stars >= 5
-                                    ? {
-                                        backgroundColor: "#FFB600",
-                                    }
-                                    : {}
-                            }
                         />
                     </Row>
                     <h5>rate your expriance here</h5>
@@ -147,7 +118,8 @@ const Feedback = ({ theme, formData, setFormData, getUser, handleClickOpen }) =>
                     <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
                         <Textarea
                             style={theme === true ? {
-                                backgroundColor: "#c5c3c3", resize: "none",minHeight: "9rem",width: "65%"} : {resize: "none",minHeight: "9rem",width: "65%"}}
+                                backgroundColor: "#e0ded8", resize: "none", minHeight: "9rem", width: "65%"
+                            } : { resize: "none", minHeight: "9rem", width: "65%" }}
                             className="feedback_form"
                             placeholder='Give Your Feedback Here'
                             onChange={(e) => setFeed(e.target.value)}

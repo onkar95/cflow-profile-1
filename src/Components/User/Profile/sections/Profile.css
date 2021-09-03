@@ -118,15 +118,17 @@
   color: rgb(243, 188, 70);
   text-align: center;
   font-size: 30px;
-  top: 26%;
+  top: 30%;
+  left: 25%;
 }
-.profileCompleted_icon{
+
+.profileCompleted_icon {
   /* height: 20px; */
   display: flex;
   align-items: center;
 }
 
-.profileCompleted_icon:hover .hover_txt  {
+.profileCompleted_icon:hover .hover_txt {
   content: "verification completed";
   display: block;
   visibility: visible;
@@ -416,8 +418,12 @@
   width: 40%;
 }
 
+.help_ques_div p {
+  color: #0a0b0e;
+}
+
 .help_ques_div ans {
-  color: rgb(49, 46, 46);
+  color: #3c3c3c;
 }
 
 .help_text_div {
@@ -428,13 +434,15 @@
   display: flex;
   margin: 5px;
 }
-.dark_input{
+
+.dark_input {
   color: #262424;
   /* background-color: #f6f3f3; */
 }
-.white_input{
+
+.white_input {
   color: #000 !important;
-  background-color: #c5c3c3 !important;
+  background-color: #e0ded8 !important;
 }
 
 @media(max-width:1150px) {
@@ -497,7 +505,7 @@
     border: #2d2d2d solid 2px;
     margin: 28px;
   }
-  
+
 
   .saved_address {
     display: grid;

@@ -63,7 +63,7 @@ const Profile = ({ theme, toabout, setToabout, formData, setFormData, getUser, s
                 :
                 <ProfileNavMobile formData={formData} current={currentSection} function={handleChange} filled={filled} />
             }
-            <div className="profile_sections" style={theme === true ? { backgroundColor: "#f6f3f3", color: "black" } : { Color: "#2d2d2d" }}>
+            <div className="profile_sections" style={theme === true ? { backgroundColor: "#f6f5f2", color: "black" } : { Color: "#2d2d2d" }}>
                 {window.innerWidth > 600 ?
                     <Row >
                         <div className="profile_button">
