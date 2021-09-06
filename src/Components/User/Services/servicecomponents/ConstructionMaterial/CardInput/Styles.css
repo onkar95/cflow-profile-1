@@ -8,16 +8,16 @@
 }
 .cement-form-input {
   width: 200px !important;
-  box-shadow:-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2);
+  
 }
 .cement-cart-button {
-  height: 40px;
+  height: 40px !important;
   margin-top: 10%; 
   background-color: #ffb600 !important; 
   margin-right:6% !important;
 }
 .cement-cart-button1 {
-  height: 40px; 
+  height: 40px !important; 
   margin-top: 10%; 
   background-color: #ffb600 !important; 
 }
@@ -51,26 +51,24 @@
 .add-more:hover {
   cursor: pointer;
 }
-.selected {
-  height: 700px;
-  position: relative;
+.selected-item {
+  height: 750px;
 }
 .cement-bottom-buttons {
-  position: absolute;
-  bottom:0;
+  margin-top: 10%;
   width: 100%;
   display: flex; 
   justify-content: flex-end; 
   align-items: flex-end;
+  height:5% !important; 
 }
 .MuiFormControlLabel-label {
   width: 100%;
 }
-
 .MuiRadio-colorSecondary.Mui-checked {
   color: #f59300 !important;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .toggle-checkbox {
     height: 3rem !important;
   }
@@ -98,5 +96,8 @@
   }
   .checked-icon {
     transform: scale(1) !important;
+  }
+  .cement-bottom-buttons1 {
+    margin-top: -160px;
   }
 }

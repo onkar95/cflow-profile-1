@@ -11,3 +11,7 @@
     width: 80%;
   }
 }
+
+.MuiSvgIcon-root{
+  color:grey;
+}

@@ -8,7 +8,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Button from '@material-ui/core/Button';
 import {useHistory} from "react-router-dom";
-function Renting({notify,setCurrentSection,renting_details,setRenting_details,AddService,handleClickOpen,basic_information,paper_work,newService,setNewService}) {
+function Renting({formData, notify,setCurrentSection,renting_details,setRenting_details,AddService,handleClickOpen,basic_information,paper_work,newService,setNewService}) {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
@@ -36,6 +36,9 @@ function Renting({notify,setCurrentSection,renting_details,setRenting_details,Ad
             if(!driver && !nodriver)
             {
                 notify('Request cannot be empty!')
+            }
+            else if(!formData?.phone_no || !formData?.first_name){
+                notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
             }
             else
             {

@@ -53,9 +53,9 @@
   transition: background 0.8s;
 }
 
-.disiabled_save_butn:hover{
-    cursor: pointer;
-    background-color: #a87c0a;
+.disiabled_save_butn:hover {
+  cursor: pointer;
+  background-color: #a87c0a;
 }
 .disiabled_save_butn_block {
   padding: 0.7rem 2rem;
@@ -68,7 +68,7 @@
   left: 43%;
   transform: "translate(-50%)";
   cursor: not-allowed;
-  background-color: "gray"
+  background-color: "gray";
 }
 
 .email,
@@ -79,13 +79,13 @@
   border-radius: 8px;
   border-style: none;
   background-color: #2d2d2d;
-
 }
-.input{
+.input {
   color: #727272;
 }
 
-.email:hover ,.number:hover{
+.email:hover,
+.number:hover {
   cursor: not-allowed;
 }
 

@@ -1,5 +1,6 @@
-.home-content-carouselvendor {
+.home-content-carouselvendor, .carousel-image {
   min-height: 384px !important;
+  max-height: 384px !important;
   margin-bottom: 2rem;
 }
 .carousel-imagevendor {
@@ -9,5 +10,10 @@
 @media screen and (max-width: 1000px) {
   .home-content-carouselvendor {
     min-height: fit-content !important;
+  }
+
+  .carousel-image{
+    min-height: 200px !important;
+    max-height: 200px !important;
   }
 }

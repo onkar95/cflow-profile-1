@@ -1,0 +1,21 @@
+.cart-navigation {
+    height:120px;
+    background-color: #181818;
+    display: flex;
+    justify-content: flex-end;
+}
+.my-cart-button {
+    margin-top: 8% !important;
+    width: 25%;
+    height: 40% !important;
+    text-transform: none !important;
+}
+.cart-length {
+    font-size: xx-large;
+    margin-bottom: -25%;
+}
+.cart-detail-div {
+    margin-top: 6%;
+    margin-right: 48%;
+    color: #ffb600;
+}

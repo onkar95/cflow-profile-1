@@ -12,13 +12,20 @@
 }
 .blog_div_header button{
     background-color: transparent;
-    color: #ffb600;
+    color: yellow;
     border: none;
     /* line-height: 1rem; */
     font-size: large;
     cursor: pointer;
 }
-
+.latestBlog {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 400px;
+    width: 100%; */
+}
 
 .latestBlog_box {
     /* background-image: url("https://images.unsplash.com/photo-1615420733289-d8d75ca63946?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max")  ; */

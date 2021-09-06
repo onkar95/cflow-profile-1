@@ -1,73 +1,141 @@
+.main-del {
+  overflow: hidden;
+  width: 360px;
+  height: 400px;
+}
+
 .ButtonLogout {
-  background-color: #ffb600;
-  padding: 7px;
-  border: none;
-  border-radius: 5px;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1rem;
   cursor: pointer;
+  width: 106px;
+  height: 40px;
+  left: 135px;
+  background: #ffb600;
+  border-radius: 4px;
 }
 .ButtonCancel {
-  background-color: transparent;
-  padding: 5px;
-  color: #ffb600;
-  border: 1px solid #ffb600;
-  font-size: 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  font-size: 1rem;
   cursor: pointer;
+  position: absolute;
+  width: 106px;
+  height: 40px;
+  left: 150px;
+  top: 330px;
+  border: 1px solid #ffb600;
+  border-radius: 4px;
 }
 .SocialLogo {
   position: absolute;
+
   right: 0px;
   background-color: #121417;
 }
 
 .SocialLogo a {
-  padding: 10px;
+  padding: 8px;
+  width: 10px;
 }
 .delete-dialog-img {
-  height: 80px;
-  width: 300px;
+  position: absolute;
+  width: 285px;
+  height: 86px;
+  left: 0px;
+  top: 23px;
 }
 .dialog-title {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 95% !important;
+  width: 100% !important;
   background: #121417;
 }
+
 .dialog-content {
-  width: 90% !important;
+  width: 100% !important;
   background: #121417;
   overflow: hidden;
 }
+.dialog-img1 {
+  margin-top: 10px;
+}
+
+.dialog-content p {
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 1200px) {
   .delete-dialog-buttons {
-    margin-top: 3rem;
-    margin-bottom: 5rem !important;
+    margin-top: 1rem;
+  }
+  .main-del {
+    overflow: hidden;
+    width: 300px;
+  }
+  .ButtonCancel {
+    left: 113px;
+    margin-top: -0.4rem;
+  }
+  .SocialLogo a {
+    padding: 8px;
+    width: 10px;
+    top: 500px;
   }
 }
-@media screen and (max-width: 700px) {
-  .delete-dialog-img {
-    height: 60px;
-    object-fit: contain;
-    width: 200px;
+@media screen and (max-width: 1000px) {
+  .ButtonLogout {
+    width: 86px;
+    height: 35.35px;
+  }
+  .ButtonCancel {
+    margin-top: 2rem;
+    width: 86px;
+    margin-top: -1.7rem;
+    height: 35.35px;
+    left: 120px;
   }
 
-  .delete-dialog-buttons {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
-  .dialog-content {
-    padding: 0% 5% !important;
-    width: 95% !important;
-    background: #121417 !important;
+  .dialog-content p {
+    margin-top: 2rem;
+
     overflow: hidden;
   }
-  .dialog-content {
-    width: 98% !important;
-    background: #121417;
+  .dialog-img1 {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .ButtonLogout {
+    width: 86px;
+    height: 35.35px;
+  }
+
+  .ButtonCancel {
+    margin-top: 2rem;
+    width: 86px;
+    height: 35.35px;
+    margin-top: -1.8rem;
+
+    left: 120px;
+  }
+
+  .dialog-content p {
+    margin-top: 2rem;
+
     overflow: hidden;
+  }
+  .dialog-img1 {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 590px) {
+  .ButtonLogout {
+    width: 76px;
+    height: 35.35px;
+  }
+  .ButtonCancel {
+    width: 76px;
+    height: 35.35px;
+    margin-top: -1.8rem;
+    left: 112px;
   }
 }

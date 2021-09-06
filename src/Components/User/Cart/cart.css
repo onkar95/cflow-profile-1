@@ -1,0 +1,26 @@
+.nohover:hover{
+    background-color: black !important;
+}
+
+.display{
+    display: block;
+}
+
+.display1{
+    display: none ;
+}
+
+body{
+    overflow-y: scroll !important;
+}
+
+
+@media screen and (max-width:1150px) {
+    .display{
+        display: none !important;
+    }
+    
+    .display1{
+        display:block;
+    }
+}

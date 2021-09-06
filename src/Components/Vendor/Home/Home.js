@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import "./Home.css"
 import Footer from "../../FooterVendor/FooterVendor"; 
 import Notification from "../Notifications/Notifications";
@@ -22,17 +22,19 @@ import Profile from "../../Vendor/Profile/index"
 import Services from '../Services/Services';
 import axios from 'axios';
 import LogoImage from "../../../Images/Logo.png";
+import { useEffect } from 'react';
 import {useHistory} from "react-router-dom"
 import { Button } from '@material-ui/core';
 import NotificationsIcon from '../../../Images/NotificationIcon.svg';
 import ViewDetailVehicles from '../Services/servicecomponents/Dashboard/Table/ViewDetailVehicles';
 import { slide as Menu } from 'react-burger-menu'
+import PopupSaved from  "../../Popup/popupsaved/PopupSaved"
 require('dotenv').config()
 
 const Home = ({setIsUser}) => {
     
 
-
+    const [title, setTitle]=useState("")
     const [open, setOpen] = React.useState(false);
     const sections = ["Home","Services","Leads","Profile"]
     const [currentSection,setCurrentSection] = useState(0)
@@ -247,8 +249,11 @@ const Home = ({setIsUser}) => {
         if(currentSection === 3 && userId === undefined)
         {
             setIsUser(false)
-            // alert('Please Login')
-            history.push('/auth-user')
+            setTitle("Please login first")
+            setOpen(true)
+            setTimeout(() => {
+                history.push('/auth-user')
+              }, 2000);
         }
     },[currentSection])
     
@@ -426,7 +431,7 @@ const Home = ({setIsUser}) => {
            
             <div className="home-user-content">
                 {currentSection === 0 && <Homecontent countMatters={countMatters} currentSectionService={currentSectionService} setCurrentSectionService={setCurrentSectionService} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile}/>}
-                {currentSection === 1 && <Services setDisplayVehicle={setDisplayVehicle} setCurrentSectionMain={setCurrentSection} map_of_={map_of_} setCurrentSectionRequest={setCurrentSection} servicesInfo={servicesInfo} mostReqService={mostReqService} vendorproducts={vendorproducts} getServices={getServices} getProducts={getProducts} bestProduct={bestProduct} getAll={getAll} currentSection={currentSectionService} setCurrentSection={setCurrentSectionService}/>}
+                {currentSection === 1 && <Services formData={formData} setDisplayVehicle={setDisplayVehicle} setCurrentSectionMain={setCurrentSection} map_of_={map_of_} setCurrentSectionRequest={setCurrentSection} servicesInfo={servicesInfo} mostReqService={mostReqService} vendorproducts={vendorproducts} getServices={getServices} getProducts={getProducts} bestProduct={bestProduct} getAll={getAll} currentSection={currentSectionService} setCurrentSection={setCurrentSectionService}/>}
                 {currentSection === 2 && <Leads tableSwitch={tableSwitch} setTableSwitch={setTableSwitch} currentType={currentType} setCurrentType={setCurrentType} open={open} setOpen={setOpen} getAll={getAll} temp_filter_saved_leads={temp_filter_saved_leads} temp_filter_pending_leads={temp_filter_pending_leads} temp_filter_new_leads={temp_filter_new_leads} setTemp_filter_new_leads={setTemp_filter_new_leads} setTemp_filter_saved_leads={setTemp_filter_saved_leads}setTemp_filter_pending_leads={setTemp_filter_pending_leads} getPendingLeads={getPendingLeads} getNewLeads={getNewLeads} getSavedLeads={getSavedLeads} setCurrentSection={setCurrentSection} countMatters={countMatters} monthSale={monthSale} contri={contri} vendorproducts={vendorproducts} newLeads={newLeads} pendingLeads={pendingLeads} savedLeads={savedLeads} increasedSales={increasedSales} bestProduct={bestProduct} setSelectedRequest={setSelectedRequest} formData={formData}/>}
                 {currentSection === 3 && <Profile formData={formData} setFormData={setFormData} getUser={getUser} currentSection={currentSectionProfile} setCurrentSection={setCurrentSectionProfile}/>}
                 {currentSection === 5 && <Details1 setOpen={setOpen} setCurrentSection={setCurrentSection} selectedRequest={selectedRequest} getAll={getAll} />}
@@ -436,7 +441,7 @@ const Home = ({setIsUser}) => {
             </div>
             <Notification isToggled={isToggled} setIsToggled={setIsToggled} notification={notification} setCurrentSection={setCurrentSection}  setTableSwitch={setTableSwitch}/>
             <Footer setCurrentSection={setCurrentSection} setCurrentSectionService={setCurrentSectionService} setCurrentSectionProfile={setCurrentSectionProfile}/>
-
+            <PopupSaved title={title} open={open} setOpen={setOpen}/>
           </div> 
 
 

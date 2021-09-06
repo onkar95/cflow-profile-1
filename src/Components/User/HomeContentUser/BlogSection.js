@@ -12,23 +12,32 @@ const breakPoints1 = [
   { width: 200, itemsToShow: 1 },
   { width: 400, itemsToShow: 1 },
   { width: 600, itemsToShow: 1 },
-  //   { width: 800, itemsToShow: 1 },
-  //   { width: 1500, itemsToShow: 1 },
-  //   { width: 1800, itemsToShow: 1 },
+  { width: 800, itemsToShow: 1 },
+  { width: 1500, itemsToShow: 1 },
+  { width: 1800, itemsToShow: 1 },
 ];
-const breakPoints4 = [
-  { width: 1000, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 3 },
-  { width: 1500, itemsToShow: 3 },
-  { width: 1800, itemsToShow: 3 },
-];
+// const breakPoints4 = [
+//   // { width: 1, itemsToShow: 1 },
+//   // { width: 250, itemsToShow: 2 },
+//   // { width: 0, itemsToShow: 2 },
+//   { width: 1000, itemsToShow: 4 },
+//   { width: 1200, itemsToShow: 4 },
+//   { width: 1500, itemsToShow: 4 },
+//   { width: 1800, itemsToShow: 4 },
+// ];
 const breakPoints3 = [
+  // { width: 1, itemsToShow: 1 },
+  // { width: 250, itemsToShow: 2 },
+  // { width: 0, itemsToShow: 2 },
   { width: 900, itemsToShow: 3 },
   { width: 1200, itemsToShow: 3 },
   { width: 1500, itemsToShow: 3 },
   { width: 1800, itemsToShow: 3 },
 ];
 const breakPoints2 = [
+  // { width: 1, itemsToShow: 1 },
+  // { width: 250, itemsToShow: 2 },
+  // { width: 0, itemsToShow: 2 },
   { width: 400, itemsToShow: 2 },
   { width: 600, itemsToShow: 2 },
   { width: 800, itemsToShow: 2 },
@@ -36,7 +45,7 @@ const breakPoints2 = [
   { width: 1200, itemsToShow: 2 },
   { width: 1400, itemsToShow: 2 },
 ];
-const BlogSection = ({setCurrentSection}) => {
+const BlogSection = ({ setCurrentSection }) => {
   const img_arr2 = [
     blog1,
     blog2,
@@ -50,9 +59,8 @@ const BlogSection = ({setCurrentSection}) => {
   ];
   const showBlog = () => {
     setCurrentSection(4);
-    window.scrollTo(0,0)
-
-  }
+    window.scrollTo(0, 0);
+  };
   return (
     <div>
       <div className="blog-adds">
@@ -64,30 +72,36 @@ const BlogSection = ({setCurrentSection}) => {
             showArrows={false}
             breakPoints={
               window.innerWidth > 1230
-                ? breakPoints4
-                : window.innerWidth > 990
                 ? breakPoints3
-                : window.innerWidth > 730
+                : window.innerWidth > 990
+                ? breakPoints2
+                : window.innerWidth > 900
                 ? breakPoints2
                 : breakPoints1
             }
-            style={{
-              marginTop: "10%",
-              width: "100%",
-              padding: "30",
-              height: "10%",
-            }}
+            style={
+              {
+                // marginTop: "10%",
+                // width: "100%",
+                // padding: "30",
+                // height: "60%",
+              }
+            }
           >
             {img_arr2.map((img, index) => (
               <div
-                style={{
-                  height: "50%",
-                }}
+                style={
+                  {
+                    // height: "50%",
+                  }
+                }
                 key={index}
                 className="blog-new"
               >
                 <img alt="" src={img} /> <p>Blog</p>
-                <a onClick={showBlog}>Read More </a>
+                <a href="" onClick={showBlog}>
+                  Read More{" "}
+                </a>
               </div>
             ))}
           </Carousel>

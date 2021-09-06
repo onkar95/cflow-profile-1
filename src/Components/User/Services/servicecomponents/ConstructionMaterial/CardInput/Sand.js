@@ -13,7 +13,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit }) {
+function Sand({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [low, setLow] = useState(false)
@@ -44,11 +44,21 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
         input: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem'} 
+            "& .MuiInputBase-input": {height:'0.3rem', color:"white"} 
         },
         input1: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
+        },
+        inputtheme:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
+        },
+        inputtheme1:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {color:"#000000"}
         },
         formControl: {
             //   margin: theme.spacing(1),
@@ -64,8 +74,7 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
             }
         },
         icon: {
-            fill: "#ffb600",
-            boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05),10px 4px 15px rgba(2, 3, 3, 0.2)"
+            fill: "#ffb600"
         },
         overflow: "hidden"
     })
@@ -172,6 +181,7 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
                 setCurrentUnit("")
                 setMedium(false)
                 setHigh(false)
+                getCart()
             }
             else if (low === false && medium === false && high === false) {
                 notify('Please select something')
@@ -223,11 +233,11 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
                     label="Low/Coarse"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         //width: "15rem",
                         padding: "3%",
                         borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -244,11 +254,11 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
                     label="Medium"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         // width: "15rem",
                         padding: "3%",
                         borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -265,11 +275,11 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
                     label="High/Fine"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         //width: "15rem",
                         padding: "3%",
-                        borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)",
+                        borderRadius: "10px"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -278,20 +288,19 @@ function Sand({ formData, modalopen, setModalOpen, newRequest, setNewRequest, da
                 &&
 
                 <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                 <FormControl
                 variant='outlined'
                 className={classes.formControl}
                 InputProps={{ disableOutline: true }}
-                style={{marginLeft:'5%', height:'52px'}}
+                style={{marginLeft:'5%', height:'52px', backgroundColor:theme?"#D8D8D8":""}}
             >  
-                <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: "white" }}>
+                <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: theme?"black":"white" }}>
                     Units
                 </InputLabel>
                 <Select
-    
+                className='select'
                     id='demo-simple-select'
-                    className='select'
                     inputProps={{ classes: { icon: classes.icon } }}
                     style={{ color: "#ffb600", height: '52px', width: '150px' }}
                 >

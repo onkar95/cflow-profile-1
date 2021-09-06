@@ -9,12 +9,18 @@ export const signin = (formData , history,isUser) => async (dispatch) =>
         console.log(formData,"formData")
         const {data} = await api.signIn(formData)
         console.log(data.status,"auth.js",isUser)
-        if(data.status === "Password Incorrect" || data.status === "User doesn't exists" || data.status === "Type Incorrect"||data.status=== "Please Check your email for verification link")
+        if(data.status === "Password Incorrect" || data.status === "User doesn't exists" || data.status === "Type Incorrect")
         {
             dispatch({type: "AUTH" , data})
             // localStorage.clear()
             return data
 
+        }
+        else if(data.status=== "Please Check your email for verification link"){
+            dispatch({type: "AUTH" , data})
+            let temp=data?.data.id
+            await axios.post(`${process.env.REACT_APP_URL}/user/linktoemail/${temp}`)
+            return data
         }
         else
         {

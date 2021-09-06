@@ -5,7 +5,7 @@ import "./HomeContentUser.css"
 
 import { InputLabel, MenuItem , FormControl ,Select ,TextField , Button} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import unitConvertor from "../HomeContentUser/unitConvertor"
+import unitConvertor from "./unitConvertor"
 import Cement from "../../../Images/cement.svg"
 import Stone from "../../../Images/stone.svg"
 import Bricks from "../../../Images/brickandblocks.svg"
@@ -51,13 +51,13 @@ import Hero37 from "../../../Images/Banners/37.png"
 import HomeCarousel from './HomeCarousel';
 import HomeContentHow from './HomeContentHow';
 import HomeContentAboutUser from './HomeContentAboutUser';
-import HomeContentProducts from '../HomeContentUser/HomeContentProducts';
-import Convertor from '../HomeContentUser/Convertor';
+import HomeContentProducts from './HomeContentProducts';
+import Convertor from './Convertor';
 
 
 function HomeContentUser({setCurrentSection , toabout , setToabout , setCurrentSectionProfile}) {
    
-    // const img_arr = [ Hero1 , Hero2 , Hero3 , Hero4 , Hero5 , Hero6 , Hero7 , Hero8 , Hero9 , Hero10 , Hero11 , Hero12 , Hero13 , Hero14 , Hero15 , Hero16 , Hero17 , Hero18 , Hero19 , Hero20 , Hero21 , Hero22 , Hero23 , Hero24 , Hero25 , Hero26 , Hero27 , Hero28 , Hero29 , Hero30 , Hero31 , Hero32 , Hero33 , Hero34 , Hero35 , Hero36 , Hero37 ]
+    const img_arr = [ Hero1 , Hero2 , Hero3 , Hero4 , Hero5 , Hero6 , Hero7 , Hero8 , Hero9 , Hero10 , Hero11 , Hero12 , Hero13 , Hero14 , Hero15 , Hero16 , Hero17 , Hero18 , Hero19 , Hero20 , Hero21 , Hero22 , Hero23 , Hero24 , Hero25 , Hero26 , Hero27 , Hero28 , Hero29 , Hero30 , Hero31 , Hero32 , Hero33 , Hero34 , Hero35 , Hero36 , Hero37 ]
 
     const handleAbout = () => {
         setCurrentSection(4)

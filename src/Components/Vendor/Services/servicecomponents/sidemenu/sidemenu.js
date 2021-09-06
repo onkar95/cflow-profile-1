@@ -1,17 +1,18 @@
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import React from "react";
 import styled from "styled-components";
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { blue } from "@material-ui/core/colors";
-const sideMenu = ({currentSection , setCurrentSection}) => {
+const sideMenu = ({ currentSection, setCurrentSection }) => {
 
     const Column = styled.div`
     display: flex;
     flex-direction: column;
     `;
+    // padding: 0.4rem 1.5rem;
     const GhostButton = styled.button`
     margin: 0;
-    padding: 0.4rem 1.5rem;
     border: solid 1px #2d2d2d;
+    border-left: 0;
+    border-right: 0;
     background-color: transparent;
     color: white;
     text-align: left;
@@ -24,7 +25,7 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
     return (
         <Column
             style={{
-                
+
                 width: "100%",
                 padding: "0rem .7rem",
                 borderRadius: "4px",
@@ -34,20 +35,20 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
             }}
         >
             <Column>
-            <GhostButton
+                <GhostButton
                     style={
                         currentSection === 6
                             ? {
-                                  backgroundColor: "#ffb600",
-                                  color: "black",
-                                  borderStyle: "none",
-                              }
+                                backgroundColor: "#ffb600",
+                                color: "black",
+                                borderStyle: "none",
+                            }
                             : {}
                     }
                     onClick={() => setCurrentSection(6)}
                 >
-                    <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
-                        <ChevronRightIcon/>
+                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <ChevronRightIcon />
                         <h4>Dashboard</h4>
                     </div>
                 </GhostButton>
@@ -55,16 +56,16 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                     style={
                         currentSection === 0
                             ? {
-                                  backgroundColor: "#ffb600",
-                                  color: "black",
-                                  borderStyle: "none",
-                              }
+                                backgroundColor: "#ffb600",
+                                color: "black",
+                                borderStyle: "none",
+                            }
                             : {}
                     }
                     onClick={() => setCurrentSection(0)}
                 >
-                    <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
-                        <ChevronRightIcon/>
+                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <ChevronRightIcon />
                         <h4>Construction Material</h4>
                     </div>
                 </GhostButton>
@@ -72,16 +73,16 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                     style={
                         currentSection === 1
                             ? {
-                                  backgroundColor: "#ffb600",
-                                  color: "black",
-                                  borderStyle: "none",
-                              }
+                                backgroundColor: "#ffb600",
+                                color: "black",
+                                borderStyle: "none",
+                            }
                             : {}
                     }
                     onClick={() => setCurrentSection(1)}
                 >
-                    <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
-                        <ChevronRightIcon/>
+                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <ChevronRightIcon />
                         <h4>Agents</h4>
                     </div>
                 </GhostButton>
@@ -89,18 +90,18 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                     style={
                         currentSection === 2 || currentSection === 5
                             ? {
-                                  backgroundColor: "#ffb600",
-                                  color: "black",
-                                  borderStyle: "none",
-                              }
+                                backgroundColor: "#ffb600",
+                                color: "black",
+                                borderStyle: "none",
+                            }
                             : {}
                     }
                     onClick={() => setCurrentSection(2)}
                 >
-                    <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
-                        <ChevronRightIcon/>
+                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <ChevronRightIcon />
                         <h4> Commerical Vehicles</h4>
-                    </div>                   
+                    </div>
                 </GhostButton>
                 {/* <GhostButton
                     style={
@@ -124,19 +125,19 @@ const sideMenu = ({currentSection , setCurrentSection}) => {
                     style={
                         currentSection === 4
                             ? {
-                                  backgroundColor: "#ffb600",
-                                  color: "black",
-                                  borderStyle: "none",
-                              }
+                                backgroundColor: "#ffb600",
+                                color: "black",
+                                borderStyle: "none",
+                            }
                             : {}
                     }
                     onClick={() => setCurrentSection(4)}
                 >
-                    <div style={{display:"flex",justifyContent: "flex-start",alignItems: "center"}}>
-                        <ChevronRightIcon/>
+                    <div style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }}>
+                        <ChevronRightIcon />
                         <h4>Construction Chemicals</h4>
                     </div>
-                    
+
                 </GhostButton>
 
             </Column>

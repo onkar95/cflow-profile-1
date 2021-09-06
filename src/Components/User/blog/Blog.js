@@ -16,7 +16,7 @@ import BlogDetails from "./blogpages/BlogDetails";
 import axios from "axios";
 
 
-function Blog({ theme, setCurrentSectionRequest, site, getAllVendor, currentSection, setCurrentSection, setCurrentSectionProfile }
+function Blog({theme, setCurrentSectionRequest, site, getAllVendor, currentSection, setCurrentSection, setCurrentSectionProfile }
 ) {
     const [blogData, setBlogData] = useState([]);
     const [IdOfBlog, setIdOfBlog] = useState()
@@ -35,22 +35,22 @@ function Blog({ theme, setCurrentSectionRequest, site, getAllVendor, currentSect
     const getBlogData = async () => {
 
         await axios.get(`http://localhost:1337/articles`)
-            .then(blog => {
-                //  console.log(blog)
-                setBlogData(blog.data)
-            })
+         .then(blog => {
+            //  console.log(blog)
+             setBlogData(blog.data)
+         })
     }
     const blogID = (id) => {
         setIdOfBlog(id)
         // console.log(id);
     }
     // console.log(IdOfBlog);
-
+    
     useEffect(() => {
         getBlogData()
         setCurrentSection(0);
     }, [])
-
+    
     return (
         <div className="blog">
             {currentSection === 0 && <BlogSections theme={theme} blogID={blogID} blogData={blogData} setCurrentSection={setCurrentSection} setCurrentSectionProfile={setCurrentSectionProfile} setOpenSaved={setOpenSaved} setCurrentSectionRequest={setCurrentSectionRequest} site={site} handleClickOpen={handleClickOpen} />}

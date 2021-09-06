@@ -14,7 +14,6 @@ import Thanku1 from "./Components/thanku/thanku1";
 import Thanku2 from "./Components/thanku/thanku2";
 import Login from './Components/Login/Login'
 import Loader from "react-spinners/CircleLoader";
-import AllBlog from './Components/User/blog/blogpages/AllBlog';
 
 function App() {
     const [isSignup,setIsSignup]=useState(false)
@@ -59,7 +58,6 @@ function App() {
                         <Route path='/request-user' exact component={Request}/>
                         <Route path='/profile' exact component={Profile}/>
                         <Route path='/estimate'exact component={Estimate}/>
-                        <Route path='/allBlogs'exact component={AllBlog}/>
 
                         {/* <Route  component={HomeVendor}/> */}
                         <Route path='/home-vendor' exact>
