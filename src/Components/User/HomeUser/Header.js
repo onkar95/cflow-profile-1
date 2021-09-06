@@ -119,6 +119,7 @@ const Header = ({ currentSectionProfile, sections, currentSection, setIsUser, Lo
     }
     const viewProfile = () => {
         setCurrentSection(14)
+        setCurrentSectionProfile(0)
     }
     return (
         <div className="home-user-header">

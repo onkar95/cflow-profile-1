@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { FiEdit } from "react-icons/fi";
-import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
 // import validate from "validator";
 import axios from "axios";
-import './Profile.css'
+import React, { useEffect, useState } from "react";
+import { Column, Input, Row, SectionTitle } from "../../Styled/Styled";
 require('dotenv').config()
 const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
@@ -16,9 +14,12 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
     const [state, setState] = useState(formData?.company_state ? formData?.company_state : "");
 
 
+
     const [disabled1, setDisabled] = useState(0);
     const [btnTxt, setBtnTxt] = useState("Edit");
     const [editable, seteditable] = useState(true);
+
+
 
     const handleformdata = async (e) => {
         e.preventDefault();
@@ -41,14 +42,6 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
     useEffect(() => {
         setFormData({ ...formData, company_building_name: building, company_street: area, company_city: city, company_pincode: pin, company_house_no: house_door, company_landmark: landmark, company_state: state })
     }, [building, area, city, pin, house_door, landmark, state])
-
-    // useEffect(() => {
-    //     if (!building || !state || !area || !city || !house_door || !landmark) {
-    //         setDisabled(0);
-    //     } else {
-    //         setDisabled(1);
-    //     }
-    // }, [building, area, city, pin, house_door, landmark, state])
 
     return (
         <form
@@ -79,7 +72,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                     }}
                 >
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='Building Name'
@@ -89,7 +82,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                         value={building}
                     />
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='Area / Street'
@@ -99,7 +92,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                         value={area}
                     />
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='City'
@@ -109,7 +102,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                         value={city}
                     />
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='PIN'
@@ -125,7 +118,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                     }}
                 >
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='H.No / Door.No'
@@ -134,9 +127,8 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                         onChange={(e) => setHouse(e.target.value)}
                         value={house_door}
                     />
-
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='Landmark'
@@ -146,7 +138,7 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
                         value={landmark}
                     />
                     <Input
-                     disabled={editable}
+                        disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
                         placeholder='State'
@@ -170,8 +162,8 @@ const AdressDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
             <button
                 onClick={handleformdata}
                 className="disiabled_save_butn"
-                // className={`${disabled1==0?"disiabled_save_butn_block  ":"disiabled_save_butn "}`}
-                // disabled={!building || !state || !area || !city || !house_door || !landmark}
+            // className={`${disabled1==0?"disiabled_save_butn_block  ":"disiabled_save_butn "}`}
+            // disabled={!building || !state || !area || !city || !house_door || !landmark}
             // style={!disabled?{backgroundColor:"gray"}:{backgroundcolor: "#ffb600"}}
             // disabled={disabled1}
             >{btnTxt}

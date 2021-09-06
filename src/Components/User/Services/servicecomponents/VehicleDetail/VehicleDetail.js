@@ -23,7 +23,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import axios from 'axios';
 require('dotenv').config()
 
-function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,setNewRequest,setCurrentSectionRequest,getAllVendor,handleClickOpen}) {
+function VehicleDetail({formData, site,setOpenSaved,setCurrentSection,selected,newRequest,setNewRequest,setCurrentSectionRequest,getAllVendor,handleClickOpen}) {
     const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [val,setVal] = useState(0)
@@ -36,7 +36,8 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
     const [requestclicked,setRequestClicked] = React.useState(false)
     const [modalopen,setModalOpen]=useState(false)
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const [check,setCheck]=useState(0)
+    const [check,setCheck]=useState("")
+    const [typeCapacity, setTypeCapacity]=useState(0)
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
@@ -47,6 +48,16 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
         if(val !== 0)
         {
             setVal(val-1)
+        }        
+    }
+
+    const handleCapacityIncrease=()=>{
+        setTypeCapacity(typeCapacity+1);
+    }
+    const handleCapacityDecrease = () => {
+        if(typeCapacity !== 0)
+        {
+            setTypeCapacity(typeCapacity-1)
         }        
     }
 
@@ -133,9 +144,9 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
     },[startDate,endDate,checked,text,capacity])
 
     useEffect(()=>{
-        setNewRequest({...newRequest,type:selected.name,quantity:val,data:data,delivery_address:"",deliver_by:""})
-            
-        },[requestclicked,selected,val,data])
+        setNewRequest({...newRequest,type:selected.name,quantity:val, typecapacity:typeCapacity,data:data,delivery_address:site[check],deliver_by:startDate})
+
+        },[requestclicked,selected,val,data, typeCapacity, check, startDate])
 
 
     const handleRequest=async(e)=>{
@@ -147,23 +158,28 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
             }
         else
             {
-                if(newRequest?.quantity === 0)
+                if(!formData?.phone_no || !formData?.first_name){
+                    notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
+                }
+                else if(newRequest?.quantity === 0 || newRequest?.typecapacity === 0 || check==="")
                     {
                         notify("Enter All Details")
                     }
                 else
                     {
+                        setModalOpen(false)
                         setRequestClicked(true)
                         await axios.post(`${process.env.REACT_APP_URL}/product/request_service/${userId}`,newRequest)
                         .then(function (response) 
                         {            
-        
+                            setCheck("")
                             setStartDate( new Date())
                             setEndDate( new Date())
                             setChecked(false)
                             setVal(0)
                             setData(null)
                             getAllVendor()
+                            setTypeCapacity(0)
                             // setCurrentSectionRequest(2)
                             handleClickOpen()
         
@@ -180,8 +196,11 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
         }
         else
         {
-            if((val !== 0)){
-                setNewRequest({...newRequest,quantity:val})
+            if(!formData?.phone_no || !formData?.first_name){
+                notify('Both name and phone no have to be compulsory added in Profile -> Personal Details')
+            }
+            else if((val !== 0 && typeCapacity!==0)){
+                setNewRequest({...newRequest,quantity:val, typecapacity:typeCapacity})
                 
                 
                 await axios.post(`${process.env.REACT_APP_URL}/product/add_to_cart/${userId}`,newRequest)
@@ -190,16 +209,17 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
                     console.log(response,"add")
                  })
                  setOpenSaved(true)
-                //  setQuantity(0)
+
                  setStartDate( new Date())
                             setEndDate( new Date())
                             setChecked(false)
                             setVal(0)
                             setData(null)
                             getAllVendor()
+                            setTypeCapacity(0)
             }
             else{
-                notify('Please select something');
+                notify('Quantity and type capacity should be greater than 0');
             }
         }
         
@@ -230,7 +250,9 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
                             <ControlPointIcon className="vehicle-detail-icon" onClick={handleIncrease}/>
                         </div>
                         <div className="vehicle-detail-type">
-                            <p placeholder="Type Capacity">Type Capacity</p>
+                            <RemoveCircleOutlineIcon className="vehicle-detail-icon" onClick={handleCapacityDecrease}/>
+                            <p>{typeCapacity === 0 ? "Type Capacity(tons)" : typeCapacity}</p>
+                            <ControlPointIcon className="vehicle-detail-icon" onClick={handleCapacityIncrease}/>
                             
                         </div>
                     </div>
@@ -281,7 +303,7 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
                 <Button variant="contained" className="vehicle-cart-button" style={{height:"80%",marginTop:"10%",backgroundColor: "#ffb600"}} onClick={handleCart}>
                     ADD TO CART
                 </Button>
-                <Button variant="contained" className="vehicle-cart-button"  style={{height:"80%",marginTop:"10%",backgroundColor: "#ffb600"}} onClick={() => {val === 0 ? notify('Please select something') : setModalOpen(true)}}>
+                <Button variant="contained" className="vehicle-cart-button"  style={{height:"80%",marginTop:"10%",backgroundColor: "#ffb600"}} onClick={() => {(val === 0 || typeCapacity===0) ? notify('Please select something') : setModalOpen(true)}}>
                     Request
                 </Button>
                 </div>
@@ -303,7 +325,7 @@ function VehicleDetail({site,setOpenSaved,setCurrentSection,selected,newRequest,
                     <div className="ModalApplicationHeader">
                     <Button aria-describedby={id} variant="contained" style={{backgroundColor:"#08090C",width:"95%",height:"80%",marginBottom: "1rem",boxShadow:"-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)", borderRadius:"2px"}} onClick={handleClick}>
                         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",width:"100%"}}>
-                            <p style={{color:"white",textTransform:"capitalize"}}>Select Delivery Address</p>
+                            <p style={{color:"white",textTransform:"none"}}>{check===""?"Select Delivery Address":`site${check +1}`}</p>
                             <ArrowDropDownIcon style={{color:"#ffb600"}}/>
                         </div>
                     </Button>

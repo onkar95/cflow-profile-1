@@ -11,7 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved }) {
+function Bricks({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [clay, setClay] = useState(false)
@@ -112,6 +112,7 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                 setClay(false)
                 setCement(false)
                 setFly(false)
+                getCart()
             }
             else if (clay === false && cement === false && fly === false) {
                 notify('Please select something');
@@ -139,6 +140,16 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
         },
+        inputtheme:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
+        },
+        inputtheme1:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {color:"#000000"}
+        },
         overflow: "hidden"
     });
 
@@ -153,7 +164,7 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
 
     const classes = useStyles()
     return (
-        <div className="selected">
+        <div className="selected-item">
         <div className="selected-header">Bricks</div>
         <div className="description" style={{marginBottom:'50px'}}>Add bricks to your products.</div>
         <div className="description" style={{marginBottom:'30px'}}>Save brick type</div>
@@ -172,11 +183,11 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                     label="Clay Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         //width: "15rem",
                         padding: "3%",
                         borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -193,11 +204,11 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                     label="Cement Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         // width: "15rem",
                         padding: "3%",
                         borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -214,11 +225,11 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
                     label="Fly Ash Bricks"
                     className="sand-form-input"
                     style={{
-                        backgroundColor: "#08090C",
+                        backgroundColor: theme?"#D8D8D8":"#08090C",
                         //width: "15rem",
                         padding: "3%",
-                        borderRadius: "10px",
-                        boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)",
+                        borderRadius: "10px"
+                        
                     }}
                     labelPlacement="start"
                 /></div>
@@ -226,7 +237,7 @@ function Bricks({ formData, modalopen, setModalOpen, newRequest, setNewRequest, 
             {(clay === true || cement === true || fly === true)
                 &&
                 <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                 </div>
             }
             <div className="cement-bottom-buttons">

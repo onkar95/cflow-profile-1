@@ -1,26 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Column, GhostButton } from "../../Styled/Styled";
 import "./Profile.css"
 import ProfilePercent from "./ProfilePercent";
-
+import LogoutPopup from "./Logout/LogoutPopup";
 
 const SideMenu = (props) => {
     const dispatch = useDispatch()
     const history = useHistory()
-    const handleLogout = () => {
+    const [open, setOpen]=useState(false);
+    
+    const handleLogoutConfirmation = () => {
+        setOpen(true)
+    }
+
+    function handleLogout(){
         props.function(6)
         dispatch({type: "LOGOUT" })      
         history.push("/")
     }
-    // const handleLogoutPopup=()=>{
-    //     props.setOpen(true)
-        
-
-        
-
-    // }
     
     return (
         <Column
@@ -155,11 +154,12 @@ const SideMenu = (props) => {
                                 borderRadius:'5px',
                             }
                     }
-                    onClick={handleLogout}
+                    onClick={handleLogoutConfirmation}
                 >
                     Logout
                 </GhostButton>
             </Column>
+            <LogoutPopup open={open} setOpen={setOpen} handleLogout={handleLogout}/>
         </Column>
     );
 };

@@ -1,25 +1,22 @@
 import axios from "axios";
 import React, { useState } from "react";
-import {
-    Star,
-    Row,
-    Column,
-    SectionTitle,
-    Button,
-    Textarea,
-} from "../../Styled/Styled";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+    Button, Column, Row, SectionTitle, Star, Textarea
+} from "../../Styled/Styled";
 
 require('dotenv').config()
 
-const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
+const Feedback = ({ formData, setFormData, getUser, handleClickOpen }) => {
     const [stars, setStars] = useState(0);
     const [rate, setRate] = useState(0);
-    const [userId,setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
-    const [feed,setFeed] = useState("");
+    const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
+    const [feed, setFeed] = useState("");
 
-    const handleFeedback=async(e)=>{
+
+
+    const handleFeedback = async (e) => {
         e.preventDefault();
         if (rate === 1) {
 
@@ -40,16 +37,15 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
 
     const notify = (msg) => {
         toast.error(msg, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
         });
     }
-
 
     return (
         <Column>
@@ -83,8 +79,8 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
                     style={
                         rate >= 1 || stars >= 1
                             ? {
-                                  backgroundColor: "#FFB600",
-                              }
+                                backgroundColor: "#FFB600",
+                            }
                             : {}
                     }
                 />
@@ -95,8 +91,8 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
                     style={
                         rate >= 2 || stars >= 2
                             ? {
-                                  backgroundColor: "#FFB600",
-                              }
+                                backgroundColor: "#FFB600",
+                            }
                             : {}
                     }
                 />
@@ -107,8 +103,8 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
                     style={
                         rate >= 3 || stars >= 3
                             ? {
-                                  backgroundColor: "#FFB600",
-                              }
+                                backgroundColor: "#FFB600",
+                            }
                             : {}
                     }
                 />
@@ -119,8 +115,8 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
                     style={
                         rate >= 4 || stars >= 4
                             ? {
-                                  backgroundColor: "#FFB600",
-                              }
+                                backgroundColor: "#FFB600",
+                            }
                             : {}
                     }
                 />
@@ -131,8 +127,8 @@ const Feedback = ({formData,setFormData,getUser,handleClickOpen}) => {
                     style={
                         rate >= 5 || stars >= 5
                             ? {
-                                  backgroundColor: "#FFB600",
-                              }
+                                backgroundColor: "#FFB600",
+                            }
                             : {}
                     }
                 />

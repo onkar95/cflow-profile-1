@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, dropdownData }) {
+function Pipes({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, dropdownData }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [selectedtype, setSelectedType] = useState("")
@@ -68,6 +68,7 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
                 setOpenSaved(true)
                 setQuantity(0)
                 setSelectedType("")
+                getCart()
             }
             else if (selectedtype === "") {
                 notify('Please select something');
@@ -105,11 +106,22 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
         input: {
             color: "white",   
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem'}
+            "& .MuiInputBase-input": {height:'0.3rem', color:"white"},
+            "&.MuiAutocomplete-listbox": {backgroundColor:"white", color:"black"}
         },
         input1: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
+        },
+        inputtheme:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
+        },
+        inputtheme1:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {color:"#000000"}
         },
         overflow: "hidden"
     }));
@@ -136,7 +148,7 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
 
 
     return (
-        <div className="selected">
+        <div className="selected-item">
         <div className="selected-header">Pipes</div>
         <div className="description" style={{marginBottom:'30px'}}>Add pipes to your products.</div>
         <div className="description">Select pipe type</div>
@@ -153,12 +165,12 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
             }}
         options={types?.length>0?types:[]}
         classes={{
-            input: classes.input
+            listbox: theme?classes.input:""
           }}
         getOptionLabel={option => option}
-        style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
+        style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
         renderInput={params => (
-          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search pipe type")}} onBlur={()=>{setPlaceholder1("Pipe types")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
+          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search pipe type")}} onBlur={()=>{setPlaceholder1("Pipe types")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
         )}
       />
 
@@ -172,7 +184,7 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
      {more===true &&
         <div>
         <div className="quantity1" style={{ marginTop: "2%", width: "100%", height: "60px" }}>
-        <TextField type="text" value={selectedtype} style={{ backgroundColor: "#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedType(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Pipe type" variant="outlined" />
+        <TextField type="text" value={selectedtype} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedType(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme:classes.input }} placeholder="Pipe type" variant="outlined" />
         </div>
         <div className='span-container' style={{marginTop:'5%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
 
@@ -186,7 +198,7 @@ function Pipes({ formData, modalopen, setModalOpen, newRequest, setNewRequest, d
      &&
 
      <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-     <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+     <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
      </div>
  }
 

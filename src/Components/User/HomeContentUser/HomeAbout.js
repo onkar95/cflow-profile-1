@@ -6,9 +6,11 @@ const HomeAbout = () => {
   return (
     <div>
       <div className="be-a-real">
-        Be a real Businessman
-        <br />
-        Be part of Construction Flow
+        <h1>
+          Be a real Businessman
+          <br />
+          Be part of Construction Flow
+        </h1>
       </div>
       <div className="about-us-box">
         <h1>
@@ -45,8 +47,12 @@ const HomeAbout = () => {
             </ul>
           </div>
         </h1>{" "}
-        <img src={about} alt="logo" className="about-img"></img>{" "}
-        <div className="box-square"></div> <div className="box-vertical"></div>{" "}
+        <div className="left-side-box">
+          {" "}
+          <img src={about} alt="logo"></img>{" "}
+          <span className="box-square"></span>{" "}
+          <span className="box-vertical"></span>{" "}
+        </div>
       </div>
     </div>
   );

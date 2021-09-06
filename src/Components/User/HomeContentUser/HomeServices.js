@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 // import React, { useEffect, useState } from "react";
 import CarouselBox from "./CarouselBox";
 
-const HomeService = ({setCurrentSection,setOption,option}) => {
+const HomeService = ({ setCurrentSection, setOption, option }) => {
   const openServices = () => {
-    setCurrentSection(1)
-    window.scrollTo(0,0)
-
-  }
+    setCurrentSection(1);
+    window.scrollTo(0, 0);
+  };
   return (
     <div>
       <div className="service-our">
@@ -18,20 +17,25 @@ const HomeService = ({setCurrentSection,setOption,option}) => {
               {" "}
               <Link onClick={openServices}>Construction Material</Link>
             </li>
-            <li>
+            {/* <li>
               {" "}
               <Link >Agents</Link>
-            </li>
+            </li> */}
             <li>
               {" "}
-              <Link >Construction Vehicles</Link>
+              <Link>Construction Vehicles</Link>
             </li>
-            <li>
+            {/* <li>
               {" "}
-              <Link >Construction Vehicles</Link>
-            </li>
+              <Link >Construction Machine</Link>
+            </li> */}
           </ul>
-          <h1>Our Services</h1> <CarouselBox setCurrentSection={setCurrentSection} option={option}  setOption={setOption}/>
+          <h1>Our Services</h1>{" "}
+          <CarouselBox
+            setCurrentSection={setCurrentSection}
+            option={option}
+            setOption={setOption}
+          />
         </div>
 
         <div className="customer-satisfy">

@@ -11,7 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, setNewRequest, setOpenSaved, dropdownData, quantity, setQuantity }) {
+function Paint({ getCart, theme, formData, modalopen, setModalOpen, data, setData, newRequest, setNewRequest, setOpenSaved, dropdownData, quantity, setQuantity }) {
     const [active, setActive] = useState(0)
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
@@ -65,11 +65,22 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
         input: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem'},
+            "& .MuiInputBase-input": {height:'0.3rem', color:"white"},
+            "&.MuiAutocomplete-listbox": {backgroundColor:"white", color:"black"}
         },
         input1: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
+        },
+        inputtheme:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
+        },
+        inputtheme1:{
+            color: "black",
+            "& input::placeholder":{color:"#000000"},
+            "& .MuiInputBase-input": {color:"#000000"}
         },
         condition: {
             "& .MuiFormControlLabel-label": {
@@ -154,6 +165,7 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 setSelectedBrand(null)
                 setSelectedType(null)
                 setSelectedSurface(null)
+                getCart()
             }
         }
     }
@@ -202,6 +214,7 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 setOpenSaved(true)
                 setSelectedPuttybrand(null)
                 setSelectedPuttytype(null)
+                getCart()
             }
         }
     }
@@ -284,7 +297,7 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
     },[active])
 
     return (
-        <div className="selected">
+        <div className="selected-item">
             <div className="selected-header">Paints and putty</div>
             <div className="description" style={{marginBottom:'50px'}}>Add paint and putty to your products.</div>
             <div className="description" style={{marginBottom:'30px'}}>Select material</div>
@@ -302,11 +315,11 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 label="Paint"
                 className="sand-form-input"
                 style={{
-                    backgroundColor: "#08090C",
+                    backgroundColor: theme?"#D8D8D8":"#08090C",
                     //width: "15rem",
                     height:'100%',
                     borderRadius: "10px",
-                    boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                    
                 }}
                 labelPlacement="start"
             /></div>
@@ -323,11 +336,11 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 label="Putty"
                 className="sand-form-input"
                 style={{
-                    backgroundColor: "#08090C",
+                    backgroundColor: theme?"#D8D8D8":"#08090C",
                     // width: "15rem",
                     height:'100%',
                     borderRadius: "10px",
-                    boxShadow: "-4px -4px 15px rgba(232, 237, 243, 0.05), 10px 4px 15px rgba(2, 3, 3, 0.2)"
+                    
                 }}
                 labelPlacement="start"
             /></div>
@@ -342,12 +355,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                         }}
                     options={surfaces?.length>0?surfaces:[]}
                     classes={{
-                        input: classes.input
+                        listbox: theme?classes.input:""
                       }}
                     getOptionLabel={option => option}
-                    style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
+                    style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
                     renderInput={params => (
-                      <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search paint surface")}} onBlur={()=>{setPlaceholder1("Paint surfaces")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
+                      <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search paint surface")}} onBlur={()=>{setPlaceholder1("Paint surfaces")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
                     )}
                   />
         
@@ -362,12 +375,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                       }}
                   options={brands?.length>0?brands:[]}
                   classes={{
-                      input: classes.input
+                      listbox: theme?classes.input:""
                     }}
                   getOptionLabel={option => option}
-                  style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
+                  style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
                   renderInput={params => (
-                    <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search paint brand")}} onBlur={()=>{setPlaceholder2("Paint brands")}} classes={{ root: classes.input }} />
+                    <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search paint brand")}} onBlur={()=>{setPlaceholder2("Paint brands")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
                   )}
                 />
         
@@ -381,12 +394,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                     }}
                 options={types?.length>0?types:[]}
                 classes={{
-                    input: classes.input
-                  }}
+                    listbox: theme?classes.input:""
+                  }}     
                 getOptionLabel={option => option}
-                style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
+                style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
                 renderInput={params => (
-                  <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search paint type")}} onBlur={()=>{setPlaceholder3("Paint types")}} classes={{ root: classes.input }} />
+                  <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search paint type")}} onBlur={()=>{setPlaceholder3("Paint types")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
                 )}
               />
               <div class="button-group">
@@ -411,23 +424,15 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
               </RadioGroup>
               </FormControl>
               </div>
-              <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px" }}>
-              <TextField id="outlined-basic20" type="text" value={color} style={{ backgroundColor: "#08090C", width: "300px", height: "45%", borderRadius: "10px", color: "white", marginBottom:'25%' }} onChange={(e) => setColor(e.target.value)} name="Color" className={`${classes.root} InputField1`} InputProps={{ className: classes.input1 }} placeholder="Enter color code or name" variant="outlined" />
+              <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "50px", marginBottom:"5%" }}>
+              <TextField id="outlined-basic20" type="text" value={color} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "300px", height: "100%", borderRadius: "10px", color: "white" }} onChange={(e) => setColor(e.target.value)} name="Color" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Enter color code or name" variant="outlined" />
               </div>
               {(selectedsurface !== "" && selectedbrand !== "" && selectedtype !== "" && color!=="")
                 &&
-                <div className="quantity quantity1" style={{ marginTop: "-13%", width: "100%", height: "120px"}}>
-                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                <div className="quantity quantity1" style={{ marginTop: "5%", width: "100%", height: "50px", marginBottom:"5%"}}>
+                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "100%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                 </div>
             }
-              <div className="cement-bottom-buttons">
-              <Button variant="contained" className="cement-cart-button" onClick={handleCart}>
-                  ADD TO CART
-              </Button>
-              <Button variant="contained" className="cement-cart-button1" onClick={handlemodal}>
-                  Request
-              </Button>
-          </div>
                 </div> 
                 }
 
@@ -442,10 +447,10 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 {(active===0 && more===true) &&
                     <div>
                     <div className="quantity1" style={{ marginTop: "0%", width: "100%", height: "60px"   }}>
-                    <TextField type="text" value={selectedsurface} style={{ backgroundColor: "#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedSurface(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Surface" variant="outlined" />
+                    <TextField type="text" value={selectedsurface} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedSurface(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme:classes.input }} placeholder="Surface" variant="outlined" />
                     </div>
                     <div className="quantity1" style={{ marginTop: "0%", width: "100%", height: "60px"   }}>
-                    <TextField type="text" value={selectedbrand} style={{ backgroundColor: "#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedBrand(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Brand" variant="outlined" />
+                    <TextField type="text" value={selectedbrand} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedBrand(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className:theme?classes.inputtheme: classes.input }} placeholder="Brand" variant="outlined" />
                     </div>
                     <div className='span-container' style={{marginTop:'4.9%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
                     <Autocomplete
@@ -456,12 +461,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                         }}
                     options={types?.length>0?types:[]}
                     classes={{
-                        input: classes.input
-                      }}
+                        listbox: theme?classes.input:""
+                      }} 
                     getOptionLabel={option => option}
-                    style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
+                    style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
                     renderInput={params => (
-                      <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search paint type")}} onBlur={()=>{setPlaceholder3("Sizes")}} classes={{ root: classes.input }} />
+                      <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search paint type")}} onBlur={()=>{setPlaceholder3("Sizes")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
                     )}
                   />
                   <div class="button-group">
@@ -486,27 +491,28 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                   </RadioGroup>
                   </FormControl>
                   </div>
-                  <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-                  <TextField id="outlined-basic20" type="text" value={color} style={{ backgroundColor: "#08090C", width: "300px", height: "45%", borderRadius: "10px", color: "white", marginBottom:'25%' }} onChange={(e) => setColor(e.target.value)} name="Color" className={`${classes.root} InputField1`} InputProps={{ className: classes.input1 }} placeholder="Enter color code or name" variant="outlined" />
+                  <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "50px", display:'flex', marginBottom:"10%" }}>
+                  <TextField id="outlined-basic20" type="text" value={color} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "300px", height: "100%", borderRadius: "10px", color: "white", marginBottom:'25%%' }} onChange={(e) => setColor(e.target.value)} name="Color" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Enter color code or name" variant="outlined" />
                   </div>
                   {(selectedsurface !== "" && selectedbrand !== "" && selectedtype !== "" && color!=="")
                     &&
-                    <div className="quantity quantity1" style={{ marginTop: "-15%", width: "100%", height: "120px", display:'flex' }}>
-                    <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                    <div className="quantity quantity1" style={{ marginTop: "5%", width: "100%", height: "50px", display:'flex', marginBottom:"5%" }}>
+                    <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "100%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                     </div>
                 }
-                  <div className="cement-bottom-buttons">
-                  <Button variant="contained" className="cement-cart-button" onClick={handleCart}>
-                      ADD TO CART
-                  </Button>
-                  <Button variant="contained" className="cement-cart-button1" onClick={handlemodal}>
-                      Request
-                  </Button>
-              </div>
                     </div>
                 }
 
-
+                {active===0 &&
+                    <div className="cement-bottom-buttons cement-bottom-buttons1">
+                    <Button variant="contained" className="cement-cart-button" onClick={handleCart}>
+                        ADD TO CART
+                    </Button>
+                    <Button variant="contained" className="cement-cart-button1" onClick={handlemodal}>
+                        Request
+                    </Button>
+                </div>
+                }
   
 
 
@@ -521,12 +527,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                         }}
                     options={puttybrands?.length>0?puttybrands:[]}
                     classes={{
-                        input: classes.input
-                      }}
+                        listbox: theme?classes.input:""
+                      }} 
                     getOptionLabel={option => option}
-                    style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
+                    style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
                     renderInput={params => (
-                      <TextField  placeholder={placeholder4 } onFocus={()=>{setPlaceholder4("Search putty brand")}} onBlur={()=>{setPlaceholder4("Putty brands")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
+                      <TextField  placeholder={placeholder4 } onFocus={()=>{setPlaceholder4("Search putty brand")}} onBlur={()=>{setPlaceholder4("Putty brands")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
                     )}
                   />
         
@@ -541,12 +547,12 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                       }}
                   options={puttytypes?.length>0?puttytypes:[]}
                   classes={{
-                      input: classes.input
+                      listbox: theme?classes.input:""
                     }}
                   getOptionLabel={option => option}
-                  style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
+                  style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
                   renderInput={params => (
-                    <TextField  placeholder={placeholder5} {...params}  variant="outlined" onFocus={()=>{setPlaceholder5("Search putty type")}} onBlur={()=>{setPlaceholder5("Putty types")}} classes={{ root: classes.input }} />
+                    <TextField  placeholder={placeholder5} {...params}  variant="outlined" onFocus={()=>{setPlaceholder5("Search putty type")}} onBlur={()=>{setPlaceholder5("Putty types")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
                   )}
                 />
         
@@ -578,18 +584,10 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
 
               {(selectedputtybrand !== "" && selectedputtytype !== "" )
                 &&
-                <div className="quantity" style={{ marginTop: "10%", width: "100%", height: "120px", display:'flex' }}>
-                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                <div className="quantity" style={{ marginTop: "5%", width: "100%", height: "50px", display:'flex', marginBottom:"5%" }}>
+                <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "100%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                 </div>
             }
-              <div className="cement-bottom-buttons">
-              <Button variant="contained" className="cement-cart-button" onClick={handleCart1}>
-                  ADD TO CART
-              </Button>
-              <Button variant="contained" className="cement-cart-button1" onClick={handlemodal1}>
-                  Request
-              </Button>
-          </div>
                 </div> 
                 }
 
@@ -604,10 +602,10 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
                 {(active===1 && more===true) &&
                     <div>
                     <div className="quantity1" style={{ marginTop: "0%", width: "100%", height: "60px"   }}>
-                    <TextField type="text" value={selectedputtybrand} style={{ backgroundColor: "#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedPuttybrand(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Brand" variant="outlined" />
+                    <TextField type="text" value={selectedputtybrand} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedPuttybrand(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme:classes.input }} placeholder="Brand" variant="outlined" />
                     </div>
                     <div className="quantity1" style={{ marginTop: "0%", width: "100%", height: "60px"   }}>
-                    <TextField type="text" value={selectedputtytype} style={{ backgroundColor: "#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedPuttytype(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Type" variant="outlined" />
+                    <TextField type="text" value={selectedputtytype} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedPuttytype(e.target.value)} name="GradeInput" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme:classes.input }} placeholder="Type" variant="outlined" />
                     </div>
                     <div className='span-container' style={{marginTop:'4.9%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
 
@@ -636,19 +634,22 @@ function Paint({ formData, modalopen, setModalOpen, data, setData, newRequest, s
 
                   {(selectedputtybrand !== "" && selectedputtytype !== "" )
                     &&
-                    <div className="quantity" style={{ marginTop: "10%", width: "100%", height: "120px", display:'flex' }}>
-                    <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
+                    <div className="quantity" style={{ marginTop: "10%", width: "100%", height: "50px", display:'flex', marginBottom:"5%" }}>
+                    <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "100%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
                     </div>
                 }
-                  <div className="cement-bottom-buttons">
-                  <Button variant="contained" className="cement-cart-button" onClick={handleCart1}>
-                      ADD TO CART
-                  </Button>
-                  <Button variant="contained" className="cement-cart-button1" onClick={handlemodal1}>
-                      Request
-                  </Button>
-              </div>
                     </div>
+                }
+
+                {active===1 &&
+                    <div className="cement-bottom-buttons cement-bottom-buttons1">
+                    <Button variant="contained" className="cement-cart-button" onClick={handleCart1}>
+                        ADD TO CART
+                    </Button>
+                    <Button variant="contained" className="cement-cart-button1" onClick={handlemodal1}>
+                        Request
+                    </Button>
+                </div>
                 }
        
                 <ToastContainer />

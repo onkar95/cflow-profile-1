@@ -16,13 +16,12 @@
   height: 100% !important;
   width: 15rem !important;
   border-radius: 10px !important;
-  box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
-    10px 4px 15px rgba(2, 3, 3, 0.2) !important;
   margin-left: 2% !important;
 }
 .paint-color {
   margin-top: 25% !important;
 }
+
 @media screen and (max-width: 1400px) {
   .sand-form {
     flex-direction: column;
