@@ -21,7 +21,6 @@ const LatestBlog = ({ blog ,blogID}) => {
     }, [])
     return (
         <div>
-            
             <div className="latestBlog_box" style={{ backgroundImage: `url(http://localhost:1337${blog[length - 1] && blog[length - 1].image.url})` }} >
                 <div>
                     {/* <img src={``} alt="" /> */}
@@ -31,7 +30,7 @@ const LatestBlog = ({ blog ,blogID}) => {
                         <p>{blog[length - 1] && blog[length - 1].description}</p>
                         <div className="bottom-of-box">
                             <div>
-                                posted 2 hours ago
+                                posted {PostedDay} days ago
                             </div>
                             <div className="show-btn">
                                 <button  >Read more</button>

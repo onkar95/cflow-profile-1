@@ -115,14 +115,6 @@
   justify-content: flex-start;
   /* align-items: flex-start; */
 }
-
-.agree span {
-  color: #ffb600;
-}
-.terms_link {
-  text-decoration: none;
-}
-
 @media screen and (max-width: 1024px) {
   .main-div {
     flex-direction: column-reverse;

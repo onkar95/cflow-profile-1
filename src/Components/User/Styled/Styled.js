@@ -48,7 +48,7 @@ export const Column = styled.div`
 export const Input = styled.input`
     padding: 0.6rem 1rem;
     margin: 1rem 1rem;
-    background-color: #2d2d2d;
+    background-color: #2d2d2d ;
     color: white;
     border-radius: 8px;
     border-style: none;

@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
+function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
 
@@ -112,18 +112,7 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
         input: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"white"},
-            "&.MuiAutocomplete-listbox": {backgroundColor:"white", color:"black"}
-        },
-        inputtheme:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
-        },
-        inputtheme1:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {color:"#000000"}
+            "& .MuiInputBase-input": {height:'0.3rem'}
         },
         overflow: "hidden"
     }));
@@ -155,7 +144,6 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
                 setSelectedType("")
                 setCurrentUnit("")
                 setSelectedSize("")
-                getCart()
             }
             else if (selectedtype === "" || selectedsize === "") {
                 notify('Please select something');
@@ -192,7 +180,7 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
     }, [modalopen])
 
     return (
-        <div className="selected-item">
+        <div className="selected">
         <div className="selected-header">Stones</div>
         <div className="description" style={{marginBottom:'30px'}}>Add stones to your products.</div>
         <div className="description">Select stone type</div>
@@ -209,12 +197,12 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
             }}
         options={types?.length>0?types:[]}
         classes={{
-            listbox: theme?classes.input:""
+            input: classes.input
           }}
         getOptionLabel={option => option}
-        style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
+        style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
         renderInput={params => (
-          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search stone type")}} onBlur={()=>{setPlaceholder1("Stone types")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
+          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search stone type")}} onBlur={()=>{setPlaceholder1("Stone types")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
         )}
       />
 
@@ -227,7 +215,7 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
      {more===true &&
         <div>
         <div className="quantity1" style={{ marginTop: "2%", width: "100%", height: "60px", marginBottom: '3%' }}>
-        <TextField type="text" value={selectedtype} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedType(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: theme?classes.inputtheme:classes.input }} placeholder="Stone type" variant="outlined" />
+        <TextField type="text" value={selectedtype} style={{ backgroundColor: "#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedType(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Stone type" variant="outlined" />
         </div>
         <div className='span-container' style={{marginTop:'5.4%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
         </div>
@@ -242,26 +230,26 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
         }}
     options={sizes?.length>0?sizes:[]}
     classes={{
-        listbox: theme?classes.input:""
+        input: classes.input
       }}
     getOptionLabel={option => option}
-    style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
+    style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
     renderInput={params => (
-      <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search stone Size")}} onBlur={()=>{setPlaceholder2("Stone sizes")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
+      <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search stone Size")}} onBlur={()=>{setPlaceholder2("Stone sizes")}} classes={{ root: classes.input }} />
     )}
   />
     {(selectedtype !=="" && selectedsize!=="")
         &&
 
         <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-        <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
+        <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
         <FormControl
         variant='outlined'
         className={classes.formControl}
         InputProps={{ disableOutline: true }}
-        style={{backgroundColor: theme?"#D8D8D8":"#08090C",marginLeft:'5%', height:'52px'}}
+        style={{marginLeft:'5%', height:'52px'}}
     >  
-        <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: theme?"black":"white" }}>
+        <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: "white" }}>
             Units
         </InputLabel>
         <Select

@@ -12,7 +12,6 @@ import "./Profile.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import starGray from "../../../../Images/newProfile/Gray star.svg"
-// import starGray from "../../../../Images/newProfile/"
 import starYellow from "../../../../Images/newProfile/Yellow Star.svg"
 
 import Submit from "../../../../Images/newProfileYellow/Send Message.png"

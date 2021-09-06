@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
+function Wood({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
 
@@ -108,22 +108,11 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
         input: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"white"},
-            "&.MuiAutocomplete-listbox": {backgroundColor:"white", color:"black"}
+            "& .MuiInputBase-input": {height:'0.3rem'}
         },
         input1: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-        },
-        inputtheme:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
-        },
-        inputtheme1:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {color:"#000000"}
         },
         overflow: "hidden"
     }));
@@ -151,7 +140,6 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
                 setSelectedName("")
                 setSelectedType("")
                 setSelectedGrade("")
-                getCart()
             }
             else if ( selectedname === "" || selectedgrade === "" || selectedtype === "") {
                 notify('Please select something');
@@ -192,7 +180,7 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
     const classes = useStyles()
 
     return (
-        <div className="selected-item">
+        <div className="selected">
         <div className="selected-header">Woods</div>
         <div className="description" style={{marginBottom:'30px'}}>Add woods to your products.</div>
         <div className="description">Select name, grade and type.</div>
@@ -207,12 +195,12 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
             }}
         options={names?.length>0?names:[]}
         classes={{
-            listbox: theme?classes.input:""
+            input: classes.input
           }}
         getOptionLabel={option => option}
-        style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
+        style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
         renderInput={params => (
-          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search Wood name")}} onBlur={()=>{setPlaceholder1("Wood names")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
+          <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search Wood name")}} onBlur={()=>{setPlaceholder1("Wood names")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
         )}
       />
 
@@ -227,12 +215,12 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
           }}
       options={grades?.length>0?grades:[]}
       classes={{
-        listbox: theme?classes.input:""
-      }}
+          input: classes.input
+        }}
       getOptionLabel={option => option}
-      style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
+      style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
       renderInput={params => (
-        <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search wood grade")}} onBlur={()=>{setPlaceholder2("Wood grades")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
+        <TextField  placeholder={placeholder2} {...params}  variant="outlined" onFocus={()=>{setPlaceholder2("Search wood grade")}} onBlur={()=>{setPlaceholder2("Wood grades")}} classes={{ root: classes.input }} />
       )}
     />
 
@@ -244,12 +232,12 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
         }}
     options={types?.length>0?types:[]}
     classes={{
-        listbox: theme?classes.input:""
+        input: classes.input
       }}
     getOptionLabel={option => option}
-    style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom:'1rem' }}
+    style={{ width: '100%', backgroundColor:'#08090C', marginBottom:'1rem' }}
     renderInput={params => (
-      <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search wood type")}} onBlur={()=>{setPlaceholder3("Wood types")}} classes={{ root: theme?classes.inputtheme:classes.input }} />
+      <TextField  placeholder={placeholder3} {...params}  variant="outlined" onFocus={()=>{setPlaceholder3("Search wood type")}} onBlur={()=>{setPlaceholder3("Wood types")}} classes={{ root: classes.input }} />
     )}
   />
     </div>  
@@ -264,14 +252,14 @@ function Wood({ getCart, theme, formData, modalopen, setModalOpen, newRequest, s
     {(selectedname !=="" && selectedgrade !=="" && selectedtype!=="")
         &&
         <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-        <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
+        <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
         <FormControl
         variant='outlined'
         className={classes.formControl}
         InputProps={{ disableOutline: true }}
-        style={{backgroundColor: theme?"#D8D8D8":"#08090C", marginLeft:'5%', height:'52px'}}
+        style={{marginLeft:'5%', height:'52px'}}
     >  
-        <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: theme?"black":"white" }}>
+        <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: "white" }}>
             Units
         </InputLabel>
         <Select

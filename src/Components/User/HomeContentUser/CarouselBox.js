@@ -1,14 +1,13 @@
 import React from "react";
 import Carousel from "react-elastic-carousel";
-
-import CementImage from "../../../Images/Construction material/black1/cement.svg";
-import MarbleImage from "../../../Images/Construction material/black1/Marbles.svg";
-import PaintImage from "../../../Images/Construction material/black1/Paints.svg";
-import PipesImage from "../../../Images/Construction material/black1/Pipes.svg";
+import CementImage from "../../../Images/Construction material/black/cement.svg";
+import MarbleImage from "../../../Images/Construction material/black/Marbles.svg";
+import PaintImage from "../../../Images/Construction material/black/Paints.svg";
+import PipesImage from "../../../Images/Construction material/black/Pipes.svg";
 // import RMCImage from "../../../Images/Construction material/black/Rmc.svg";
 // import SandImage from "../../../Images/Construction material/black/sand.svg";
-import StoneImage from "../../../Images/Construction material/black1/stones.svg";
-import TMTImage from "../../../Images/Construction material/black1/TMT.svg";
+import StoneImage from "../../../Images/Construction material/black/stones.svg";
+import TMTImage from "../../../Images/Construction material/black/TMT.svg";
 
 const breakPoints1 = [
   { width: 200, itemsToShow: 1 },
@@ -18,30 +17,21 @@ const breakPoints1 = [
   { width: 1500, itemsToShow: 1 },
   { width: 1800, itemsToShow: 1 },
 ];
-// const breakPoints4 = [
-//   // { width: 1, itemsToShow: 1 },
-//   // { width: 250, itemsToShow: 2 },
-//   // { width: 0, itemsToShow: 2 },
-//   { width: 1000, itemsToShow: 4 },
-//   { width: 1200, itemsToShow: 4 },
-//   { width: 1500, itemsToShow: 4 },
-//   { width: 1800, itemsToShow: 4 },
-// ];
+const breakPoints4 = [
+  { width: 1000, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 3 },
+  { width: 1500, itemsToShow: 3 },
+  { width: 1800, itemsToShow: 3 },
+];
 const breakPoints3 = [
-  // { width: 1, itemsToShow: 1 },
-  // { width: 250, itemsToShow: 2 },
-  // { width: 0, itemsToShow: 2 },
   { width: 900, itemsToShow: 3 },
   { width: 1200, itemsToShow: 3 },
   { width: 1500, itemsToShow: 3 },
   { width: 1800, itemsToShow: 3 },
 ];
 const breakPoints2 = [
-  // { width: 1, itemsToShow: 1 },
-  // { width: 250, itemsToShow: 2 },
-  // { width: 0, itemsToShow: 2 },
-  { width: 400, itemsToShow: 2 },
-  { width: 600, itemsToShow: 2 },
+  { width: 400, itemsToShow: 1 },
+  { width: 600, itemsToShow: 1 },
   { width: 800, itemsToShow: 2 },
   { width: 1000, itemsToShow: 2 },
   { width: 1200, itemsToShow: 2 },
@@ -68,40 +58,95 @@ const CarouselBox = ({
     TMTImage,
   ];
   const showMaterials = (val) => {
-    setCurrentSection(1);
-    window.scrollTo(0, 0);
+    setCurrentSection(1)
+    window.scrollTo(0, 0)
     // setOption(val)
-  };
+  }
   return (
     <>
-      <div className="carousel-full">
-        <Carousel
-          // className="carousel-full"
-          showArrows={true}
-          breakPoints={
-            window.innerWidth > 1230
+      <Carousel
+        showArrows={true}
+        breakPoints={
+          window.innerWidth > 1230
+            ? breakPoints4
+            : window.innerWidth > 990
               ? breakPoints3
-              : window.innerWidth > 990
-              ? breakPoints2
-              : window.innerWidth > 900
-              ? breakPoints2
-              : breakPoints1
-          }
-          // style={{ marginTop: "15%", width: "60%", marginLeft: "30%" }}
-        >
-          {img_arr.map((img, index) => (
-            <div className="carousal-main">
-              <div className="carousal-upper">
-                <img src={img} alt="construction Material" />
-                <h4>{img_arr1[index]}</h4>
-              </div>
-              <div className="carousal-lower">
-                <h4 onClick={showMaterials}>Get A Quote</h4>
-              </div>
+              : window.innerWidth > 730
+                ? breakPoints2
+                : breakPoints1
+        }
+        style={{ marginTop: "1%", width: "60%", marginLeft: "30%" }}
+      >
+        {img_arr.map((img, index) => (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              border: "2px solid #2d2d2d",
+              borderRadius: "8px",
+              width: "132px",
+              height: "153px",
+              left: "433px",
+              background: "#ffcd01",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                width: "70",
+
+                height: "59",
+              }}
+            >
+              <img
+                src={img}
+                alt="cement"
+                height={58}
+                width={65}
+              // style={{ padding: ".5rem" }}
+              />
+              <h4
+                style={{
+                  fontSize: "12px",
+                  fontWeight: "700",
+                  color: "black",
+                }}
+              >
+                {img_arr1[index]}
+              </h4>
             </div>
-          ))}
-        </Carousel>
-      </div>
+            <div
+              style={{
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "black",
+
+                height: "45px",
+                width: "132px",
+                borderRadius: "0px 0px 8px 8px",
+                alignItems: "center",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <h4
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                }}
+                onClick={showMaterials}
+              >
+                Get A Quote
+              </h4>
+            </div>
+          </div>
+        ))}
+      </Carousel>
     </>
   );
 };

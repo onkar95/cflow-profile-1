@@ -7,7 +7,7 @@ import LatestBlog from './LatestBlog'
 import './blogSection.css'
 import { Link, Redirect } from 'react-router-dom'
 
-const Blog = ({ setCurrentSection, blogData, blogID, theme }
+const Blog = ({ setCurrentSection, blogData,blogID,theme }
 ) => {
     const [IdOfBlog, setIdOfBlog] = useState()
     const length = blogData.length;
@@ -49,7 +49,7 @@ const Blog = ({ setCurrentSection, blogData, blogID, theme }
                             <h3>popular blogs:</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" style={theme === true ? { color: "black", backgroundColor: "white" } : { color: "white" }} >
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
                             <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
                     </div>
@@ -58,8 +58,8 @@ const Blog = ({ setCurrentSection, blogData, blogID, theme }
                             <h3>News:</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" style={theme === true ? { color: "black", backgroundColor: "white" } : { color: "white" }} >
-                            <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
+                            <News  theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
 
                     </div>
@@ -68,18 +68,17 @@ const Blog = ({ setCurrentSection, blogData, blogID, theme }
                             <h3>Blogs</h3>
                             <button onClick={viewAllBlogs}>view all</button>
                         </div>
-                        <div className="news" style={theme === true ? { color: "black", backgroundColor: "white" } : { color: "white" }} >
+                        <div className="news"style={theme===true?{color:"black",backgroundColor:"white"}:{color:"white"}} >
                             <News theme={theme} blogID={blogID} setCurrentSection={setCurrentSection} blogData={blogData} />
                         </div>
                     </div>
                 </div>
                 :
-                < div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "#2d2d2d", justifyContent: "center", height: "200px" }}>
+                < div   style={{ display: "flex",flexDirection:"column", alignItems: "center", backgroundColor: "#2d2d2d", justifyContent: "center", height: "200px" }}>
 
                     <h1>Loading</h1>
                     <h1>please wait</h1>
                 </div>
-
             }
         </>
     )

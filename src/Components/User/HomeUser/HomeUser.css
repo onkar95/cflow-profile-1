@@ -22,6 +22,7 @@
 }
 
 .home-user-header img {
+
   margin: 5px;
 }
 
@@ -152,6 +153,7 @@
 }
 
 @media screen and (max-width: 450px) {
+
   .home-user-help-user {
     margin-right: 80px;
   }

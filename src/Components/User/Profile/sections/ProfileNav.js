@@ -52,12 +52,12 @@ const ProfileNav = (props) => {
                                 <h1>Customer name</h1>
                                 {email!="" ? <div className="profileCompleted_icon" >
                                     <img src={completedIcon} style={{ width: "40px",height:"30px" }} alt="" />
-                                    <span className="hover_txt" > profile is verified</span>
+                                    <span className="hover_txt" tyle={{ top:"50%" }}> profile is verified</span>
                                 </div>
                                     :
                                     <div className="profileCompleted_icon" >
                                         <img src={pendingIcon} style={{ width: "30px",color:"gray",height:"30px" }} alt="" />
-                                        <span className="hover_txt" style={{ color:"gray" }}> profile is not verified</span>
+                                        <span className="hover_txt" style={{ color:"gray",top:"30%" }}> profile is not verified</span>
                                     </div>}
                             </div>
                             <h3>Customer</h3>

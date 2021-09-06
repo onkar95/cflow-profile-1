@@ -9,7 +9,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./Styles.css";
 
-function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
+function Cement({ formData, modalopen, setModalOpen, newRequest, setNewRequest, data, setData, quantity, setQuantity, setOpenSaved, currentUnit, setCurrentUnit, dropdownData }) {
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const history = useHistory()
     const [selectedbrand, setSelectedBrand] = useState("")
@@ -85,7 +85,6 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
                 setQuantity(0)
                 setSelectedBrand("")
                 setCurrentUnit("")
-                getCart()
             }
             else if (selectedbrand === "") {
                 notify('Please select something');
@@ -144,22 +143,11 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
         input: {
             color: "white",   
             "& input::placeholder":{color:"#fffafa"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"white"},
-            "&.MuiAutocomplete-listbox": {backgroundColor:"white", color:"black"}
+            "& .MuiInputBase-input": {height:'0.3rem'}
         },
         input1: {
             color: "white",
             "& input::placeholder":{color:"#fffafa"},
-        },
-        inputtheme:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {height:'0.3rem', color:"#000000"}
-        },
-        inputtheme1:{
-            color: "black",
-            "& input::placeholder":{color:"#000000"},
-            "& .MuiInputBase-input": {color:"#000000"}
         },
         condition: {
             "& .MuiFormControlLabel-label": {
@@ -189,7 +177,7 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
     }, [modalopen])
 
     return (
-        <div className="selected-item">
+        <div className="selected">
             <div className="selected-header">RMC mixtures</div>
             <div className="description" style={{marginBottom:'30px'}}>Add RMC mixture to your products.</div>
             <div className="description">Select RMC mixture grade</div>
@@ -206,12 +194,12 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
                 }}
             options={brands?.length>0?brands:[]}
             classes={{
-                listbox: theme?classes.input:""
+                input: classes.input
               }}
             getOptionLabel={option => option}
-            style={{ width: '100%', backgroundColor: theme?"#D8D8D8":"#08090C", marginBottom: '1rem' }}
+            style={{ width: '100%', backgroundColor:'#08090C', marginBottom: '1rem' }}
             renderInput={params => (
-              <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search RMC mixture grade")}} onBlur={()=>{setPlaceholder1("RMC mixture grades")}} {...params}  variant="outlined"  classes={{ root: theme?classes.inputtheme:classes.input }} />
+              <TextField  placeholder={placeholder1} onFocus={()=>{setPlaceholder1("Search RMC mixture grade")}} onBlur={()=>{setPlaceholder1("RMC mixture grades")}} {...params}  variant="outlined"  classes={{ root: classes.input }} />
             )}
           />
 
@@ -225,7 +213,7 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
          {more===true &&
             <div>
             <div className="quantity1" style={{ marginTop: "2%", width: "100%", height: "60px", marginBottom:"2.5%" }}>
-            <TextField type="text" value={selectedbrand} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedBrand(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className:theme?classes.inputtheme:classes.input}} placeholder="Brand" variant="outlined" />
+            <TextField type="text" value={selectedbrand} style={{ backgroundColor: "#08090C", width: "100%", height: "70%", borderRadius: "10px", color: "white" }} onChange={(e) => setSelectedBrand(e.target.value)} name="BrandInput" className={`${classes.root} InputField1`} InputProps={{ className: classes.input }} placeholder="Brand" variant="outlined" />
             </div>
             <div className='span-container' style={{marginTop:'4.9%', marginBottom:'5%'}}>Select from the existing options? <span class="add-more" onClick={()=>{setMore(false)}}>Click here</span></div>
 
@@ -266,14 +254,14 @@ function Cement({ getCart, theme, formData, modalopen, setModalOpen, newRequest,
             &&
 
             <div className="quantity" style={{ marginTop: "2%", width: "100%", height: "120px", display:'flex' }}>
-            <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: theme?"#D8D8D8":"#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: theme?classes.inputtheme1:classes.input1 }} placeholder="Quantity" variant="outlined" />
+            <TextField id="outlined-basic20" type="number" value={quantity} style={{ backgroundColor: "#08090C", width: "200px", height: "45%", borderRadius: "10px", color: "white" }} onChange={(e) => setQuantity(e.target.value)} name="Quantity" className={`${classes.root} InputField`} InputProps={{ className: classes.input1 }} placeholder="Quantity" variant="outlined" />
             <FormControl
             variant='outlined'
             className={classes.formControl}
             InputProps={{ disableOutline: true }}
-            style={{marginLeft:'5%', height:'52px', backgroundColor:theme?"#D8D8D8":""}}
+            style={{marginLeft:'5%', height:'52px'}}
         >  
-            <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: theme?"black":"white" }}>
+            <InputLabel id='demo-simple-select-label' name="Units" placeholder="Unit" style={{ color: "white" }}>
                 Units
             </InputLabel>
             <Select

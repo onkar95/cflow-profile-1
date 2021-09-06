@@ -212,17 +212,15 @@ const TableSection = ({formData,tableSwitch, setTableSwitch,getAll,temp_filter_s
                             </FormControl>
                             <FormControl
                                 variant='outlined'
-                                className={`${classes.formControl1} req-dropdown`}
+                                className={`${classes.formControl} req-dropdown`}
                                 InputProps={{ disableOutline: true}}
                             >
-                                <InputLabel id='demo-simple-select-label' style={{color: '#ffb600'}}>
+                                <InputLabel id='demo-simple-select-label'>
                                     Products
                                 </InputLabel>
                                 <Select
                                     labelId='demo-simple-select-label'
                                     id='demo-simple-select'
-                                    inputProps={{classes:{icon:classes.icon}}}
-                                    style={{color:"#ffb600"}}
                                 >
                                     <MenuItem
                                             className='filter_item'

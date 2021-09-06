@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import BasicInfo from "../VehicleInput/Basic/Basic"
 import Paper from '../VehicleInput/Paper/Paper';
 import Renting from '../VehicleInput/Renting/Renting'
-function VehicleDetail({formData, notify,setCurrentSection,selected,newService,setNewService,AddService,handleClickOpen}) {
+function VehicleDetail({notify,setCurrentSection,selected,newService,setNewService,AddService,handleClickOpen}) {
 
     const [section,setSection] = useState(0)
     const [service_type,,setServiceType] = useState("vehicles")
@@ -56,7 +56,7 @@ function VehicleDetail({formData, notify,setCurrentSection,selected,newService,s
                 <div className="vehicle-detail-content">
                     {section === 0 && <BasicInfo notify={notify} basic_information={basic_information} setBasic_information={setBasic_information} setSection={setSection}/>}
                     {section === 1 && <Paper paper_work={paper_work} setPaper_work={setPaper_work} setSection={setSection}/>}
-                    {section === 2 && <Renting formData={formData} notify={notify} newService={newService} setNewService={setNewService} basic_information={basic_information} paper_work={paper_work} setCurrentSection={setCurrentSection} renting_details={renting_details} setRenting_details={setRenting_details} AddService={AddService} handleClickOpen={handleClickOpen}/>}
+                    {section === 2 && <Renting notify={notify} newService={newService} setNewService={setNewService} basic_information={basic_information} paper_work={paper_work} setCurrentSection={setCurrentSection} renting_details={renting_details} setRenting_details={setRenting_details} AddService={AddService} handleClickOpen={handleClickOpen}/>}
                 </div>
             </div>          
         </div>

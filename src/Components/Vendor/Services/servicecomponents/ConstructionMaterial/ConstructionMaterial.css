@@ -74,7 +74,8 @@
   margin-bottom: 2rem;
   color: white;
   border-radius: 2px;
-
+  box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
+    10px 4px 15px rgba(2, 3, 3, 0.2);
   border: none;
   margin-bottom: 3%;
 }

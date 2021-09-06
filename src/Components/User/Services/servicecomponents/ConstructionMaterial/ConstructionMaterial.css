@@ -1,6 +1,5 @@
 .option-container {
   margin-bottom: 10%;
-  margin-top: 0%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -11,14 +10,13 @@
 }
 .selection-section {
   width: 35rem;
-  margin-right: 3%;
 }
 .right-side {
-  width: 31rem;
-  margin-top: 10px;
+  width: 30rem;
+  margin-top: 120px;
 }
 .right-side-div {
-  height: 750px;
+  height: 700px;
   background-color: #181818;
   margin-top: 5%;
   padding: 2.5rem;
@@ -32,9 +30,11 @@
   width: 89%;
   background-color: #08090c;
   border: 0px;
-  height: 35px;
+  height: 40px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
+  10px 4px 15px rgba(2, 3, 3, 0.2);
 }
 .search-button {
   height: 40px;
@@ -52,6 +52,9 @@
   margin-top: 30px;
 }
 .card {
+  box-sizing: border-box;
+  border: 2px solid #08090c;
+  background-color: #08090c;
   width:130px;
   height:130px;
   margin-bottom: 3rem;
@@ -64,78 +67,62 @@
   margin-top: 3rem;
 }
 .card .service-card-container {
-  box-sizing: border-box;
-  border: 0px;
   background-color: #08090c;
   border-radius: 20px;
-
-  max-height:130px;
-  min-height: 130px;
-  max-width: 130px;
-  min-width: 130px;
+  box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
+    10px 4px 15px rgba(2, 3, 3, 0.2);
+  max-height:124px;
+  min-height: 124px;
+  max-width: 124px;
+  min-width: 124px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   font-size: 1rem;
+  padding: 1px;
   text-align: center;
 }
 
-@media screen and (max-width: 575px) {
-  .service-card-image {
-    width:60px;
-  }
-  .card {
-    width:100px;
-    height:100px;
-    margin-bottom: 1.5rem;
-    margin-right: 1rem;
-    border-radius: 15px;
-  }
-  .card .service-card-container {
-    max-height:100px;
-    min-height: 100px;
-    max-width: 100px;
-    min-width: 100px;
-    font-size: 0.5rem;
-    border-radius: 15px;
-  }
-  .right-side {
-    margin-top: 12px;
-    width: 35rem;
-  }
-  .selection-section {
-    width: 35rem;
-  }
-  .item-search {
-    width:85%;
-  }
-}
 
-@media screen and (max-width: 450px) {
-  .service-card-image {
-    width:40px;
+@media screen and (max-width: 400px) {
+  img {
+    width: 40px;
   }
   .card {
-    width: 80px;
-    height:80px;
-    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    border: 2px solid #08090c;
+    background-color: #08090c;
+    width:75px;
+    height:75px;
+    margin-bottom: 1rem;
     margin-right: 1rem;
     border-radius: 10px;
   }
   .card .service-card-container {
-    max-height:80px;
-    min-height: 80px;
-    max-width: 80px;
-    min-width: 80px;
-    border-radius: 10px;
-    font-size: 0.5rem;
-  }
-  .right-side {
-    margin-top: 12px;
-    width: 25rem;
-  }
-  .selection-section {
-    width: 25rem;
+    background-color: #08090c;
+    border-radius: 20px;
+    box-shadow: -4px -4px 15px rgba(232, 237, 243, 0.05),
+      10px 4px 15px rgba(2, 3, 3, 0.2);
+    max-height:69px;
+    min-height: 69px;
+    max-width: 69px;
+    min-width: 69px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 8px;
+    padding: 1px;
+    text-align: center;
   }
   .item-search {
-    width:85%;
+    width: 85%;
+  }
+  .right-side {
+    width: 30rem;
+    margin-top: 12px;
   }
 }

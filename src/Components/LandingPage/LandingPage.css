@@ -120,7 +120,6 @@
 .about > h3 {
   font-size: 2rem;
   font-weight: 600;
-  margin: 0;
 }
 .about-responsive {
   width: 60%;
@@ -192,10 +191,6 @@
 }
 
 @media screen and (max-width: 1300px) {
-  .about-responsive-p3 ,.about-responsive-p2{
-    margin: 0;
-  }
-
   .vendor_card {
     background: #08090c !important;
     padding: 0rem 0rem !important;
@@ -286,17 +281,7 @@
     font-size: 0.7rem;
   }
 }
-@media screen and (max-width: 426px) {
-
-  .about-responsive-p3{
-    margin: 0;
-    margin-top: 8px;
-    margin-bottom: 0;
-    font-weight: 600;
-    text-align: center;
-    font-size: 0.77rem;
-  }
-
+@media screen and (max-width: 400px) {
   .about-responsive-h3 {
     font-weight: 600;
     font-size: 1rem;

@@ -3,7 +3,7 @@ import Card from "../Card/Card"
 import AgentImage from "../../../../../Images/Agent.svg"
 import AgentInput from "./CardInput/Agent"
 import "./Agents.css"
-function Agents({formData, notify,newService,setNewService,AddService,handleClickOpen}) {
+function Agents({notify,newService,setNewService,AddService,handleClickOpen}) {
 
 
     return (
@@ -13,7 +13,7 @@ function Agents({formData, notify,newService,setNewService,AddService,handleClic
                     <Card img={AgentImage} name="Agents"/>
                 </div>
                 <div className="agents-cardinput">
-                    <AgentInput formData={formData} notify={notify} newService={newService} setNewService={setNewService} AddService={AddService} handleClickOpen={handleClickOpen}/>
+                    <AgentInput notify={notify} newService={newService} setNewService={setNewService} AddService={AddService} handleClickOpen={handleClickOpen}/>
                 </div>
             </div>
             

@@ -140,17 +140,16 @@ function TableSection({getAllVendor,setCurrentSection,newRequests,savedRequests,
                         <div className='filteruser1'>
                         <FormControl
                                 variant='outlined'
-                                className={`${classes.formControl1} req-dropdown`}
+                                className={`${classes.formControl} req-dropdown`}
                                 InputProps={{ disableOutline: true}}
                             >
-                                <InputLabel id='demo-simple-select-label' style={{color: '#ffb600'}}>
+                                <InputLabel id='demo-simple-select-label'>
                                     Product
                                 </InputLabel>
                                 <Select
                                     labelId='demo-simple-select-label'
                                     id='demo-simple-select'
-                                    inputProps={{classes:{icon:classes.icon}}}
-                                    style={{color:"#ffb600"}}
+                                    
                                 >
                                     {product_filters?.map((filter, index) => (
                                         <MenuItem

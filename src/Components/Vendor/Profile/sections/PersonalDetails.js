@@ -1,13 +1,14 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
+import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
+import { FiEdit } from "react-icons/fi";
+import validator from 'validator'
+import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import validator from 'validator';
-import { Column, Input, Row, SectionTitle } from "../../Styled/Styled";
 require('dotenv').config()
 
 const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
-
+    console.log(formData);
     const [userId, setUserId] = useState(JSON.parse(localStorage.getItem('profile'))?.data?.id)
     const [name, setName] = useState(formData?.first_name ? formData?.first_name : "");
     const [phone, setPhone] = useState(formData?.phone_no ? formData?.phone_no : "");
@@ -19,10 +20,10 @@ const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) =>
     const [lng, setLng] = useState(null);
     const [status, setStatus] = useState(null);
 
+
     const [disabled1, setDisabled] = useState(0);
     const [btnTxt, setBtnTxt] = useState("Edit");
     const [editable, seteditable] = useState(true);
-
 
     const getLocation = (e) => {
         e.preventDefault()
@@ -55,6 +56,7 @@ const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) =>
     }
 
     const handleformdata = async (e) => {
+
         e.preventDefault();
         seteditable(!editable)
         if (!editable) {
@@ -83,6 +85,15 @@ const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) =>
     const handleClick = () => {
         notify("Email Cant be Changed . Send Special Request")
     }
+
+    // useEffect(() => {
+    //     if (!name || !phone || !wpp) {
+    //         setDisabled(0);
+    //     } else {
+    //         setDisabled(1);
+    //     }
+    // }, [name, phone, wpp])
+
     return (
         <form
             style={{
@@ -132,9 +143,9 @@ const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) =>
                         value={phone}
                     />
                     {/* <Input
-                     disabled={editable}
-                        style={!editable ? { color: "white" } : { color: "#727272" }}
-                        autoComplete="off"
+                    disabled={editable}
+                    style={!editable ? { color: "white" } : { color: "#727272" }}
+                    autoComplete="off"
                         placeholder='Password'
                         id='phone'
                         type='password'
@@ -151,6 +162,8 @@ const PersonalDetails = ({ formData, setFormData, getUser, handleClickOpen }) =>
                         disabled={editable}
                         style={!editable ? { color: "white" } : { color: "#727272" }}
                         autoComplete="off"
+                        autoComplete="off"
+                        className="email"
                         placeholder='Email ID'
                         id='email'
                         type='text'

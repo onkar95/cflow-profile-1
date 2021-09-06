@@ -1,10 +1,11 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { FiEdit } from "react-icons/fi";
+import { Row, Column, Input, SectionTitle, Button } from "../../Styled/Styled";
+import './Profile.css'
+import axios from "axios";
 import validator from "validator";
-import { Column, Input, Row, SectionTitle } from "../../Styled/Styled";
-import './Profile.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 require('dotenv').config()
 
 const CompanyDetails = ({ formData, setFormData, getUser, handleClickOpen }) => {
@@ -17,9 +18,13 @@ const CompanyDetails = ({ formData, setFormData, getUser, handleClickOpen }) => 
     const [wpp, setWpp] = useState(formData?.company_whatsapp_no ? formData?.company_whatsapp_no : "");
     const [Fax, setFax] = useState(formData?.fax ? formData?.fax : "");
 
+
+
     const [disabled1, setDisabled] = useState(0);
     const [btnTxt, setBtnTxt] = useState("Edit");
     const [editable, seteditable] = useState(true);
+
+
 
     const notify = (msg) => {
         toast.error(msg, {
@@ -37,7 +42,7 @@ const CompanyDetails = ({ formData, setFormData, getUser, handleClickOpen }) => 
         e.preventDefault();
         seteditable(!editable)
         if (!editable) {
-
+            
             setFormData({ ...formData, company_detail_name: name, company_name: companyName, company_phone_no: phone, company_title: title, company_email_address: email, company_whatsapp_no: wpp, fax: Fax })
             if (validator.isMobilePhone(formData?.company_phone_no) && validator.isMobilePhone(formData?.company_whatsapp_no) && validator.isEmail(formData?.company_email_address)) {
                 await axios.post(`${process.env.REACT_APP_URL}/user/updateUser/${userId}`, formData)
@@ -70,12 +75,17 @@ const CompanyDetails = ({ formData, setFormData, getUser, handleClickOpen }) => 
         }
 
     }
-
-
     useEffect(() => {
         setFormData({ ...formData, company_detail_name: name, company_name: companyName, company_phone_no: phone, company_title: title, company_email_address: email, company_whatsapp_no: wpp, fax: Fax })
     }, [name, companyName, phone, title, email, Fax])
 
+    // useEffect(() => {
+    //     if (!name || !phone || !wpp || !Fax || !companyName || !title) {
+    //         setDisabled(0);
+    //     } else {
+    //         setDisabled(1);
+    //     }
+    // }, [name, companyName, phone, title, email, Fax])
 
     return (
         <form
