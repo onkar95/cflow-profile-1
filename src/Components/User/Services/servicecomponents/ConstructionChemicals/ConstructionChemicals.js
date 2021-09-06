@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-dropdown-now/style.css';
+// import AdmixtureImage from "../../../../../Images/Construction Chemicals/admixture.svg";
 import AdmixtureImage from "../../../../../Images/Construction Chemicals/admixture.svg";
 import ConcreteImage from "../../../../../Images/Construction Chemicals/concrete.svg";
 import FlooringImage from "../../../../../Images/Construction Chemicals/flooring.svg";
